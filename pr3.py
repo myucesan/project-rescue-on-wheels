@@ -2,6 +2,7 @@
 import smbus
 import time
 import thread
+from threading import *
 
 MotorHF = [7,3,0xa5,2,3,0xa5,2]
 MotorST = [7,0,0,0,0,0,0]
