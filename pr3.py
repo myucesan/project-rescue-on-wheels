@@ -1,7 +1,4 @@
 #!/usr/bin/python
-import smbus
-import time
-#!/usr/bin/python
 import RPi.GPIO as gpio
 import smbus
 import time
