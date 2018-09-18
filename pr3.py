@@ -5,6 +5,8 @@ import time
 from threading import *
 
 MotorHF = [7,3,0xa5,2,3,0xa5,2]
+MotorUpLeft = [7, 0, 0, 0, 3, 0xa5, 2]
+MotorUpRight = [ 7, 3, 0xa5, 2, 0, 0, 0]
 MotorST = [7,0,0,0,0,0,0]
 MotorHR = [7,3,0xa5,1,3,0xa5,1]
 
@@ -26,11 +28,11 @@ def MotorControl():
     while True:
 
         #write(fd,&MotorHF[0],7);  //forward
-        bus.write_i2c_block_data(SLAVE_ADDRESS, 0, MotorHF)
+        bus.write_i2c_block_data(SLAVE_ADDRESS, 0, MotorUpLeft)
         #usleep(3000000);
         time.sleep(5)
         #write(fd,&MotorST[0],7);  //stop
-        bus.write_i2c_block_data(SLAVE_ADDRESS, 0, MotorST)
+        bus.write_i2c_block_data(SLAVE_ADDRESS, 0, MotorUpRight)
 
         #usleep(3000000);
         time.sleep(5)
