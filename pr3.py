@@ -1,7 +1,10 @@
 #!/usr/bin/python
 import smbus
 import time
-import thread
+#!/usr/bin/python
+import RPi.GPIO as gpio
+import smbus
+import time
 from threading import *
 
 MotorHF = [7,3,0xa5,2,3,0xa5,2]
@@ -16,6 +19,8 @@ def Motorinit():
     Totalpower = [4,250]
     Softstart = [0x91,23,0]
     #char *filename = (char*)"/dev/i2c-1";
+    gpio.setmode(gpio.BCM)
+    gpio.setup(17, gpio.IN, pull_up_down=gpio.PUD_DOWN)
     bus.write_i2c_block_data(SLAVE_ADDRESS, 0, Totalpower)
     bus.write_i2c_block_data(SLAVE_ADDRESS, 0, Softstart)
 
@@ -26,21 +31,20 @@ def MotorControl():
         #write(fd,&MotorHF[0],7);  //forward
         bus.write_i2c_block_data(SLAVE_ADDRESS, 0, MotorHF)
         #usleep(3000000);
-        time.sleep(3000)
+        time.sleep(5)
         #write(fd,&MotorST[0],7);  //stop
         bus.write_i2c_block_data(SLAVE_ADDRESS, 0, MotorST)
 
         #usleep(3000000);
-        time.sleep(3000)
+        time.sleep(5)
         #write(fd,&MotorHR[0],7);  //reverse
         bus.write_i2c_block_data(SLAVE_ADDRESS, 0, MotorHR)
-        time.sleep(3000)
+        time.sleep(5)
         #usleep(3000000);
-
-        #write(fd,&MotorST[0],7);   //stop
+#write(fd,&MotorST[0],7);   //stop
         bus.write_i2c_block_data(SLAVE_ADDRESS, 0, MotorHF)
         #usleep(2000000);
-        time.sleep(2000)
+        time.sleep(5)
 
 def main():
 
@@ -50,3 +54,6 @@ def main():
     thread.join()
 
 main()
+        #write(fd,&MotorST[0],7);   //stop
+        bus.write_i2c_block_data(SLAVE_ADDRESS, 0, MotorHF)
+        #usleep(2000000);
