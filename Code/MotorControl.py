@@ -35,21 +35,13 @@ from threading import * #Wordt nog gebruikt
          #Drive backward
          self.bus.write_i2c_block_data(SLAVE_ADDRESS, 0, self.MotorBD)
 
-     def fleft(self):
+     def left(self):
          #Drive left-forward
-         self.bus.write_i2c_block_data(SLAVE_ADDRESS, 0, self.MotorFL)
+         self.bus.write_i2c_block_data(SLAVE_ADDRESS, 0, self.MotorL)
 
-     def fright(self):
+     def right(self):
          #Drive right forward
-         self.bus.write_i2c_block_data(SLAVE_ADDRESS, 0, self.MotorFR)
-
-    def bleft(self):
-        #Drive left backward
-        self.bus.write_i2c_block_data(SLAVE_ADDRESS, 0, self.MotorBL)
-
-    def bright(self):
-        #Drive right backward
-        self.bus.write_i2c_block_data(SLAVE_ADDRESS, 0, self.MotorBR)
+         self.bus.write_i2c_block_data(SLAVE_ADDRESS, 0, self.MotorR)
 
     def stop(self):
         #Stop driving
