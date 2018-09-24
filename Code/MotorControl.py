@@ -11,12 +11,9 @@ from threading import * #Wordt nog gebruikt
          self.bus = smbus.SMBus(1)
          #Motor direction
          self.MotorFD = [7,3,0xa5,2,3,0xa5,2]
-         self.MotorFR = [7, 0, 0, 0, 3, 0xa5, 2]
-         self.MotorBL = [7, 0, 0, 0, 3, 0xa5, 1]
-         self.MotorFL = [ 7, 3, 0xa5, 2, 0, 0, 0]
-         self.MotorBR = [ 7, 3, 0xa5, 1, 0, 0, 0]
+         self.MotorL = [7, 3, 0xa5, 1, 3, 0xa5, 2]
+         self.MotorR = [ 7, 3, 0xa5, 2, 3, 0xa5, 1]
          self.MotorST = [7,0,0,0,0,0,0]
-         self.MotorBD = [7,3,0xa5,1,3,0xa5,1]
          #Motor speed
          self.Totalpower = [4,220]
          self.Softstart = [0x91,100,0]
