@@ -21,3 +21,5 @@ def main():
         low = read_byte_data(readLowByte, 0)
         print(low)
         time.sleep(2)
+
+main()
