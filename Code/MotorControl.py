@@ -50,4 +50,4 @@ from threading import * #Wordt nog gebruikt
     def setSpeed(self, speed):
         #Set motor speed
         self.Totalpower[1] = speed
-	self.bus.write_i2c_block_data(SLAVE_ADDRESS, 0, self.Totalpower)
+	    self.bus.write_i2c_block_data(SLAVE_ADDRESS, 0, self.Totalpower)
