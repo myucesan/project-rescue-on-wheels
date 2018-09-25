@@ -18,7 +18,7 @@ def main():
         bus.write_i2c_block_data(SLAVE_ADDRESS, 0, cmMeasure)
         time.sleep(1)
         bus.write_i2c_block_data(SLAVE_ADDRESS, 0, readLowByte)
-        low = read_byte_data(readLowByte, 0)
+        low = bus.read_byte_data(readLowByte, 0)
         print(low)
         time.sleep(2)
 
