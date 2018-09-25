@@ -9,16 +9,15 @@ bus = smbus.SMBus(1)
 SLAVE_ADDRESS = 0x70
 cmMeasure = [00, 0x51] #command for measurement in cm
 readLowByte = [0x03]
-
+lowByte = 3
 
 def main():
     time.sleep(1)
     while True:
-        print("hi")
         bus.write_i2c_block_data(SLAVE_ADDRESS, 0, cmMeasure)
         time.sleep(1)
         bus.write_i2c_block_data(SLAVE_ADDRESS, 0, readLowByte)
-        low = bus.read_byte_data(readLowByte, 0)
+        low = bus.read_byte_data(SLAVE_ADDRESS, 0)
         print(low)
         time.sleep(2)
 

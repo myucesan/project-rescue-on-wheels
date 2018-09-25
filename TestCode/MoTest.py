@@ -1,4 +1,4 @@
-from smbus2 import SMBus
+from smbus import SMBus
 
 # Open i2c bus 1 and read one byte from address 80, offset 0
 bus = SMBus(1)
