@@ -23,31 +23,31 @@ from threading import * #Wordt nog gebruikt
          gpio.setmode(gpio.BCM)
          gpio.setup(17, gpio.IN, pull_up_down=gpio.PUD_DOWN)
          #Writing totalpower and softstart to bus
-         self.bus.write_i2c_block_data(SLAVE_ADDRESS, 0, self.Totalpower)
-         self.bus.write_i2c_block_data(SLAVE_ADDRESS, 0, self.Softstart)
+         self.bus.write_i2c_block_data(self.SLAVE_ADDRESS, 0, self.Totalpower)
+         self.bus.write_i2c_block_data(self.SLAVE_ADDRESS, 0, self.Softstart)
 
 
      def forward(self):
          #Drive forward
-         self.bus.write_i2c_block_data(SLAVE_ADDRESS, 0, self.MotorFD)
+         self.bus.write_i2c_block_data(self.SLAVE_ADDRESS, 0, self.MotorFD)
 
      def backward(self):
          #Drive backward
-         self.bus.write_i2c_block_data(SLAVE_ADDRESS, 0, self.MotorBD)
+         self.bus.write_i2c_block_data(self.SLAVE_ADDRESS, 0, self.MotorBD)
 
      def left(self):
          #Drive left-forward
-         self.bus.write_i2c_block_data(SLAVE_ADDRESS, 0, self.MotorL)
+         self.bus.write_i2c_block_data(self.SLAVE_ADDRESS, 0, self.MotorL)
 
      def right(self):
          #Drive right forward
-         self.bus.write_i2c_block_data(SLAVE_ADDRESS, 0, self.MotorR)
+         self.bus.write_i2c_block_data(self.SLAVE_ADDRESS, 0, self.MotorR)
 
     def stop(self):
         #Stop driving
-        self.bus.write_i2c_block_data(SLAVE_ADDRESS, 0, self.MotorST)
+        self.bus.write_i2c_block_data(self.SLAVE_ADDRESS, 0, self.MotorST)
 
     def setSpeed(self, speed):
         #Set motor speed
         self.Totalpower[1] = speed
-	    self.bus.write_i2c_block_data(SLAVE_ADDRESS, 0, self.Totalpower)
+	    self.bus.write_i2c_block_data(self.SLAVE_ADDRESS, 0, self.Totalpower)
