@@ -40,3 +40,5 @@ def main():
         thread.start()
         thread.join()
 
+main()
+
