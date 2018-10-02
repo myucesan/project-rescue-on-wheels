@@ -4,9 +4,10 @@ from MotorInitialization import *
 MotorInitialization = MotorInitialization()
 
 def MotorControl():
-    socket = Socket()
+    besturing = Besturing()
     while True:
-        state = socket.getState()
+        state = besturing.control()
+	print(state)
         if state == "forward":
             MotorInitialization.forward()
         if state == "right":
@@ -19,6 +20,7 @@ def MotorControl():
             MotorInitialization.stop()
 
 def main():
+    print("main invoked")
     thread = Thread(target=MotorControl)
     MotorInitialization.motorSetUp()
     thread.start()

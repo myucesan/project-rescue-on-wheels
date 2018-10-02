@@ -7,16 +7,16 @@ from curtsies import Input
 import socket
 
 
-class Socket:
+class Besturing:
 
-    def __init__(self, host="169.254.133.31", port=8762):
+    def __init__(self, host="10.3.141.1", port=8712):
 
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.socket.setblocking(False);
         self.socket.bind((host, port))
         self.addresses = []
 
-    def getState(self):
+    def control(self):
 
         while True:
 
@@ -25,4 +25,3 @@ class Socket:
                 return data.decode("utf-8")
             except socket.error:
                 break
-
