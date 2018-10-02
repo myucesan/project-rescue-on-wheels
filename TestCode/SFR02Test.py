@@ -17,11 +17,14 @@ class srf02:
         while True:
             self.bus.write_byte_data(self.SLAVE_ADDRESS, 0 ,self.cmMeasure)
             time.sleep(1)
-            distance = self.bus.read_word_data(self.SLAVE_ADDRESS, 2) / 255
-            mindistance = self.bus.read_word_data(self.SLAVE_ADDRESS, 4) / 255
-            print(distance + " -  Minimal Distance:" + mindistance)
+            distanceHigh = self.bus.read_word_data(self.SLAVE_ADDRESS, 2) #/ 255
+            distanceLow = self.bus.read_word_data(self.SLAVE_ADDRESS, 3) #/ 255
+            minDistanceHigh = self.bus.read_word_data(self.SLAVE_ADDRESS, 4) #/ 255
+            minDistanceLow = self.bus.read_word_data(self.SLAVE_ADDRESS, 5) #/ 255
+            print("High Distance: " + distanceHigh + "Low Distance: " + distanceLow)
+            print("Minimal high Distance:" + minDistanceHigh + "Minimal low Distance: " + minDistanceLow)
             time.sleep(2)
-    
+
             #bus.write_i2c_block_data(SLAVE_ADDRESS, 0, readLowByte)
             #low = bus.read_byte_data(SLAVE_ADDRESS, 0)
             #print(low)
