@@ -12,6 +12,7 @@ class MotorInitialization:
          self.MotorFD = [7,3,0xa5,2,3,0xa5,2]
          self.MotorL = [7, 3, 0xa5, 1, 3, 0xa5, 2]
          self.MotorR = [ 7, 3, 0xa5, 2, 3, 0xa5, 1]
+	 self.MotorBD = [7, 3, 0xa5, 1, 3, 0xa5, 1]
          self.MotorST = [7,0,0,0,0,0,0]
          #Motor speed
          self.Totalpower = [4,220]
