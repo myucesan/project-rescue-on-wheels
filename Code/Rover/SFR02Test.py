@@ -5,7 +5,7 @@ import time
 from threading import *
 
 class srf02:
-    def _init_(self):
+    def __init__(self):
         self.bus = smbus.SMBus(1)
         #Adress of the I2C_SLAVE
         self.SLAVE_ADDRESS = 0x70
