@@ -4,7 +4,7 @@ from threading import *
 
 class Besturing:
 
-    def __init__(self, host="145.28.165.201", port=8762):
+    def __init__(self, host="10.3.141.1", port=8712):
 
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.socket.setblocking(False);

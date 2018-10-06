@@ -4,9 +4,9 @@ from MotorInitialization import *
 MotorInitialization = MotorInitialization()
 
 def MotorControl():
-    besturing = Besturing()
+    socket = Socket()
     while True:
-        state = besturing.control()
+        state = socket.getState()
 	print(state)
         if state == "forward":
             MotorInitialization.forward()

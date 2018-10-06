@@ -7,7 +7,7 @@ from curtsies import Input
 import socket
 
 
-class Besturing:
+class Socket:
 
     def __init__(self, host="10.3.141.1", port=8712):
 
@@ -16,7 +16,7 @@ class Besturing:
         self.socket.bind((host, port))
         self.addresses = []
 
-    def control(self):
+    def getState(self):
 
         while True:
 
