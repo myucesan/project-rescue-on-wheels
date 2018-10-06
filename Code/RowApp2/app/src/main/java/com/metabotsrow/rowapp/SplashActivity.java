@@ -41,20 +41,12 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
         // Get reference of widgets from XML layout
         final ListView lv = (ListView) findViewById(R.id.connectionListView);
 
-        // Initializing a new String Array
-        String[] rovers = new String[] {
-                "ROVER 2",
-                "ROVER 8",
-                "ROVER 11",
-                "ROVER 21"
-        };
-
-        // Create a List from String Array elements
-        List<String> rovers_list = new ArrayList<String>(Arrays.asList(rovers));
+        // Initializing rovers
+        RoverList.getRoverList().addRover(new Rover("ROVER 2", "192.168.192.52", 8762));;
 
         // Create an ArrayAdapter from List
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>
-                (this, android.R.layout.simple_list_item_1, rovers_list){
+                (this, android.R.layout.simple_list_item_1, RoverList.getRoverList().getRoverNames()){
             @Override
             public View getView(int position, View convertView, ViewGroup parent){
                 // Get the Item from ListView
@@ -98,14 +90,9 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v) {
         // Check if any item is selected.
         if(selectedItem.toString().contains("ROVER")){
-            // TO DO: Connect dynamically to ip and port.
-//            try {
-//                client = new Client(InetAddress.getByName(IP), PORT);
-//            } catch (UnknownHostException e) {
-//                e.printStackTrace();
-//            }
-
-            // Go to RobotBesturen activity.
+            Controller.getController().setSelectedRover(RoverList.getRoverList().getRoverFromList(
+                    RoverList.getRoverList().getIndexFromName(selectedItem.toString())
+            ));
             Intent intent = new Intent(this, RobotBesturen.class);
             startActivity(intent);
             finish();

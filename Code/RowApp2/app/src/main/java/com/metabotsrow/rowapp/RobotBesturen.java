@@ -20,9 +20,8 @@ import java.net.UnknownHostException;
 // https://code.tutsplus.com/tutorials/streaming-video-in-android-apps--cms-19888
 public class RobotBesturen extends AppCompatActivity implements Serializable, JoyStick.JoyStickListener {
     private static final String DEBUG_TAG = "DEBUG";
-    private static final String IP = "10.3.141.1";
-    private static final int PORT = 8712;
     private Client client;
+    private Rover rover = Controller.getController().getSelectedRover();
     private boolean prevStop;
     private boolean prevRight;
     private boolean prevForward;
@@ -35,12 +34,18 @@ public class RobotBesturen extends AppCompatActivity implements Serializable, Jo
         setContentView(R.layout.activity_robot_besturen);
 
         // Setup camera
-        String videoPath = String.format("http://%s:%d/?action=stream", IP, PORT);
+        String videoPath = String.format("http://%s:%d/?action=stream", rover.getIP(), rover.getPort());
         WebView webView = findViewById(R.id.webView);
         webView.loadUrl(videoPath);
 
         // Get socket from previous activity.
+        try {
+            client = new Client(InetAddress.getByName(rover.getIP()), rover.getPort());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
+        Log.d("DEBUG_TAG", client.getHost());
 
         // Create joystick
         JoyStick joyStick = findViewById(R.id.joyStick);
@@ -48,9 +53,9 @@ public class RobotBesturen extends AppCompatActivity implements Serializable, Jo
 
         // Show data in UI
         TextView ipTextView = findViewById(R.id.ip);
-        ipTextView.setText(String.format("IP: %s", IP));
+        ipTextView.setText(String.format("IP: %s", rover.getIP()));
         TextView portTextView = findViewById(R.id.port);
-        portTextView.setText(String.format("PORT: %d", PORT));
+        portTextView.setText(String.format("PORT: %d", rover.getPort()));
     }
 
     @Override
