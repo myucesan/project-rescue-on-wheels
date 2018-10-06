@@ -39,12 +39,8 @@ public class RobotBesturen extends AppCompatActivity implements Serializable, Jo
         WebView webView = findViewById(R.id.webView);
         webView.loadUrl(videoPath);
 
-        // Create socket
-        try {
-            client = new Client(InetAddress.getByName(IP), PORT);
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-        }
+        // Get socket from previous activity.
+
 
         // Create joystick
         JoyStick joyStick = findViewById(R.id.joyStick);

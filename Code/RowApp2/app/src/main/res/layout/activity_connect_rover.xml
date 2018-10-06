@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorDark">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/row_logo_216_279"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.2"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/logo"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/auasImageView">
+
+        <TextView
+            android:id="@+id/selectRoverLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/auas_372_64"
+            android:text="SELECT ROVER"
+            android:textSize="30sp"
+            android:textColor="@color/colorCloud"
+            android:fontFamily="@font/agency_fb_bold" />
+
+        <ListView
+            android:id="@+id/connectionListView"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@color/colorCloud"
+            android:textColor="@color/colorDark"
+            android:fontFamily="@font/agency_fb"
+            android:divider="@color/colorDark"
+            android:dividerHeight="1dp"
+            android:scrollbarSize="10dp"
+            android:fadeScrollbars="false"
+            android:scrollbarThumbVertical="@drawable/scrollbar_thumb"
+            android:footerDividersEnabled="false"
+            android:overScrollFooter="@android:color/transparent"
+            android:choiceMode="singleChoice"
+            android:listSelector="@color/colorDarkerCloud">
+        </ListView>
+
+        <Button
+            android:id="@+id/connectBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn_bg_selector"
+            android:fontFamily="@font/agency_fb_bold"
+            android:onClick="onClick"
+            android:text="CONNECT"
+            android:textColor="@drawable/btn_txt_selector"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/auasImageView"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:src="@drawable/auas_372_64"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+</android.support.constraint.ConstraintLayout>
