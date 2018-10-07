@@ -1,10 +1,13 @@
 package com.metabotsrow.rowapp;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -36,7 +39,19 @@ public class RobotBesturen extends AppCompatActivity implements Serializable, Jo
         // Setup camera
         String videoPath = String.format("http://%s:%d/?action=stream", rover.getIP(), rover.getPort());
         WebView webView = findViewById(R.id.webView);
+        webView.getSettings().setLoadWithOverviewMode(true);
+        webView.getSettings().setUseWideViewPort(true);
         webView.loadUrl(videoPath);
+        webView.setVerticalScrollBarEnabled(false);
+        webView.setHorizontalScrollBarEnabled(false);
+
+        // Disable scrolling in WebView
+        webView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return (event.getAction() == MotionEvent.ACTION_MOVE);
+            }
+        });
 
         // Get socket from previous activity.
         try {
@@ -56,6 +71,8 @@ public class RobotBesturen extends AppCompatActivity implements Serializable, Jo
         ipTextView.setText(String.format("IP: %s", rover.getIP()));
         TextView portTextView = findViewById(R.id.port);
         portTextView.setText(String.format("PORT: %d", rover.getPort()));
+        TextView roverTextView = findViewById(R.id.rover);
+        roverTextView.setText(rover.getName());
     }
 
     @Override

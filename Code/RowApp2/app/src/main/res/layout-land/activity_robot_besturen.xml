@@ -69,29 +69,16 @@
         app:layout_constraintTop_toBottomOf="@id/posLabel" />
 
     <TextView
-        android:id="@+id/roverLabel"
+        android:id="@+id/rover"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginBottom="10dp"
-        android:fontFamily="@font/agency_fb"
+        android:fontFamily="@font/agency_fb_bold"
         android:text="ROVER NO."
         android:textColor="@color/colorCloud"
         android:textSize="30sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/ip" />
-
-    <TextView
-        android:id="@+id/rover"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginBottom="10dp"
-        android:fontFamily="@font/agency_fb_bold"
-        android:text="008"
-        android:textColor="@color/colorCloud"
-        android:textSize="30sp"
-        app:layout_constraintLeft_toRightOf="@id/roverLabel"
         app:layout_constraintBottom_toTopOf="@id/ip" />
 
     <TextView

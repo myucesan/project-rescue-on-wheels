@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * Created by Yoshio on 04/10/2018.
  */
-public class SplashActivity extends AppCompatActivity implements View.OnClickListener {
+public class ConnectActivity extends AppCompatActivity implements View.OnClickListener {
     private Object selectedItem;
 
     @Override
@@ -39,10 +39,13 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_connect_rover);
 
         // Get reference of widgets from XML layout
-        final ListView lv = (ListView) findViewById(R.id.connectionListView);
+        final ListView connectionListView = (ListView) findViewById(R.id.connectionListView);
 
         // Initializing rovers
-        RoverList.getRoverList().addRover(new Rover("ROVER 2", "192.168.192.52", 8762));;
+        RoverList.getRoverList().addRover(new Rover("ROVER 2", "10.3.141.1", 8802));
+        RoverList.getRoverList().addRover(new Rover("ROVER 8", "10.3.141.1", 8808));
+        RoverList.getRoverList().addRover(new Rover("ROVER 11", "10.3.141.1", 8811));
+        RoverList.getRoverList().addRover(new Rover("ROVER 21", "10.3.141.1", 8821));;
 
         // Create an ArrayAdapter from List
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>
@@ -70,13 +73,13 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
         };
 
         // DataBind ListView with items from ArrayAdapter
-        lv.setAdapter(arrayAdapter);
+        connectionListView.setAdapter(arrayAdapter);
 
         // Set listener for clicks on items
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        connectionListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                selectedItem = lv.getItemAtPosition(i);
+                selectedItem = connectionListView.getItemAtPosition(i);
                 String s = selectedItem.toString();
                 Log.d("DEBUG_TAG", s);
             }
