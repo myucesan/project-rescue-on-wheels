@@ -6,18 +6,20 @@ MotorInitialization = MotorInitialization()
 def MotorControl():
     socket = Socket()
     while True:
-        state = socket.getState()
-	print(state)
-        if state == "forward":
+        socket.receiveValues()
+
+        if socket.state == "forward":
             MotorInitialization.forward()
-        if state == "right":
+        if socket.state == "right":
             MotorInitialization.right()
-        if state == "left":
+        if socket.state == "left":
             MotorInitialization.left()
-        if state == "backward":
+        if socket.state == "backward":
             MotorInitialization.backward()
-        if state == "stop":
+        if socket.state == "stop":
             MotorInitialization.stop()
+
+        MotorInitialization.setSpeed(socket.speed)
 
 def main():
     print("main invoked")

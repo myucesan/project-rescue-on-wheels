@@ -25,6 +25,7 @@ public class RobotBesturen extends AppCompatActivity implements Serializable, Jo
     private static final String DEBUG_TAG = "DEBUG";
     private Client client;
     private Rover rover = Controller.getController().getSelectedRover();
+    private int speed = 50;
     private boolean prevStop;
     private boolean prevRight;
     private boolean prevForward;
@@ -82,35 +83,40 @@ public class RobotBesturen extends AppCompatActivity implements Serializable, Jo
             case -1:
                 // To avoid unnecessary traffic, we avoid sending the same direction multiple times.
                 if(!prevStop){
-                    client.sendData("stop");
+                    client.insertValues("stop", speed);
+                    client.sendData();
                     prevStop = true; prevRight = false; prevForward = false; prevLeft = false; prevBackward = false;
                     Log.d(DEBUG_TAG, "stop");
                 }
                 break;
             case 0:
                 if(!prevLeft){
-                    client.sendData("left");
+                    client.insertValues("left", speed);
+                    client.sendData();
                     prevStop = false; prevRight = false; prevForward = false; prevLeft = true; prevBackward = false;
                     Log.d(DEBUG_TAG, "left");
                 }
                 break;
             case 2:
                 if(!prevForward){
-                    client.sendData("forward");
+                    client.insertValues("forward", speed);
+                    client.sendData();
                     prevStop = false; prevRight = false; prevForward = true; prevLeft = false; prevBackward = false;
                     Log.d(DEBUG_TAG, "forward");
                 }
                 break;
             case 4:
                 if(!prevRight){
-                    client.sendData("right");
+                    client.insertValues("right", speed);
+                    client.sendData();
                     prevStop = false; prevRight = true; prevForward = false; prevLeft = false; prevBackward = false;
                     Log.d(DEBUG_TAG, "right");
                 }
                 break;
             case 6:
                 if(!prevBackward){
-                    client.sendData("backward");
+                    client.insertValues("backward", speed);
+                    client.sendData();
                     prevStop = false; prevRight = false; prevForward = false; prevLeft = false; prevBackward = true;
                     Log.d(DEBUG_TAG, "backward");
                 }

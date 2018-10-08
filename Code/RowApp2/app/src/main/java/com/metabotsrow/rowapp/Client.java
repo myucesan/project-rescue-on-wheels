@@ -2,6 +2,9 @@ package com.metabotsrow.rowapp;
 /**
  * Created by Mohamed.
  */
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.*;
 import java.net.*;
 
@@ -9,7 +12,7 @@ import java.net.*;
 public class Client implements Serializable {
 
     private DatagramSocket socket;
-    private String key;
+    private JSONObject insertedValues;
     private InetAddress host;
     private int port;
     private byte[] data;
@@ -26,6 +29,8 @@ public class Client implements Serializable {
         }  catch (IOException e) {
             e.printStackTrace();
         }
+
+        insertedValues = new JSONObject();
 
     }
 
@@ -49,12 +54,13 @@ public class Client implements Serializable {
         return socket;
     }
 
-    public void setKey(String string) {
-        key = string;
-    }
-
-    public String getKey() {
-        return key;
+    public void insertValues(String state, int speed) {
+        try {
+            insertedValues.put("state", state);
+            insertedValues.put("speed", speed);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
     public byte[] getData() {
@@ -65,9 +71,9 @@ public class Client implements Serializable {
         this.data = data;
     }
 
-    public void sendData(String message) {
+    public void sendData() {
         try {
-            data = message.getBytes();
+            data = insertedValues.toString().getBytes();
             packet = new DatagramPacket(data, data.length, host, port);
             socket.send(packet);
         } catch (IOException e) {
