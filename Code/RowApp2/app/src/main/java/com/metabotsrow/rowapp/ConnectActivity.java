@@ -41,11 +41,14 @@ public class ConnectActivity extends AppCompatActivity implements View.OnClickLi
         // Get reference of widgets from XML layout
         final ListView connectionListView = (ListView) findViewById(R.id.connectionListView);
 
-        // Initializing rovers
-        RoverList.getRoverList().addRover(new Rover("ROVER 2", "10.3.141.1", 8802));
-        RoverList.getRoverList().addRover(new Rover("ROVER 8", "10.3.141.1", 8808));
-        RoverList.getRoverList().addRover(new Rover("ROVER 11", "10.3.141.1", 8811));
-        RoverList.getRoverList().addRover(new Rover("ROVER 21", "10.3.141.1", 8821));;
+        // Simple check if rovers are already initialized
+        if(RoverList.getRoverList().getRovers().size() == 0){
+            // Initializing rovers only if they aren't already
+            RoverList.getRoverList().addRover(new Rover("DUMMY ROVER 2", "10.3.141.1", 8802));
+            RoverList.getRoverList().addRover(new Rover("ROVER 8", "10.3.141.1", 8808));
+            RoverList.getRoverList().addRover(new Rover("DUMMY ROVER 11", "10.3.141.1", 8811));
+            RoverList.getRoverList().addRover(new Rover("DUMMY ROVER 21", "10.3.141.1", 8821));
+        }
 
         // Create an ArrayAdapter from List
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>
