@@ -16,7 +16,7 @@ class Socket:
         self.socket.bind((host, port))
         self.address = None
         self.message = None
-        self.speed = None
+        self.speed = 6
         self.state = None
         self.data = None
 
