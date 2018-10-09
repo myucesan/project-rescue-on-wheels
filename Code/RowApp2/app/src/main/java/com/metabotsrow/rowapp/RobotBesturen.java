@@ -1,6 +1,7 @@
 package com.metabotsrow.rowapp;
 
 import android.content.Context;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,9 +24,9 @@ import java.net.UnknownHostException;
 // https://code.tutsplus.com/tutorials/streaming-video-in-android-apps--cms-19888
 public class RobotBesturen extends AppCompatActivity implements Serializable, JoyStick.JoyStickListener {
     private static final String DEBUG_TAG = "DEBUG";
-    private Client client;
+    //private Client client;
     private Rover rover = Controller.getController().getSelectedRover();
-    private int speed = 50;
+    private int speed = 220;
     private boolean prevStop;
     private boolean prevRight;
     private boolean prevForward;
@@ -56,12 +57,18 @@ public class RobotBesturen extends AppCompatActivity implements Serializable, Jo
 
         // Get socket from previous activity.
         try {
-            client = new Client(InetAddress.getByName(rover.getIP()), rover.getPort());
-        } catch (Exception e) {
+            Client.getClient().setHost(InetAddress.getByName(rover.getIP()));
+            Client.getClient().setPort(rover.getPort());
+        } catch (UnknownHostException e) {
             e.printStackTrace();
         }
 
-        Log.d("DEBUG_TAG", client.getHost());
+//        try {
+//            client = new Client(InetAddress.getByName(rover.getIP()), rover.getPort());
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+
 
         // Create joystick
         JoyStick joyStick = findViewById(R.id.joyStick);
@@ -74,6 +81,9 @@ public class RobotBesturen extends AppCompatActivity implements Serializable, Jo
         portTextView.setText(String.format("PORT: %d", rover.getPort()));
         TextView roverTextView = findViewById(R.id.rover);
         roverTextView.setText(rover.getName());
+
+
+        new OnReceive().execute();
     }
 
     @Override
@@ -83,46 +93,47 @@ public class RobotBesturen extends AppCompatActivity implements Serializable, Jo
             case -1:
                 // To avoid unnecessary traffic, we avoid sending the same direction multiple times.
                 if(!prevStop){
-                    client.insertValues("stop", speed);
-                    client.sendData();
+                    Client.getClient().insertValues("stop", speed);
+                    Client.getClient().sendData();
                     prevStop = true; prevRight = false; prevForward = false; prevLeft = false; prevBackward = false;
-                    Log.d(DEBUG_TAG, "stop");
+                    //Log.d(DEBUG_TAG, "stop");
                 }
                 break;
             case 0:
                 if(!prevLeft){
-                    client.insertValues("left", speed);
-                    client.sendData();
+                    Client.getClient().insertValues("left", speed);
+                    Client.getClient().sendData();
                     prevStop = false; prevRight = false; prevForward = false; prevLeft = true; prevBackward = false;
-                    Log.d(DEBUG_TAG, "left");
+                    //Log.d(DEBUG_TAG, "left");
                 }
                 break;
             case 2:
                 if(!prevForward){
-                    client.insertValues("forward", speed);
-                    client.sendData();
+                    Client.getClient().insertValues("forward", speed);
+                    Client.getClient().sendData();
                     prevStop = false; prevRight = false; prevForward = true; prevLeft = false; prevBackward = false;
-                    Log.d(DEBUG_TAG, "forward");
+                    //Log.d(DEBUG_TAG, "forward");
                 }
                 break;
             case 4:
                 if(!prevRight){
-                    client.insertValues("right", speed);
-                    client.sendData();
+                    Client.getClient().insertValues("right", speed);
+                    Client.getClient().sendData();
                     prevStop = false; prevRight = true; prevForward = false; prevLeft = false; prevBackward = false;
-                    Log.d(DEBUG_TAG, "right");
+                    //Log.d(DEBUG_TAG, "right");
                 }
                 break;
             case 6:
                 if(!prevBackward){
-                    client.insertValues("backward", speed);
-                    client.sendData();
+                    Client.getClient().insertValues("backward", speed);
+                    Client.getClient().sendData();
                     prevStop = false; prevRight = false; prevForward = false; prevLeft = false; prevBackward = true;
-                    Log.d(DEBUG_TAG, "backward");
+                    //Log.d(DEBUG_TAG, "backward");
                 }
                 break;
         }
     }
+
 
     @Override
     public void onTap() {

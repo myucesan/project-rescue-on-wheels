@@ -2,6 +2,8 @@ package com.metabotsrow.rowapp;
 /**
  * Created by Mohamed.
  */
+import android.util.Log;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -13,15 +15,21 @@ public class Client implements Serializable {
 
     private DatagramSocket socket;
     private JSONObject insertedValues;
+    private JSONObject obtainedValues;
     private InetAddress host;
     private int port;
-    private byte[] data;
-    private DatagramPacket packet;
+    private byte[] dataToReceive;
+    private byte[] dataToSend;
+    private DatagramPacket sentPacket;
+    private DatagramPacket receivedPacket;
+    private static Client client;
+
+    static {
+        client = new Client();
+    }
 
 
-    public Client(InetAddress host, int port) {
-        this.host = host;
-        this.port = port;
+    private Client() {
 
         try {
             socket = new DatagramSocket();
@@ -31,6 +39,9 @@ public class Client implements Serializable {
         }
 
         insertedValues = new JSONObject();
+        obtainedValues = new JSONObject();
+
+        dataToReceive = new byte[2048];
 
     }
 
@@ -46,7 +57,7 @@ public class Client implements Serializable {
         return port;
     }
 
-    public void getPort(int port) {
+    public void setPort(int port) {
         this.port = port;
     }
 
@@ -63,22 +74,39 @@ public class Client implements Serializable {
         }
     }
 
-    public byte[] getData() {
-        return data;
+    public byte[] getDataToSend() {
+        return dataToSend;
     }
 
-    public void setData(byte[] data) {
-        this.data = data;
+    public void setData(byte[] dataToSend) {
+        this.dataToSend = dataToSend;
     }
 
     public void sendData() {
         try {
-            data = insertedValues.toString().getBytes();
-            packet = new DatagramPacket(data, data.length, host, port);
-            socket.send(packet);
+            dataToSend = insertedValues.toString().getBytes();
+            sentPacket = new DatagramPacket(dataToSend, dataToSend.length, host, port);
+            socket.send(sentPacket);
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public String receiveData() {
+        receivedPacket = new DatagramPacket(dataToReceive, dataToReceive.length);
+        try {
+            socket.receive(receivedPacket);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String receivedString = new String(dataToReceive, 0, receivedPacket.getLength());
+        Log.d("DEBUG_TAG", receivedString);
+        return receivedString;
+
+    }
+
+    public static Client getClient() {
+        return client;
     }
 
     public void close() {

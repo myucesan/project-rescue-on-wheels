@@ -45,7 +45,7 @@ public class ConnectActivity extends AppCompatActivity implements View.OnClickLi
         if(RoverList.getRoverList().getRovers().size() == 0){
             // Initializing rovers only if they aren't already
             RoverList.getRoverList().addRover(new Rover("DUMMY ROVER 2", "10.3.141.1", 8802));
-            RoverList.getRoverList().addRover(new Rover("ROVER 8", "192.168.192.52", 8762));
+            RoverList.getRoverList().addRover(new Rover("ROVER 8", "10.3.141.1", 8762));
             RoverList.getRoverList().addRover(new Rover("DUMMY ROVER 11", "10.3.141.1", 8811));
             RoverList.getRoverList().addRover(new Rover("DUMMY ROVER 21", "10.3.141.1", 8821));
         }
