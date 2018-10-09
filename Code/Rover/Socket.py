@@ -16,13 +16,13 @@ class Socket:
         self.socket.bind((host, port))
         self.address = None
         self.message = None
-        self.speed = 6
+        self.speed = 220
         self.state = None
         self.data = None
+        self.distance = 5
+        self.servo = 5;
 
     def receiveValues(self):
-
-        while True:
 
             try:
                 self.message, self.address = self.socket.recvfrom(1024)
@@ -30,6 +30,10 @@ class Socket:
                 self.state = self.data['state']
                 self.speed = self.data['speed']
 
-
             except socket.error:
-                break
+                pass
+
+    def sendValues(self):
+
+        if self.address is not None:
+                self.socket.sendto(bytes("test", "utf-8"), self.address)
