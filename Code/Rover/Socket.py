@@ -9,7 +9,7 @@ import socket
 
 class Socket:
 
-    def __init__(self, host="10.3.141.1", port=8712):
+    def __init__(self, host="10.3.141.1", port=8808):
 
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.socket.setblocking(False)
