@@ -24,7 +24,6 @@ def MotorControl():
 def main():
     print("main invoked")
     thread = Thread(target=MotorControl)
-    MotorInitialization.motorSetUp()
     thread.start()
     thread.join()
 
