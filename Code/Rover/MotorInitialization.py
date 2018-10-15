@@ -19,15 +19,8 @@ class MotorInitialization:
          self.Softstart = [0x91,100,0]
          #Address to access motor
          self.SLAVE_ADDRESS = 0x32
-
-
-    def motorSetUp(self):
-        # pin set up for resistor
-        gpio.setmode(gpio.BCM)
-        gpio.setup(17, gpio.IN, pull_up_down=gpio.PUD_DOWN)
-        # Writing totalpower and softstart to bus
-        self.bus.write_i2c_block_data(self.SLAVE_ADDRESS, 0, self.Totalpower)
-        self.bus.write_i2c_block_data(self.SLAVE_ADDRESS, 0, self.Softstart)
+         gpio.setmode(gpio.BCM)
+         gpio.setup(17, gpio.IN, pull_up_down=gpio.PUD_DOWN)
 
 
     def forward(self):
@@ -54,5 +47,6 @@ class MotorInitialization:
          #Set motor speed
          self.Totalpower[1] = speed
          self.bus.write_i2c_block_data(self.SLAVE_ADDRESS, 0, self.Totalpower)
+         self.bus.write_i2c_block_data(self.SLAVE_ADDRESS, 0, self.Softstart)
 
 
