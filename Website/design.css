@@ -17,50 +17,50 @@ body {
 
 .subtitle {
   position: absolute;
-  left: 33%;
-  top: 20%;
+  left: 42%;
+  top: 25%;
   font-family: agencyFB_Bold;
-  font-size: 280%;
+  font-size: 200%;
   color: white;
 }
 
 .logo {
-  width: 10%;
-  height: 20%;
-  position: absolute;
-  left: 48%;
-  top: 3%;
-}
-
-.HVAlogo {
   width: 5%;
   height: 10%;
   position: absolute;
-  left: 40%;
+  left: 50%;
+  top: 6%;
+}
+
+.HVAlogo {
+  width: 2.5%;
+  height: 5%;
+  position: absolute;
+  left: 45%;
   top: 85%;
 }
 
 .HVAText {
-  width: 13%;
-  height: 8%;
+  width: 10%;
+  height: 5%;
   position: absolute;
-  left: 45%;
-  top: 87%;
+  left: 48%;
+  top: 85%;
 }
 
 .menu {
-    width: 40%;
-    height: 30%;
+    width: 20%;
+    height: 24%;
     position: absolute;
     top: 35%;
-    left: 33%;
+    left: 42%;
     overflow-y: auto;
 }
 
 .menu a {
     background-color: #eee;
     font-family: AgencyFB;
-    font-size: 200%;
+    font-size: 180%;
     color: black;
     display: block;
     border: 1px solid #333333;
@@ -79,15 +79,15 @@ body {
 
 .button {
   height: 10%;
-  width: 40%;
+  width: 20%;
   background-color: #333333;
   position: absolute;
-  left: 33%;
-  top: 68%;
+  left: 42%;
+  top: 62%;
   color: white;
   font-family: AgencyFB_Bold;
-  font-size: 280%;
-  border: 7px solid #FFFFFF;
+  font-size: 200%;
+  border: 5px solid #FFFFFF;
 }
 
 ::-webkit-scrollbar {
