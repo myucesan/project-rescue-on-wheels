@@ -1,0 +1,103 @@
+@font-face {
+  font-family: AgencyFB;
+  src: url(fonts/agency_fb.ttf);
+}
+
+@font-face {
+  font-family: AgencyFB_Bold;
+  src: url(fonts/agency_fb_bold.ttf);
+}
+
+body {
+  background-color: #333333;
+}
+
+.main {
+}
+
+.subtitle {
+  position: absolute;
+  left: 33%;
+  top: 20%;
+  font-family: agencyFB_Bold;
+  font-size: 280%;
+  color: white;
+}
+
+.logo {
+  width: 10%;
+  height: 20%;
+  position: absolute;
+  left: 48%;
+  top: 3%;
+}
+
+.HVAlogo {
+  width: 5%;
+  height: 10%;
+  position: absolute;
+  left: 40%;
+  top: 85%;
+}
+
+.HVAText {
+  width: 13%;
+  height: 8%;
+  position: absolute;
+  left: 45%;
+  top: 87%;
+}
+
+.menu {
+    width: 40%;
+    height: 30%;
+    position: absolute;
+    top: 35%;
+    left: 33%;
+    overflow-y: auto;
+}
+
+.menu a {
+    background-color: #eee;
+    font-family: AgencyFB;
+    font-size: 200%;
+    color: black;
+    display: block;
+    border: 1px solid #333333;
+    padding: 3% 7%;
+    text-decoration: none;
+}
+
+.menu a:hover {
+    background-color: #ccc;
+}
+
+.menu a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.button {
+  height: 10%;
+  width: 40%;
+  background-color: #333333;
+  position: absolute;
+  left: 33%;
+  top: 68%;
+  color: white;
+  font-family: AgencyFB_Bold;
+  font-size: 280%;
+  border: 7px solid #FFFFFF;
+}
+
+::-webkit-scrollbar {
+    width: 1%;
+}
+
+::-webkit-scrollbar-track {
+    background: #FFFFFF;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #000000;
+}
