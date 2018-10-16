@@ -1,0 +1,197 @@
+ body {
+	margin: 0;
+	padding: 0;
+ }
+ 
+ #background 
+{ 
+	 left: 0px; 
+	 top: 0px; 
+	 position: relative; 
+	 margin-left: auto; 
+	 margin-right: auto; 
+	 width: 2400px;
+	 height: 2400px; 
+	 overflow: hidden;
+	 z-index:0;
+	} 
+
+ #Shadow 
+{ 
+	 left: 325px; 
+	 top: -1059px; 
+	 position: absolute; 
+	 width: 2267px;
+	 height: 4478px;
+	 z-index:1;
+} 
+
+ #iPhone6SSpaceGray 
+{ 
+	 left: 777px; 
+	 top: 342px; 
+	 position: absolute; 
+	 width: 846px;
+	 height: 1718px;
+	 z-index:2;
+} 
+
+ #Screen 
+{ 
+	 left: 826px; 
+	 top: 539px; 
+	 position: absolute; 
+	 width: 749px;
+	 height: 1317px;
+	 z-index:3;
+} 
+
+ #BackgroundColorPhone 
+{ 
+	 left: 827px; 
+	 top: 544px; 
+	 position: absolute; 
+	 width: 746px;
+	 height: 1312px;
+	 z-index:4;
+} 
+
+ #Connectbutton 
+{ 
+	 left: 961px; 
+	 top: 1517px; 
+	 position: absolute; 
+	 width: 490px;
+	 height: 87px;
+	 z-index:5;
+} 
+
+ #CONNECT 
+{ 
+	 left: 1129px; 
+	 top: 1538px; 
+	 position: absolute; 
+	 width: 155px;
+	 height: 38px;
+	 z-index:6;
+} 
+
+ #Veelhoek121 
+{ 
+	 left: 1092px; 
+	 top: 723px; 
+	 position: absolute; 
+	 width: 216px;
+	 height: 279px;
+	 z-index:7;
+} 
+
+ #AUASlogo 
+{ 
+	 left: 1019px; 
+	 top: 1724px; 
+	 position: absolute; 
+	 width: 66px;
+	 height: 63px;
+	 z-index:8;
+} 
+
+ #AmsterdamUniversityo 
+{ 
+	 left: 1116px; 
+	 top: 1723px; 
+	 position: absolute; 
+	 width: 285px;
+	 height: 61px;
+	 z-index:9;
+} 
+
+ #Containerconnections 
+{ 
+	 left: 960px; 
+	 top: 1221px; 
+	 position: absolute; 
+	 width: 491px;
+	 height: 272px;
+	 z-index:10;
+} 
+
+ #Line 
+{ 
+	 left: 961px; 
+	 top: 1312px; 
+	 position: absolute; 
+	 width: 491px;
+	 height: 4px;
+	 z-index:11;
+} 
+
+ #ROVER2 
+{ 
+	 left: 992px; 
+	 top: 1255px; 
+	 position: absolute; 
+	 width: 99px;
+	 height: 30px;
+	 z-index:12;
+} 
+
+ #Line_0 
+{ 
+	 left: 962px; 
+	 top: 1405px; 
+	 position: absolute; 
+	 width: 490px;
+	 height: 5px;
+	 z-index:13;
+} 
+
+ #ROVER8 
+{ 
+	 left: 992px; 
+	 top: 1349px; 
+	 position: absolute; 
+	 width: 100px;
+	 height: 30px;
+	 z-index:14;
+} 
+
+ #Line_1 
+{ 
+	 left: 962px; 
+	 top: 1485px; 
+	 position: absolute; 
+	 width: 490px;
+	 height: 4px;
+	 z-index:15;
+} 
+
+ #ROVER11 
+{ 
+	 left: 990px; 
+	 top: 1433px; 
+	 position: absolute; 
+	 width: 99px;
+	 height: 30px;
+	 z-index:16;
+} 
+
+ #SELECTROVER 
+{ 
+	 left: 965px; 
+	 top: 1148px; 
+	 position: absolute; 
+	 width: 243px;
+	 height: 38px;
+	 z-index:17;
+} 
+
+ #Scrollbar 
+{ 
+	 left: 1429px; 
+	 top: 1220px; 
+	 position: absolute; 
+	 width: 22px;
+	 height: 161px;
+	 z-index:18;
+} 
