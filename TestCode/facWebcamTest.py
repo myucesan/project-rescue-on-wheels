@@ -30,6 +30,7 @@ for (x, y, w, h) in faces:
 #display the resulting frame
 cv2.imshow('Video', frame)
 
+# Press 'q' to stop the script running
 if cv2.waitKey(1) & 0xFF == ord('q'):
 	break
 
