@@ -1,6 +1,6 @@
 from Socket import *
 from MotorInitialization import *
-
+from threading import *
 MotorInitialization = MotorInitialization()
 
 def MotorControl():
@@ -24,7 +24,6 @@ def MotorControl():
 def main():
     print("main invoked")
     thread = Thread(target=MotorControl)
-    MotorInitialization.motorSetUp()
     thread.start()
     thread.join()
 

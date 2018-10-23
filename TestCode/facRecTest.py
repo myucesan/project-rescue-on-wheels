@@ -13,7 +13,7 @@ image = cv2.imread(imagePath)
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY) #converts image to greyscale, processing mostly done in greyscale
 
 # Detect faces in the image
-face = faceCascade.detectMultiScale(
+faces = faceCascade.detectMultiScale(
 	gray,
 	scaleFactor=1.1,
 	minNeighbors=5,

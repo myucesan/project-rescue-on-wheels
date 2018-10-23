@@ -1,15 +1,13 @@
 # !/usr/bin/python
 import RPi.GPIO as gpio
 import smbus
-import time
-from threading import *
-from curtsies import Input
 import socket
+import json
 
 
 class Socket:
 
-    def __init__(self, host="10.3.141.1", port=8808):
+    def __init__(self, host="10.3.141.1", port=8762):
 
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.socket.setblocking(False)
