@@ -15,13 +15,102 @@ body {
 .main {
 }
 
+.roverInfo {
+  position: absolute;
+  top: 70%;
+  color: #FFFFFF;
+}
+
+.roverNumberTitle {
+  font-family: agencyFB;
+  font-size: 150%;
+  left:30%;
+}
+
+.roverNumber {
+  font-family: agencyFB_Bold;
+  font-size: 150%;
+  left:36%;
+}
+
+.roverIPPort {
+  position: absolute;
+  color: #FFFFFF;
+  top: 70.5%;
+  font-family: agencyFB;
+  font-size: 140%;
+}
+
+.roverIP {
+  left: 62%;
+}
+
+.roverPort {
+  left: 70%;
+}
+
 .subtitle {
   position: absolute;
   left: 42%;
   top: 25%;
   font-family: agencyFB_Bold;
   font-size: 200%;
-  color: white;
+  color: #FFFFFF;
+}
+
+.cameraInfo {
+  position: absolute;
+  left: 20%;
+  font-size: 175%;
+  color: #FFFFFF;
+}
+
+.camNameTitle {
+  font-family: AgencyFB;
+  top: 15%;
+}
+
+.camName {
+  font-family: AgencyFB_Bold;
+  top: 20%;
+}
+
+.objDistTitle {
+  font-family: AgencyFB;
+  top: 26%;
+}
+
+.objDist {
+  font-family: AgencyFB_Bold;
+  top: 31%;
+}
+
+.posServoTitle {
+  font-family: AgencyFB;
+  top: 37%;
+}
+
+.posServo {
+  font-family: AgencyFB_Bold;
+  top: 42%;
+}
+
+.videoStreamer {
+  width:45%;
+  height:50%;
+  position: absolute;
+  left: 30%;
+  top:20%;
+  border: 5px solid #FFFFFF;
+}
+
+.lineNavigation {
+  width:15%;
+  height:30%;
+  position: absolute;
+  left: 80%;
+  top:20%;
+  border: 5px solid #FFFFFF;
 }
 
 .logo {
@@ -77,17 +166,43 @@ body {
     color: white;
 }
 
-.button {
+.micButton {
+  height: 9.8%;
+  width: 4.6%;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-image: url("images/mic.png");
+  position: absolute;
+  left: 79.8%;
+  top: 53%;
+  color: #FFFFFF;
+  font-family: AgencyFB_Bold;
+  font-size: 200%;
+  border: none;
+}
+
+.micButton:hover {
+  background-repeat: no-repeat;
+  background-image: url("images/micpress.png");
+  background-color: #FFFFFF;
+}
+
+.connectButton {
   height: 10%;
   width: 20%;
   background-color: #333333;
   position: absolute;
   left: 42%;
   top: 62%;
-  color: white;
+  color: #FFFFFF;
   font-family: AgencyFB_Bold;
   font-size: 200%;
   border: 5px solid #FFFFFF;
+}
+
+.connectButton:hover {
+  background-color: #FFFFFF;
+  color: #333333;
 }
 
 ::-webkit-scrollbar {
