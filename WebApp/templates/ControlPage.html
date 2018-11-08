@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>SR1 Rover</title>
         <link rel="icon" href="fotowebsite/icon.png">
-        <link rel="stylesheet" type="text/css" href="design.css">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='design.css')}}">
 </head>
 
 <body>
@@ -13,7 +13,7 @@
 <div class="main">
 
 <header>
-<a href="#"><img class="logo" src="images/Veelhoek121.png" alt="Rover Logo"></a>
+<a href="#"><img class="logo" src="{{url_for('static', filename='images/Veelhoek121.png')}}" alt="Rover Logo"></a>
 </header>
 <section>
 <canvas id="lineDrawer" class="lineNavigation">
@@ -35,11 +35,15 @@ Your browser does not support the HTML5 canvas tag.
 <a href="ControlPage.html"><button type="button" class="micButton"></button></a>
 </section>
 <footer>
-<img class="HVAlogo" src="images/AUASlogo.png" alt="AUAS Logo">
-<img class="HVAText" src="images/AmsterdamUniversityo.png" alt="Amsterdam University">
+<img class="HVAlogo" src="{{url_for('static', filename='images/AUASlogo.png')}}" alt="AUAS Logo">
+<img class="HVAText" src="{{url_for('static', filename='images/AmsterdamUniversityo.png')}}" alt="Amsterdam University">
 </footer>
 
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+<script type="text/javascript" src="{{url_for('static', filename='roverControl.js')}}"></script>
 
 </body>
 

@@ -60,7 +60,7 @@ body {
 
 .cameraInfo {
   position: absolute;
-  left: 20%;
+  left: 15%;
   font-size: 175%;
   color: #FFFFFF;
 }
@@ -96,10 +96,10 @@ body {
 }
 
 .videoStreamer {
-  width:45%;
+  width:53%;
   height:50%;
   position: absolute;
-  left: 30%;
+  left: 25%;
   top:20%;
   border: 5px solid #FFFFFF;
 }
@@ -114,7 +114,7 @@ body {
 }
 
 .logo {
-  width: 5%;
+  width: 4%;
   height: 10%;
   position: absolute;
   left: 50%;
@@ -173,7 +173,7 @@ body {
   background-repeat: no-repeat;
   background-image: url("images/mic.png");
   position: absolute;
-  left: 79.8%;
+  left: 80%;
   top: 53%;
   color: #FFFFFF;
   font-family: AgencyFB_Bold;
