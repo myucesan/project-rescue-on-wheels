@@ -1,6 +1,7 @@
 package com.metabotsrow.rowapp;
 
 import android.content.Context;
+import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,7 +27,7 @@ public class RobotBesturen extends AppCompatActivity implements Serializable, Jo
     private static final String DEBUG_TAG = "DEBUG";
     //private Client client;
     private Rover rover = Controller.getController().getSelectedRover();
-    private int speed = 220;
+    private int speed = 230;
     private boolean prevStop;
     private boolean prevRight;
     private boolean prevForward;
@@ -37,7 +38,8 @@ public class RobotBesturen extends AppCompatActivity implements Serializable, Jo
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_robot_besturen);
-
+        WifiManager wifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+        System.out.println(wifi.getConnectionInfo().getIpAddress());
         // Setup camera
         String videoPath = String.format("http://%s:%d/?action=stream", rover.getIP(), rover.getPort());
         WebView webView = findViewById(R.id.webView);

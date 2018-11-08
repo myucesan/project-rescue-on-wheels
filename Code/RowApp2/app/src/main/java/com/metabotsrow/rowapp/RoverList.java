@@ -2,13 +2,16 @@ package com.metabotsrow.rowapp;
 /**
  * Created by Mohamed.
  */
+import android.net.wifi.ScanResult;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public final class RoverList {
 
-    private List<Rover> rovers;
     private List<String> roverNames;
+
+    private List<ScanResult> rovers;
 
     private static RoverList instance;
 
@@ -21,7 +24,7 @@ public final class RoverList {
         roverNames = new ArrayList<>();
     }
 
-    public Rover getRoverFromList(int index) {
+    public ScanResult getRoverFromList(int index) {
         return rovers.get(index);
     }
 
@@ -29,25 +32,35 @@ public final class RoverList {
         return roverNames.indexOf(name);
     }
 
-    public void addRover(Rover rover) {
+    public void addRover(ScanResult rover) {
         rovers.add(rover);
-        roverNames.add(rover.getName());
+    }
+
+    public void addRoverName(String name) {
+        roverNames.add(name);
+    }
+
+    public void removeRoverName(int i) {
+        roverNames.remove(i);
     }
 
     public void removeRover(int i) {
         rovers.remove(i);
     }
 
+
+    public List<String> getRoverNames() {
+        return roverNames;
+    }
+
+
+
     public static RoverList getRoverList() {
         return instance;
     }
 
-    public List<Rover> getRovers() {
+    public List<ScanResult> getRovers() {
         return rovers;
-    }
-
-    public List<String> getRoverNames() {
-        return roverNames;
     }
 
 }
