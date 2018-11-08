@@ -13,8 +13,8 @@ public class Rover {
     public Rover(String name, String ip, int port) {
         id = startid++;
         this.name = name;
-        this.ip = ip;
         this.port = port;
+        this.ip = ip;
     }
 
     public String getName() {
