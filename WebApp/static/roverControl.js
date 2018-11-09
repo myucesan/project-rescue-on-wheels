@@ -1,22 +1,41 @@
 $(document).ready(function() {
   var socket = io.connect('http://' + document.domain + ':' + location.port);
   var roverInfo = localStorage.getItem("RoverSelection");
+  var control = {
+		"device": "Webapp",
+		"state": null,
+                "speed": 220
+	};
   socket.emit('roverConnection', roverInfo);
 
   window.addEventListener("keydown", controlOnKey, false);
+  window.addEventListener("keyup", stop, false);
+
+  function stop(key) {
+      control.direction = "stop";
+      socket.emit('roverControl', JSON.stringify(control));
+   }
 
   function controlOnKey(key) {
     if (key.keyCode == "87") {
-      socket.emit('roverControl', "forward");
+      control.direction = "forward";
+      socket.emit('roverControl', JSON.stringify(control));
     }
     if (key.keyCode == "65") {
-      socket.emit('roverControl', "left");
+      control.direction = "left";
+      socket.emit('roverControl', JSON.stringify(control));
     }
     if (key.keyCode == "68") {
-      socket.emit('roverControl', "right");
+      control.direction = "right";
+      socket.emit('roverControl', JSON.stringify(control));
     }
     if (key.keyCode == "83") {
-      socket.emit('roverControl', "backward");
+      control.direction = "backward";
+      socket.emit('roverControl', JSON.stringify(control));
+    }
+    if (key.keyCode == "32") {
+      control.direction = "socket";
+      socket.emit('roverControl', JSON.stringify(control));
     }
   }
 });

@@ -61,17 +61,20 @@ class MotorInitialization:
 	
     	while True:
         	self.socket.receiveValues()
-        	if self.prevValue == None or self.prevValue != self.socket.state:
-                	if self.socket.state == "forward":
-                        	self.forward()
-                	if self.socket.state == "right":
-                        	self.right()
-                	if self.socket.state == "left":
-                        	self.left()
-                	if self.socket.state == "backward":
-                        	self.backward()
-                	if self.socket.state == "stop":
-                        	self.stop()
-
+		try:
+	        	if self.prevValue == None or self.prevValue != self.socket.state:
+				self.prevValue = self.socket.state
+                		if self.socket.state == "forward":
+                        		self.forward()
+	                	if self.socket.state == "right":
+        	                	self.right()
+                		if self.socket.state == "left":
+                        		self.left()
+	                	if self.socket.state == "backward":
+        	                	self.backward()
+                		if self.socket.state == "stop":
+                        		self.stop()
+		except:
+			self.socket.close()
 		#if self.prevSpeed == None or self.prevSpeed != self.socket.speed:
 			#self.setSpeed(self.socket.speed)
