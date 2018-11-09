@@ -33,10 +33,10 @@ def startConnection(roverInfo):
 
 @socketio.on('roverControl')
 def controlRover(data):
-	dataToSend = json.loads(data)
-	socket.sendto(bytes(dataToSend), list[0])	
+	
+	socket.sendto(bytes(data, "utf-8"), list[0])	
 
 if __name__ == '__main__':
-    socketio.run(app, "192.168.137.93", port=8808)
+    socketio.run(app, "192.168.137.63", port=8817)
 
 

@@ -12,29 +12,29 @@ $(document).ready(function() {
   window.addEventListener("keyup", stop, false);
 
   function stop(key) {
-      control.direction = "stop";
+      control.state = "stop";
       socket.emit('roverControl', JSON.stringify(control));
    }
 
   function controlOnKey(key) {
     if (key.keyCode == "87") {
-      control.direction = "forward";
+      control.state = "forward";
       socket.emit('roverControl', JSON.stringify(control));
     }
     if (key.keyCode == "65") {
-      control.direction = "left";
+      control.state = "left";
       socket.emit('roverControl', JSON.stringify(control));
     }
     if (key.keyCode == "68") {
-      control.direction = "right";
+      control.state = "right";
       socket.emit('roverControl', JSON.stringify(control));
     }
     if (key.keyCode == "83") {
-      control.direction = "backward";
+      control.state = "backward";
       socket.emit('roverControl', JSON.stringify(control));
     }
     if (key.keyCode == "32") {
-      control.direction = "socket";
+      control.state = "socket";
       socket.emit('roverControl', JSON.stringify(control));
     }
   }

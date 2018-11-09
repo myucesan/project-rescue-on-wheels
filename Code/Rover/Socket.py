@@ -25,11 +25,11 @@ class Socket:
 
             try:
                 self.message, self.address = self.socket.recvfrom(1024)
-		#self.data = json.loads(self.message)
-  		#self.device = self.data['device']
-                #self.state = self.data['state']
-                #self.speed = self.data['speed']
-                print(self.message)
+		self.data = json.loads(self.message.decode())
+  		self.device = self.data['device']
+                self.state = self.data['state']
+                self.speed = self.data['speed']
+                
 		
             except socket.error:
                 pass
