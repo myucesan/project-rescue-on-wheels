@@ -61,7 +61,7 @@ class MotorControl(Bus):
         if direction == "stop":
             self.stop()
 
-    def reserveDrive(self, direction):
+    def reserve_drive(self, direction):
 
         if direction == "forward":
             self.backward()
