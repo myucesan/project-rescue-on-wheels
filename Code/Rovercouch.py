@@ -22,16 +22,15 @@ class Repository:
 
         del self.repository[id]
 
-    def createDoc(self, id, step, direction, time):
+    def createDoc(self, id, doc):
 
-        doc = {
-            "_id": id,
-            "step": step,
-            "direction": direction,
-            "time": time
+        docToSave = {
+            "_id": str(id),
+            "state": doc["state"],
+            "time": doc["time"]
         }
 
-        self.repository.save(doc)
+        self.repository.save(docToSave)
 
     def createRepository(self, name):
 
@@ -41,13 +40,3 @@ class Repository:
     def selectRepository(self, name):
 
         self.repository = self.server[name]
-
-    def writeIntoRepository(self, doc):
-
-        self.repository.save(doc)
-
-
-repo = Repository("http://localhost:5984")
-repo.selectRepository("rover")
-#repo.deleteDocs("0d5d9d5f021220e7635304febc00169e")
-repo.createDoc("1", 1, "forward", 20)
