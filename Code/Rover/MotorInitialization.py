@@ -23,6 +23,8 @@ class MotorInitialization:
 	 self.prevValue = None
 	 self.prevSpeed = None
 	 self.socket = Socket()
+	 self.state = None
+	 self.couchstate = None
 
     def setUp(self):
 	gpio.setmode(gpio.BCM)
@@ -62,18 +64,38 @@ class MotorInitialization:
     	while True:
         	self.socket.receiveValues()
 		try:
-	        	if self.prevValue == None or self.prevValue != self.socket.state:
-				self.prevValue = self.socket.state
-                		if self.socket.state == "forward":
-                        		self.forward()
-	                	if self.socket.state == "right":
-        	                	self.right()
-                		if self.socket.state == "left":
-                        		self.left()
-	                	if self.socket.state == "backward":
-        	                	self.backward()
-                		if self.socket.state == "stop":
-                        		self.stop()
+			if self.socket.backtrack == 0:
+				self.state = self.socket.state
+	        		if self.prevValue == None or self.prevValue != self.state:
+					self.prevValue = self.state
+                			self.state = self.socket.state
+			else:
+				self.state = "stop"
+				for doc in range(self.socket.docCounter):
+					openedDoc = self.socket.repo.openDoc(doc+1)
+					if openedDoc["state"] == "forward":
+						self.backward()
+					if openedDoc["state"] == "right":
+						self.left()
+					if openedDoc["state"] == "left":
+						self.right()
+					if openedDoc["state"] == "backward":
+						self.forward()
+					time.sleep(openedDoc["time"])
+				self.stop()
+				for doc in self.socket.repo:
+					del doc
+							
+                        if self.state == "forward":
+                        	self.forward()
+                        if self.state == "right":
+                        	self.right()
+                        if self.state == "left":
+                        	self.left()
+                        if self.state == "backward":
+                        	self.backward()
+                        if self.state == "stop":
+            	        	self.stop()
 		except:
 			self.socket.close()
 		#if self.prevSpeed == None or self.prevSpeed != self.socket.speed:

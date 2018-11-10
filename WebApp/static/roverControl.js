@@ -4,12 +4,19 @@ $(document).ready(function() {
   var control = {
 		"device": "Webapp",
 		"state": null,
-                "speed": 220
+                "speed": 220,
+		"backtrack" : 0
 	};
   socket.emit('roverConnection', roverInfo);
 
   window.addEventListener("keydown", controlOnKey, false);
   window.addEventListener("keyup", stop, false);
+
+  $('#driveback').on('click', function(){
+    console.log("TEST")
+    control.backtrack = 1
+    socket.emit('roverControl', JSON.stringify(control));
+});
 
   function stop(key) {
       control.state = "stop";

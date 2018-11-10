@@ -31,8 +31,8 @@ def startConnection(roverInfo):
 @socketio.on('roverControl')
 def controlRover(data):
 	
-	print("controlRovermethod")
-	print("data")
+	#print("controlRovermethod")
+	print(data)
 	socket.sendto(bytes(data, "utf-8"), list[0])	
 
 def test():
@@ -49,4 +49,4 @@ def test():
 spawn(test)
 
 if __name__ == '__main__':
-    socketio.run(app, "192.168.137.8", 9928)
+    socketio.run(app, "192.168.137.8", 9929)
