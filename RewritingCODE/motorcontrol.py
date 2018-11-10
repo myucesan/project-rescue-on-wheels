@@ -16,7 +16,7 @@ class MotorControl(Bus):
         self.Totalpower = [4, 220]
         self.Softstart = [0x91, 100, 0]
 
-    def setUp(self):
+    def set_up(self):
         gpio.setmode(gpio.BCM)
         gpio.setup(17, gpio.IN, pull_up_down=gpio.PUD_DOWN)
         self.bus.write_i2c_block_data(self.MOTOR_ADDRESS, 0, self.Totalpower)
@@ -42,7 +42,7 @@ class MotorControl(Bus):
         # Stop driving
         self.bus.write_i2c_block_data(self.MOTOR_ADDRESS, 0, self.MotorST)
 
-    def setSpeed(self, speed):
+    def set_speed(self, speed):
         # Set motor speed
         self.Totalpower[1] = speed
         self.bus.write_i2c_block_data(self.MOTOR_ADDRESS, 0, self.Totalpower)
