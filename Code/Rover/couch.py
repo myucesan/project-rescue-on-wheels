@@ -31,6 +31,10 @@ class Repository:
         }
 
         self.repository.save(docToSave)
+        
+    def openDoc(self, id):
+        
+        return self.repository[str(id)]
 
     def createRepository(self, name):
 
