@@ -38,4 +38,7 @@ $(document).ready(function() {
       socket.emit('roverControl', JSON.stringify(control));
     }
   }
+  socket.on('lineDrawer', function(lineCalculation) {
+	console.log(lineCalculation)
+  }); 
 });

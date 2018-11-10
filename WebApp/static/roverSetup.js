@@ -2,7 +2,7 @@ var selection;
 var roverInfo = {
     name: ["Rover 08", "Rover 09", "Rover 10", "Rover 13"],
     ip: ["192.168.192.52", "1", "2", "3"],
-    port: [8021, 1, 1, 1]
+    port: [8025, 1, 1, 1]
   };
 var selectedRover = {
   name: null,
