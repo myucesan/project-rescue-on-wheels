@@ -2,8 +2,6 @@
 import RPi.GPIO as gpio
 from Bus import *
 
-
-
 class MotorControl(Bus):
 
     def __init__(self):
