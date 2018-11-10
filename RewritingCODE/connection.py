@@ -13,7 +13,7 @@ class Connection:
             self.socket.bind((host, port))
             self.address = None
 
-    def receiveData(self):
+    def receive_data(self):
 
             try:
                 received, self.address = self.socket.recvfrom(4096)
@@ -23,6 +23,6 @@ class Connection:
             except socket.error:
                 pass
 
-    def sendData(self, data):
+    def send_data(self, data):
 
             self.socket.sendto(bytes(json.dumps(data), "utf-8"), self.address)
