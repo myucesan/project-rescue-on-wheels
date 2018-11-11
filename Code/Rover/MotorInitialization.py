@@ -71,21 +71,20 @@ class MotorInitialization:
                 			self.state = self.socket.state
 			else:
 				self.state = "stop"
-				for doc in range(self.socket.docCounter):
-					openedDoc = self.socket.repo.openDoc(doc+1)
-					if openedDoc["state"] == "forward":
+				for doc in self.socket.list:
+					
+					if doc["state"] == "forward":
 						self.backward()
-					if openedDoc["state"] == "right":
+					if doc["state"] == "right":
 						self.left()
-					if openedDoc["state"] == "left":
+					if doc["state"] == "left":
 						self.right()
-					if openedDoc["state"] == "backward":
+					if doc["state"] == "backward":
 						self.forward()
-					time.sleep(openedDoc["time"])
+					time.sleep(doc["time"])
 				self.stop()
-				for doc in self.socket.repo:
-					del doc
-							
+				
+						
                         if self.state == "forward":
                         	self.forward()
                         if self.state == "right":
