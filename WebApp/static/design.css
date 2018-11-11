@@ -77,7 +77,7 @@ body {
 
 .objDistTitle {
   font-family: AgencyFB;
-  top: 28%;
+  top: 27%;
 }
 
 .objDist {
@@ -172,6 +172,7 @@ body {
   background-color: transparent;
   background-repeat: no-repeat;
   background-image: url("images/mic.png");
+  background-size: cover;
   position: absolute;
   left: 80%;
   top: 53%;

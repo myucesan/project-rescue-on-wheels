@@ -29,7 +29,6 @@ class Socket:
   		self.device = self.data['device']
                 self.state = self.data['state']
                 self.speed = self.data['speed']
-                
 		
             except socket.error:
                 pass
