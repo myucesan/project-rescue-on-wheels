@@ -13,7 +13,7 @@ class Socket:
         self.socket.setblocking(False)
 	self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         self.socket.bind((host, port))
-        self.list []
+        self.list = []
         self.address = None
         self.message = None
         self.speed = 220
