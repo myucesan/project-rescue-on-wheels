@@ -27,11 +27,11 @@ Your browser does not support the HTML5 canvas tag.
 <p class="cameraInfo posServoTitle">POS SERVO</p>
 <p class="cameraInfo posServo">SELECT ROVER</p>
 <p class="roverInfo roverNumberTitle">ROVER NO.</p>
-<p class="roverInfo roverNumber">SELECT ROVER</p>
-<p class="roverIPPort roverIP">IP: 256.42.2.1</p>
-<p class="roverIPPort roverPort">Port: 8802</p>
+<p id="roverNo" class="roverInfo roverNumber">SELECT ROVER</p>
+<p id="ip" class="roverIPPort roverIP">IP: 256.42.2.1</p>
+<p id="port" class="roverIPPort roverPort">Port: 8802</p>
 <a href="ControlPage.html"><button type="button" class="micButton"></button></a>
-<a id="driveback"><button type="button" class="connectButton">Drive back</button></a>
+<a id="driveback"><button type="button" class="driveBackButton">BACK</button></a>
 </section>
 <footer>
 <img class="HVAlogo" src="{{url_for('static', filename='images/AUASlogo.png')}}" alt="AUAS Logo">

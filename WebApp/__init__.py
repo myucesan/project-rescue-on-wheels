@@ -49,4 +49,4 @@ def test():
 spawn(test)
 
 if __name__ == '__main__':
-    socketio.run(app, "192.168.137.8", 9949)
+    socketio.run(app, "192.168.137.8", 9934)

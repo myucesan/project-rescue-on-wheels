@@ -5,10 +5,11 @@ $(document).ready(function() {
   var ctx = c.getContext("2d");
   ctx.beginPath();
   ctx.moveTo(200, 100);
+  ctx.lineWidth = 4;
   var x_b = 200;
   var y_b = 100;
   var hoek = Math.PI/2;
-  var v = 2;
+  var v = 4;
   var control = {
 		"device": "Webapp",
 		"state": null,
@@ -16,7 +17,9 @@ $(document).ready(function() {
 		"backtrack": 0
 	};
   socket.emit('roverConnection', roverInfo);
-  
+  $('#ip').text("IP:" + JSON.parse(roverInfo).ip);
+  $('#port').text("Port:" + JSON.parse(roverInfo).port);
+  $('#roverNo').text(JSON.parse(roverInfo).name);
   window.addEventListener("keydown", controlOnKey, false);
   window.addEventListener("keyup", stop, false);
 
