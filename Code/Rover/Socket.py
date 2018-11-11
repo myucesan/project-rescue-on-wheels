@@ -3,7 +3,6 @@ import RPi.GPIO as gpio
 import smbus
 import socket
 import json
-from couch import *
 import time
 
 class Socket:
