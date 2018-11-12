@@ -43,16 +43,16 @@ class Socket:
                 	self.speed = self.data['speed']
                 	self.backtrack = self.data['backtrack']
                 	if self.device == "Webapp":
-                        if self.backtrack == 0:
-                            if self.state != "stop":
-                                self.begin = time.time()
-                            else:
-                                self.end = time.time()
-                                self.lineData["state"] = self.prevState
-                                self.lineData["time"] = self.end - self.begin
-                                self.begin = None
-                                self.list.append(self.lineData)
-                                self.socket.sendto(bytes(json.dumps(self.lineData), "utf-8"), self.address)
+                            if self.backtrack == 0:
+                                if self.state != "stop":
+                                    self.begin = time.time()
+                                else:
+                                    self.end = time.time()
+                                    self.lineData["state"] = self.prevState
+                                    self.lineData["time"] = self.end - self.begin
+                                    self.begin = None
+                                    self.list.append(self.lineData)
+                                    self.socket.sendto(bytes(json.dumps(self.lineData), "utf-8"), self.address)
     
                             self.prevJson = self.data
                             self.prevState = self.state
