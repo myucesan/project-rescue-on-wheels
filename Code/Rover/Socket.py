@@ -51,7 +51,10 @@ class Socket:
                                             self.lineData["state"] = self.prevState
                                             self.lineData["time"] = self.end - self.begin
                                             self.begin = None
-                                            self.list.append(self.lineData)
+                                            self.list.append({
+                                                "state": self.lineData["state"],
+                                                "time": self.lineData["time"]
+                                            })
                                             self.socket.sendto(bytes(json.dumps(self.lineData).encode("utf-8")), self.address)
             
                                 self.prevJson = self.data
