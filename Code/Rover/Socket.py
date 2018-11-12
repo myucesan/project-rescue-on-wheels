@@ -19,6 +19,8 @@ class Socket:
         self.state = None
         self.device = None
         self.data = None
+        self.begin = None
+        self.end = None
         self.distance = 5
         self.servo = 5
 	self.lineData = {
