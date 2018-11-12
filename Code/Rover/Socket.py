@@ -28,6 +28,7 @@ class Socket:
         self.i = 1
         self.counter = 0
         self.prevState = None
+        self.prevJson = None
 	self.backtrack = 0
 
     def receiveValues(self):
@@ -48,7 +49,7 @@ class Socket:
 					self.lineData["state"] = self.prevState
 					self.lineData["time"] = self.end - self.begin
                                 	self.list.append(self.lineData)
-                                	self.socket.sendto(bytes(json.dumps(self.lineData), "utf-8"), self.address)
+                                	self.socket.sendto(bytes(json.dumps(self.lineData).encode("utf-8")), self.address)
                             	else:
                                 	self.begin = time.time()
                                 	self.counter = self.counter + 1
