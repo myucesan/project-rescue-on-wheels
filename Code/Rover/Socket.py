@@ -54,8 +54,8 @@ class Socket:
                                     self.list.append(self.lineData)
                                     self.socket.sendto(bytes(json.dumps(self.lineData), "utf-8"), self.address)
     
-                            self.prevJson = self.data
-                            self.prevState = self.state
+                        self.prevJson = self.data
+                        self.prevState = self.state
 			
 
             except socket.error:
