@@ -25,8 +25,7 @@ class Socket:
         	"state": None,
         	"time": None,
         }
-        self.i = 1
-        self.counter = 0
+
         self.prevState = None
         self.prevJson = None
 	self.backtrack = 0
