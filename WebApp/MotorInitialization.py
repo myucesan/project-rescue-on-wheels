@@ -3,9 +3,11 @@ import RPi.GPIO as gpio
 from Bus import * 
 
 class MotorControl():
+
     def __init__(self):
-        self.bus = smbus.SMBus(1)
-	self.MOTOR_ADDRESS = 0x32
+        self.bus = Bus().get_bus()
+	self.MOTOR_ADDRESS = self.bus.get_motor_address()
+	#bus._MOTOR_ADDRESS
         #Initializing directions
         self.MotorFD = [7, 3, 0xa5, 2, 3, 0xa5, 2]
         self.MotorL = [7, 3, 0xa5, 1, 3, 0xa5, 2]
@@ -13,16 +15,20 @@ class MotorControl():
         self.MotorBD = [7, 3, 0xa5, 1, 3, 0xa5, 1]
         self.MotorST = [7, 0, 0, 0, 0, 0, 0]
         # Motor speed
-        self.Totalpower = [4, 220]
-        self.Softstart = [0x91, 100, 0]
+	#self.MOTOR_ADDRESS = self.bus.
+	self.Totalpower = [4, 220]
+	self.Softstart = [0x91, 100, 0]
+
     def set_up(self):
         gpio.setmode(gpio.BCM)
         gpio.setup(17, gpio.IN, pull_up_down=gpio.PUD_DOWN)
         self.bus.write_i2c_block_data(self.MOTOR_ADDRESS, 0, self.Totalpower)
         self.bus.write_i2c_block_data(self.MOTOR_ADDRESS, 0, self.Softstart)
+
     def forward(self):
         # Drive forward
         self.bus.write_i2c_block_data(self.MOTOR_ADDRESS, 0, self.MotorFD)
+    
     def backward(self):
         # Drive backward
         self.bus.write_i2c_block_data(self.MOTOR_ADDRESS, 0, self.MotorBD)
