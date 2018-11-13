@@ -55,3 +55,7 @@ def main():
 
 	#Initialise display
 	lcd_init()
+
+	#Toggle backlight on-off-on
+	lcd_backlight(true)
+
