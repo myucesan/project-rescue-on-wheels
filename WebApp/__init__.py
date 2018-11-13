@@ -16,6 +16,10 @@ thread = None
 def main():
 	return render_template('index.html')
 
+#@app.route('/index')
+#def index():
+#	return render_template('index.html')
+
 @app.route('/ControlPage')
 def ControlPage():
 	return render_template('ControlPage.html')
@@ -27,6 +31,10 @@ def startConnection(roverInfo):
 	port = test['port']
 	server_addres = (server_ip, port)
 	list.append(server_addres)	
+
+@socketio.on('test')
+def test(data):
+	print(data)
 
 @socketio.on('roverControl')
 def controlRover(data):
@@ -46,7 +54,7 @@ def test():
 			if prevMes == None or prevMes != message:
 				socketio.emit('lineDrawer', message.decode())
 		sleep(0.1)
-spawn(test)
+#spawn(test)
 
 if __name__ == '__main__':
-    socketio.run(app, "192.168.137.8", 9934)
+    socketio.run(app, "10.3.141.1", 8808)
