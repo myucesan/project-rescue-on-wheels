@@ -1,6 +1,7 @@
-#!/usr/bin/python
+# !/usr/bin/python
 import RPi.GPIO as gpio
 from Bus import *
+import time
 
 
 class MotorControl():
@@ -19,9 +20,12 @@ class MotorControl():
         # self.MOTOR_ADDRESS = self.bus.
         self.Totalpower = [4, 220]
         self.Softstart = [0x91, 100, 0]
-	#Time
-	self.begin_time = None
-	self.end_time = None
+        # state n prevstate
+        self.prevDirection = None
+        # Time
+        self.begin_time = None
+        self.end_time = None
+        self.time = None
 
     def set_up(self):
         gpio.setmode(gpio.BCM)
@@ -56,16 +60,29 @@ class MotorControl():
         self.bus.get_bus().write_i2c_block_data(self.MOTOR_ADDRESS, 0, self.Softstart)
 
     def drive(self, direction):
+        print("prevDirection")
+        print(self.prevDirection)
 
-	if self.begin_time is None:
-		self.time = None
-		self.begin_time = time.time()
-	else:
-		self.end_time = time.time()
-		self.time = self.end_time - self.begin_time
-		self.end_time = None
-		self.begin_time = None
-		print(self.time)
+        if self.begin_time is None:
+            self.begin_time = time.time()
+        elif direction == "stop":
+            self.end_time = time.time()
+            self.time = self.end_time - self.begin_time
+            print(self.time)
+            self.begin_time = None
+			# 1. niets 1 seconde ...
+			# 2. forward doen voor 10 seconde
+			# 3. gaat stop functie in.
+			# 4. 5 seconde niets doen
+			# 5. forward
+
+			# 1. left 5 seconde 15:45:20
+			# 2. forward 5 seconde 15:45:25
+        elif self.prevDirection is not None and direction != self.prevDirection:
+            self.end_time = time.time()
+            self.time = self.end_time - self.begin_time
+            print(self.time)
+            self.begin_time = time.time()
 
         if direction == "forward":
             self.forward()
@@ -77,6 +94,8 @@ class MotorControl():
             self.backward()
         if direction == "stop":
             self.stop()
+
+        self.prevDirection = direction
 
     def reserve_drive(self, direction):
         if direction == "forward":
@@ -89,4 +108,4 @@ class MotorControl():
             self.forward()
         if direction == "stop":
             self.stop()
-            
+

@@ -29,4 +29,4 @@ def track_back(status):
 	print(status)
 
 if __name__ == '__main__':
-    socketio.run(app, "10.3.141.1", 8823)
+    socketio.run(app, "10.3.141.1", 8877)
