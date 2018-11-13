@@ -20,34 +20,40 @@ $(document).ready(function() {
   $('#ip').text("IP:" + JSON.parse(roverInfo).ip);
   $('#port').text("Port:" + JSON.parse(roverInfo).port);
   $('#roverNo').text(JSON.parse(roverInfo).name);
-  window.addEventListener("keydown", controlOnKey, false);
-  window.addEventListener("keyup", stop, false);
 
   $('#driveback').on('click', function(){
     control.backtrack = 1;
     socket.emit('roverControl', JSON.stringify(control));
 });
 
+  window.addEventListener("keydown", controlOnKey, false);
+  window.addEventListener("keyup", stop, false);
+
   function stop(key) {
       control.state = "stop";
+      control.backtrack = 0;
       socket.emit('roverControl', JSON.stringify(control));
    }
 
   function controlOnKey(key) {
     if (key.keyCode == "87") {
       control.state = "forward";
+      control.backtrack = 0;
       socket.emit('roverControl', JSON.stringify(control));
     }
     if (key.keyCode == "65") {
       control.state = "left";
+      control.backtrack = 0;
       socket.emit('roverControl', JSON.stringify(control));
     }
     if (key.keyCode == "68") {
       control.state = "right";
+      control.backtrack = 0;
       socket.emit('roverControl', JSON.stringify(control));
     }
     if (key.keyCode == "83") {
       control.state = "backward";
+      control.backtrack = 0;
       socket.emit('roverControl', JSON.stringify(control));
     }
     if (key.keyCode == "32") {

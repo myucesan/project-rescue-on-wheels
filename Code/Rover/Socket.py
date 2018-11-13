@@ -21,6 +21,8 @@ class Socket:
         self.data = None
         self.distance = 5
         self.servo = 5
+	self.begin = None
+	self.end = None
 	self.lineData = {
         	"state": None,
         	"time": None,
@@ -37,6 +39,7 @@ class Socket:
 		if self.message is not None:
 			self.data = json.loads(self.message.decode())
         		if self.data != self.prevJson:
+				print(self.data)
           			self.device = self.data['device']
                         	self.state = self.data['state']
                         	self.speed = self.data['speed']

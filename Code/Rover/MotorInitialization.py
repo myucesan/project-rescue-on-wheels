@@ -16,7 +16,7 @@ class MotorInitialization:
 	 self.MotorBD = [7, 3, 0xa5, 1, 3, 0xa5, 1]
          self.MotorST = [7,0,0,0,0,0,0]
          #Motor speed
-         self.Totalpower = [4,220]
+         self.Totalpower = [4,200]
          self.Softstart = [0x91,100,0]
          #Address to access motor
          self.SLAVE_ADDRESS = 0x32
@@ -64,6 +64,7 @@ class MotorInitialization:
     	while True:
         	self.socket.receiveValues()
 		try:
+			
 			if self.socket.backtrack == 0:
 				self.state = self.socket.state
 	        		if self.prevValue == None or self.prevValue != self.state:
@@ -82,7 +83,11 @@ class MotorInitialization:
 					if doc["state"] == "backward":
 						self.forward()
 					time.sleep(doc["time"])
-				self.stop()
+					self.stop()
+					time.sleep(1)
+				self.socket.backtrack = 0
+				self.socket.list.clear()
+				print(self.socket.list)
 				
 						
                         if self.state == "forward":
@@ -96,6 +101,7 @@ class MotorInitialization:
                         if self.state == "stop":
             	        	self.stop()
 		except:
-			self.socket.close()
+			pass
+			#self.socket.close()
 		#if self.prevSpeed == None or self.prevSpeed != self.socket.speed:
 			#self.setSpeed(self.socket.speed)

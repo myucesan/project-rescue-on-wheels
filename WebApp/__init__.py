@@ -32,7 +32,7 @@ def startConnection(roverInfo):
 def controlRover(data):
 	
 	#print("controlRovermethod")
-	print(data)
+	#print(data)
 	socket.sendto(bytes(data, "utf-8"), list[0])	
 
 def test():
@@ -42,11 +42,11 @@ def test():
 		
 		if list:
 			message, address = socket.recvfrom(1024)
-			print(message)
+#			print(message)
 			if prevMes == None or prevMes != message:
 				socketio.emit('lineDrawer', message.decode())
 		sleep(0.1)
 spawn(test)
 
 if __name__ == '__main__':
-    socketio.run(app, "192.168.137.8", 9934)
+    socketio.run(app, "10.3.141.1", 9935)
