@@ -20,6 +20,10 @@ $(document).ready(function() {
   $('#ip').text("IP:" + JSON.parse(roverInfo).ip);
   $('#port').text("Port:" + JSON.parse(roverInfo).port);
   $('#roverNo').text(JSON.parse(roverInfo).name);
+  
+  $('#Get').on('click', function(){
+    socket.emit('outputString', $('#textbox').val());
+	});
 
   $('#driveback').on('click', function(){
     control.backtrack = 1;

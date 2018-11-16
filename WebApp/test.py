@@ -5,12 +5,24 @@ from main import *
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
-main = Main()
+
+
+@app.route('/')
+def main():
+        return render_template('index.html')
+
+@app.route('/ControlPage')
+def ControlPage():
+        return render_template('ControlPage.html')
+
 @socketio.on('direction')
 def drive_into_direction(data):
 	print(data)
-	main._motor_control.drive(data)
-	
+	Main()._motor_control.drive(data)
+
+@socketio.on('outputString')
+def output_string(data):
+	Main()._lcd.output_string(data, Main()._lcd._LCD_LINE_1, 2)	
 	
 @socketio.on('microphone')
 def talk(data):
@@ -29,4 +41,4 @@ def track_back(status):
 	print(status)
 
 if __name__ == '__main__':
-    socketio.run(app, "10.3.141.1", 8877)
+    socketio.run(app, "10.3.141.1", 8846)

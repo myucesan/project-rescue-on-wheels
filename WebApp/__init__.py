@@ -12,6 +12,7 @@ socketio = SocketIO(app, async_mode='gevent')
 socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 list = []
 thread = None
+main = Main()
 @app.route('/')
 def main():
 	return render_template('index.html')
@@ -23,6 +24,10 @@ def main():
 @app.route('/ControlPage')
 def ControlPage():
 	return render_template('ControlPage.html')
+
+@socketio.on('outputString')
+def output_string(data):
+	
 	
 @socketio.on('roverConnection')
 def startConnection(roverInfo):
@@ -57,8 +62,5 @@ def test():
 #spawn(test)
 
 if __name__ == '__main__':
-<<<<<<< HEAD
-    socketio.run(app, "10.3.141.1", 9935)
-=======
-    socketio.run(app, "10.3.141.1", 8808)
->>>>>>> 3897ec19c58f51706be62f0bc4e6b3280b5686cf
+
+    socketio.run(app, "10.3.141.1", 9934)
