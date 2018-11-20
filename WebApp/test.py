@@ -22,7 +22,7 @@ def drive_into_direction(data):
 
 @socketio.on('outputString')
 def output_string(data):
-	Main()._lcd.output_string(data, Main()._lcd._LCD_LINE_1, 2)	
+	Main()._lcd.output_string(data)	
 	
 @socketio.on('microphone')
 def talk(data):
@@ -41,4 +41,4 @@ def track_back(status):
 	print(status)
 
 if __name__ == '__main__':
-    socketio.run(app, "10.3.141.1", 8846)
+    socketio.run(app, "10.3.141.1", 6950)
