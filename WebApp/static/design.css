@@ -24,13 +24,13 @@ body {
 .roverNumberTitle {
   font-family: agencyFB;
   font-size: 150%;
-  left:30%;
+  left:25%;
 }
 
 .roverNumber {
   font-family: agencyFB_Bold;
   font-size: 150%;
-  left:36%;
+  left:32%;
 }
 
 .roverIPPort {
@@ -42,11 +42,11 @@ body {
 }
 
 .roverIP {
-  left: 62%;
+  left: 63%;
 }
 
 .roverPort {
-  left: 70%;
+  left: 73%;
 }
 
 .subtitle {
@@ -60,14 +60,14 @@ body {
 
 .cameraInfo {
   position: absolute;
-  left: 15%;
+  left: 12%;
   font-size: 175%;
   color: #FFFFFF;
 }
 
 .camNameTitle {
   font-family: AgencyFB;
-  top: 15%;
+  top: 16%;
 }
 
 .camName {
@@ -77,17 +77,17 @@ body {
 
 .objDistTitle {
   font-family: AgencyFB;
-  top: 26%;
+  top: 28%;
 }
 
 .objDist {
   font-family: AgencyFB_Bold;
-  top: 31%;
+  top: 32%;
 }
 
 .posServoTitle {
   font-family: AgencyFB;
-  top: 37%;
+  top: 38%;
 }
 
 .posServo {
@@ -96,8 +96,8 @@ body {
 }
 
 .videoStreamer {
-  width:53%;
-  height:50%;
+  width: 53%;
+  height: 50%;
   position: absolute;
   left: 25%;
   top:20%;
@@ -167,8 +167,8 @@ body {
 }
 
 .micButton {
-  height: 9.8%;
-  width: 4.6%;
+  height: 12.3%;
+  width: 6.8%;
   background-color: transparent;
   background-repeat: no-repeat;
   background-image: url("images/mic.png");
@@ -203,6 +203,23 @@ body {
 .connectButton:hover {
   background-color: #FFFFFF;
   color: #333333;
+}
+
+.driveBackButton {
+  height: 12.3%;
+  width: 6.8%;
+  background-color: #333333;
+  position: absolute;
+  left: 89%;
+  top: 53%;
+  color: #FFFFFF;
+  font-family: AgencyFB_Bold;
+  font-size: 200%;
+  border: 5px solid #FFFFFF;
+}
+.driveBackButton:hover {
+ background-color: #FFFFFF;
+ color: #333333;
 }
 
 ::-webkit-scrollbar {

@@ -16,12 +16,10 @@
 <a href="#"><img class="logo" src="{{url_for('static', filename='images/Veelhoek121.png')}}" alt="Rover Logo"></a>
 </header>
 <section>
-<canvas id="lineDrawer" class="lineNavigation">
+<canvas id="canvastest" class="lineNavigation">
 Your browser does not support the HTML5 canvas tag.
 </canvas>
-<canvas class="videoStreamer">
-Your browser does not support the HTML5 canvas tag.
-</canvas>
+<img class="videoStreamer" src="http://10.3.141.1:8808/cam.mjpg">
 <p class="cameraInfo camNameTitle">CAM</p>
 <p class="cameraInfo camName">SELECT ROVER</p>
 <p class="cameraInfo objDistTitle">OBJ DIST</p>
@@ -29,10 +27,13 @@ Your browser does not support the HTML5 canvas tag.
 <p class="cameraInfo posServoTitle">POS SERVO</p>
 <p class="cameraInfo posServo">SELECT ROVER</p>
 <p class="roverInfo roverNumberTitle">ROVER NO.</p>
-<p class="roverInfo roverNumber">SELECT ROVER</p>
-<p class="roverIPPort roverIP">IP: 256.42.2.1</p>
-<p class="roverIPPort roverPort">Port: 8802</p>
+<p id="roverNo" class="roverInfo roverNumber">SELECT ROVER</p>
+<p id="ip" class="roverIPPort roverIP">IP: 256.42.2.1</p>
+<p id="port" class="roverIPPort roverPort">Port: 8802</p>
 <a href="ControlPage.html"><button type="button" class="micButton"></button></a>
+<a id="driveback"><button type="button" class="driveBackButton">BACK</button></a>
+<input id="textbox" type="text" value="Voer iets in">
+<button id="Get">Get TextBox Value</button> 
 </section>
 <footer>
 <img class="HVAlogo" src="{{url_for('static', filename='images/AUASlogo.png')}}" alt="AUAS Logo">
