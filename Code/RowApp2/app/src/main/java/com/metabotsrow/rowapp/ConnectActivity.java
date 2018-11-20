@@ -7,7 +7,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiManager;
@@ -18,27 +20,20 @@ import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.res.ResourcesCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import java.math.BigInteger;
 import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.nio.ByteOrder;
-import java.time.Duration;
 import java.util.List;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Yoshio on 04/10/2018.
@@ -85,14 +80,6 @@ public class ConnectActivity extends AppCompatActivity implements View.OnClickLi
             // Get reference of widgets from XML layout
             final ListView connectionListView = (ListView) findViewById(R.id.connectionListView);
 
-//        // Simple check if rovers are already initialized
-//        if(RoverList.getRoverList().getRovers().size() == 0){
-//            // Initializing rovers only if they aren't already
-//            RoverList.getRoverList().addRover(new Rover("DUMMY ROVER 2", "192.168.192.52", 8802));
-//            RoverList.getRoverList().addRover(new Rover("ROVER 8", "10.3.141.1", 8812));
-//            RoverList.getRoverList().addRover(new Rover("DUMMY ROVER 11", "10.3.141.1", 8810));
-//            RoverList.getRoverList().addRover(new Rover("DUMMY ROVER 21", "10.3.141.1", 8821));
-//        }
 
             // Create an ArrayAdapter from List
             adapter = new ArrayAdapter<String>
@@ -126,16 +113,22 @@ public class ConnectActivity extends AppCompatActivity implements View.OnClickLi
             connectionListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    selectedItem = connectionListView.getItemAtPosition(i);
-                    Controller.getController().setSelectedConnection(RoverList.getRoverList().getRoverFromList(
-                            RoverList.getRoverList().getIndexFromName(selectedItem.toString())));
-                    String s = selectedItem.toString();
-                    Log.d("DEBUG_TAG", s);
+                    if (selectedItem == null || selectedItem != connectionListView.getItemAtPosition(i)) {
+                        connectionListView.setSelector(new ColorDrawable(Color.rgb(189, 189, 189)));
+                        selectedItem = connectionListView.getItemAtPosition(i);
+                        Controller.getController().setSelectedConnection(RoverList.getRoverList().getRoverFromList(
+                                RoverList.getRoverList().getIndexFromName(selectedItem.toString())));
+                    } else {
+                        connectionListView.setSelector(new ColorDrawable(Color.TRANSPARENT));
+                        selectedItem = null;
+                        Controller.getController().setSelectedConnection(null);
+
+                    }
                 }
             });
 
-            Button connectBtn = findViewById(R.id.connectBtn);
-            connectBtn.setOnClickListener(this);
+            Button nextBtn = findViewById(R.id.nextBtn);
+            nextBtn.setOnClickListener(this);
         }
 
         private void getWifiNames () {
@@ -153,7 +146,7 @@ public class ConnectActivity extends AppCompatActivity implements View.OnClickLi
                 unregisterReceiver(this);
 
                 for (ScanResult result : results) {
-                    if (result.SSID.contains("UPC")) {
+                    if (result.SSID.contains("Rover")) {
                         RoverList.getRoverList().addRover(result);
                         RoverList.getRoverList().addRoverName(result.SSID);
                         adapter.notifyDataSetChanged();
@@ -170,70 +163,75 @@ public class ConnectActivity extends AppCompatActivity implements View.OnClickLi
         @Override
         public void onClick (View v){
             // Check if any item is selected.
-            if (selectedItem.toString().contains("UPC")) {
-                Controller.getController().setSelectedConnection(RoverList.getRoverList().getRoverFromList(
-                        RoverList.getRoverList().getIndexFromName(selectedItem.toString())));
 
-                String networkSSID = Controller.getController().getSelectedConnection().SSID;
-                String networkPass = "gsEcYi8iw4wi";
 
-                WifiConfiguration conf = new WifiConfiguration();
-                conf.SSID = "\"" + networkSSID + "\"";
+            if (selectedItem != null) {
+                AlertDialog.Builder mBuilder = new AlertDialog.Builder(ConnectActivity.this);
+                View mView = getLayoutInflater().inflate(R.layout.activity_connect_password, null);
+                final EditText mPassword = (EditText) mView.findViewById(R.id.insertPw);
+                Button connect = (Button) mView.findViewById(R.id.btnConnect);
+                Button back = (Button) mView.findViewById(R.id.btnBack);
+                mBuilder.setView(mView);
+                final AlertDialog dialog = mBuilder.create();
+                dialog.show();
 
-                if (Controller.getController().getSelectedConnection().capabilities.contains("WPA")) {
-                    conf.preSharedKey = "\"" + networkPass + "\"";
-                } else if (Controller.getController().getSelectedConnection().capabilities.contains("WEP")) {
-                    conf.wepKeys[0] = "\"" + networkPass + "\"";
-                    conf.wepTxKeyIndex = 0;
-                    conf.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
-                    conf.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.WEP40);
-                } else {
-                    conf.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
-                }
+                connect.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (mPassword.getText().toString().isEmpty()) {
+                            Toast.makeText(ConnectActivity.this, "Insert a password!", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Controller.getController().setSelectedConnection(RoverList.getRoverList().getRoverFromList(RoverList.getRoverList().getIndexFromName(selectedItem.toString())));
+                            String networkSSID = Controller.getController().getSelectedConnection().SSID;
+                            String password = mPassword.getText().toString();
+                            int ip = 0;
+                            WifiConfiguration conf = new WifiConfiguration();
+                            conf.SSID = "\"" + networkSSID + "\"";
+                            conf.preSharedKey = "\"" + password + "\"";
+                            wifi.addNetwork(conf);
 
-                wifi.addNetwork(conf);
+                            List<WifiConfiguration> list = wifi.getConfiguredNetworks();
+                            for (WifiConfiguration b : list) {
+                                if (b.SSID != null && b.SSID.equals("\"" + networkSSID + "\"")) {
 
-                List<WifiConfiguration> list = wifi.getConfiguredNetworks();
-                for( WifiConfiguration b : list ) {
-                    if(b.SSID != null && b.SSID.equals("\"" + networkSSID + "\"")) {
-                        wifi.disconnect();
-                        wifi.enableNetwork(b.networkId, true);
-                        wifi.reconnect();
-                        if (wifi.enableNetwork(b.networkId, true) && wifi.reconnect()) {
+                                    if (wifi.disconnect() && wifi.enableNetwork(b.networkId, true)
+                                            && wifi.reconnect()) {
 
-                          try {
-                                Thread.sleep(4000);
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
+                                        Controller.getController().setSelectedRover(
+                                                Controller.getController().getSelectedConnection().SSID,
+                                                "10.3.141.1",
+                                                8877                          );
+                                        break;
+                                    } else {
+                                        System.out.println("NOTWORKING");
+                                        Toast.makeText(ConnectActivity.this, "Wrong password inserted.", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    }
+
+                                }
                             }
 
-                            int ip = wifi.getConnectionInfo().getIpAddress();
-                            ip = (ByteOrder.nativeOrder().equals(ByteOrder.LITTLE_ENDIAN)) ?
-                                    Integer.reverseBytes(ip) : ip;
-
-                            byte[] ipAddress = BigInteger.valueOf(ip).toByteArray();
-
-                            try {
-                                myAddr = InetAddress.getByAddress(ipAddress);
-                            } catch (UnknownHostException e) {
-                                e.printStackTrace();
-                            }
-
-                            Controller.getController().setSelectedRover(
-                                    myAddr.getHostAddress(),
-                                    Integer.toString(wifi.getConnectionInfo().getIpAddress()),
-                                    8802
-                            );
-                            break;
+                            Intent intent = new Intent(ConnectActivity.this, RobotBesturen.class);
+                            startActivity(intent);
+                            finish();
                         }
                     }
-                }
+                });
+                back.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.hide();
+                    }
+                });
 
-
-                Intent intent = new Intent(this, RobotBesturen.class);
-                startActivity(intent);
-                finish();
+            } else {
+                Toast.makeText(ConnectActivity.this, "Select a rover first!", Toast.LENGTH_SHORT).show();
             }
         }
 
-    }
+
+
+            }
+
+
+

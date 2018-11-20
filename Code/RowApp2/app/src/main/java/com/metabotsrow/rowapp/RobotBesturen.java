@@ -1,27 +1,20 @@
 package com.metabotsrow.rowapp;
 
-import android.content.Context;
-import android.net.wifi.WifiManager;
-import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Display;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.WindowManager;
-import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.TextView;
 
 import com.erz.joysticklibrary.JoyStick;
+import com.github.nkzawa.socketio.client.IO;
+import com.github.nkzawa.socketio.client.Socket;
 
 import java.io.Serializable;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
+import java.net.URISyntaxException;
 
-// Het streamt niet echt een mp4 bestand ofzo. We doen de streampagina gewoon in de WebView.
+// Het streamt niet echt een mp4 bestand ofzo. We doen de 1streampagina gewoon in de WebView.
 // https://code.tutsplus.com/tutorials/streaming-video-in-android-apps--cms-19888
 public class RobotBesturen extends AppCompatActivity implements Serializable, JoyStick.JoyStickListener {
     private static final String DEBUG_TAG = "DEBUG";
@@ -33,15 +26,20 @@ public class RobotBesturen extends AppCompatActivity implements Serializable, Jo
     private boolean prevForward;
     private boolean prevLeft;
     private boolean prevBackward;
+    private Socket mSocket;
+    {
+        try {
+            mSocket = IO.socket("http://" + rover.getIP() + ":" + rover.getPort());
+        } catch (URISyntaxException e) {}
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mSocket.connect();
         setContentView(R.layout.activity_robot_besturen);
-        WifiManager wifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
-        System.out.println(wifi.getConnectionInfo().getIpAddress());
         // Setup camera
-        String videoPath = String.format("http://%s:%d/?action=stream", rover.getIP(), rover.getPort());
+        String videoPath = String.format("http://%s:%d/cam.mjpg", rover.getIP(), (rover.getPort()+1));
         WebView webView = findViewById(R.id.webView);
         webView.getSettings().setLoadWithOverviewMode(true);
         webView.getSettings().setUseWideViewPort(true);
@@ -57,19 +55,6 @@ public class RobotBesturen extends AppCompatActivity implements Serializable, Jo
             }
         });
 
-        // Get socket from previous activity.
-        try {
-            Client.getClient().setHost(InetAddress.getByName(rover.getIP()));
-            Client.getClient().setPort(rover.getPort());
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-        }
-
-//        try {
-//            client = new Client(InetAddress.getByName(rover.getIP()), rover.getPort());
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
 
 
         // Create joystick
@@ -84,8 +69,6 @@ public class RobotBesturen extends AppCompatActivity implements Serializable, Jo
         TextView roverTextView = findViewById(R.id.rover);
         roverTextView.setText(rover.getName());
 
-
-        new OnReceive().execute();
     }
 
     @Override
@@ -95,40 +78,35 @@ public class RobotBesturen extends AppCompatActivity implements Serializable, Jo
             case -1:
                 // To avoid unnecessary traffic, we avoid sending the same direction multiple times.
                 if(!prevStop){
-                    Client.getClient().insertValues("stop", speed);
-                    Client.getClient().sendData();
+                    mSocket.emit("direction", "stop");
                     prevStop = true; prevRight = false; prevForward = false; prevLeft = false; prevBackward = false;
                     //Log.d(DEBUG_TAG, "stop");
                 }
                 break;
             case 0:
                 if(!prevLeft){
-                    Client.getClient().insertValues("left", speed);
-                    Client.getClient().sendData();
+                    mSocket.emit("direction", "left");
                     prevStop = false; prevRight = false; prevForward = false; prevLeft = true; prevBackward = false;
                     //Log.d(DEBUG_TAG, "left");
                 }
                 break;
             case 2:
                 if(!prevForward){
-                    Client.getClient().insertValues("forward", speed);
-                    Client.getClient().sendData();
+                    mSocket.emit("direction", "forward");
                     prevStop = false; prevRight = false; prevForward = true; prevLeft = false; prevBackward = false;
                     //Log.d(DEBUG_TAG, "forward");
                 }
                 break;
             case 4:
                 if(!prevRight){
-                    Client.getClient().insertValues("right", speed);
-                    Client.getClient().sendData();
+                    mSocket.emit("direction", "right");
                     prevStop = false; prevRight = true; prevForward = false; prevLeft = false; prevBackward = false;
                     //Log.d(DEBUG_TAG, "right");
                 }
                 break;
             case 6:
                 if(!prevBackward){
-                    Client.getClient().insertValues("backward", speed);
-                    Client.getClient().sendData();
+                    mSocket.emit("direction", "backward");
                     prevStop = false; prevRight = false; prevForward = false; prevLeft = false; prevBackward = true;
                     //Log.d(DEBUG_TAG, "backward");
                 }

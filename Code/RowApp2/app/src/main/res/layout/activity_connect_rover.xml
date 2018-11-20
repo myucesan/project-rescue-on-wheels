@@ -41,32 +41,33 @@
 
         <ListView
             android:id="@+id/connectionListView"
-            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="150dp"
+            android:layout_marginTop="5dp"
             android:background="@color/colorCloud"
-            android:textColor="@color/colorDark"
-            android:fontFamily="@font/agency_fb"
+            android:cacheColorHint="@color/colorCloud"
+            android:choiceMode="singleChoice"
             android:divider="@color/colorDark"
             android:dividerHeight="1dp"
-            android:scrollbarSize="10dp"
             android:fadeScrollbars="false"
-            android:scrollbarThumbVertical="@drawable/scrollbar_thumb"
+            android:fontFamily="@font/agency_fb"
             android:footerDividersEnabled="false"
             android:overScrollFooter="@android:color/transparent"
-            android:choiceMode="singleChoice"
-            android:listSelector="@color/colorDarkerCloud">
+            android:scrollbarSize="10dp"
+            android:scrollbarThumbVertical="@drawable/scrollbar_thumb"
+            android:textColor="@color/colorDark">
+
         </ListView>
 
         <Button
-            android:id="@+id/connectBtn"
+            android:id="@+id/nextBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/btn_bg_selector"
             android:fontFamily="@font/agency_fb_bold"
             android:onClick="onClick"
-            android:text="CONNECT"
+            android:text="NEXT"
             android:textColor="@drawable/btn_txt_selector"
             android:textSize="30sp" />
     </LinearLayout>
