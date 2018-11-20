@@ -48,12 +48,9 @@ public final class RoverList {
         rovers.remove(i);
     }
 
-
     public List<String> getRoverNames() {
         return roverNames;
     }
-
-
 
     public static RoverList getRoverList() {
         return instance;
@@ -63,4 +60,5 @@ public final class RoverList {
         return rovers;
     }
 
+    public void clearRoverList() { rovers.clear(); roverNames.clear(); }
 }
