@@ -1,0 +1,300 @@
+\documentclass[12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{color}
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\usepackage{titlesec}
+\usepackage[most]{tcolorbox}
+\usepackage{lipsum}
+\usepackage{times}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
+
+\setcounter{secnumdepth}{4}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\colorlet{helpful}{lime!70}
+\colorlet{harmful}{red!30}
+\colorlet{internal}{yellow!20}
+\colorlet{external}{cyan!30}
+\colorlet{S}{helpful!50!internal}
+\colorlet{W}{harmful!50!internal}
+\colorlet{O}{helpful!50!external}
+\colorlet{T}{harmful!50!external}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\newcommand{\texta}{Helpful\par \tiny (to achieve the objective)}
+\newcommand{\textb}{Harmful\par \tiny (to achieve the objective)}
+\newcommand{\textcn}{\rotatebox[origin=c]{90}{\parbox[t]{3cm}{\centering Internal origin\\ \tiny (Personal attributes)\par}}}
+\newcommand{\textdn}{\rotatebox[origin=c]{90}{\parbox[b]{3cm}{\centering External origin\\ \tiny (Environmental attributes)\par}}}
+\newcommand{\texten}{\rotatebox[origin=c]{90}{\parbox[t]{3cm}{\centering Internal origin\\ \tiny (Group attributes)\par}}}
+
+
+\newcommand{\texts}{strength 1\par strength 2}
+\newcommand{\textw}{weakness 1\par weakness 2}
+\newcommand{\texto}{opportunity 1\par opportunity 2}
+\newcommand{\textt}{threat 1\par threat 2}
+
+\tcbset{swotbox/.style={size=normal, boxrule=0pt,
+		colback=#1, watermark text=#1, width=.5\linewidth-5mm},
+	header/.style={size=small, boxrule=0pt, width=.5\linewidth-5mm, colback=#1, valign=center, halign=center},
+	firstcol/.style={header=#1, width=1cm}
+}
+
+\lstset{
+	language=Java,
+	commentstyle=\color{mygreen},
+	frame=single,
+	keepspaces=true,
+	columns=fullflexible,
+	keywordstyle=\color{blue},
+	numbers=left,
+	numbersep=5pt,
+	numberstyle=\tiny\color{mygray}
+}	
+\begin{document}
+	\title{\huge Rescue on wheels process documentation}
+	\author{\\Team 2\\ \\Damian de Hoog 500780277\\ Yoshio Schermer 500760587\\Mustafa Y\"{u}cesan 500769574\\ Mohamed El Hadiyen 500777214}
+	\maketitle
+	\newpage
+	\tableofcontents
+	\newpage
+	\section{Introduction}
+	This document is an exploration of the process of creating the Metabot. In this document you'll gain insight into how the cooperation within the team started and evolved, agreements we made regards our cooperation, priorities set before and during the development and finally any problems encountered during the project.
+	\newpage
+	\section{SWOT Analysis}
+	To start off our project in the best possible way, we needed to understand our group dynamic. How our group will behave and perform. To gain a better understanding of this dynamic our coach tasked us with the development of a 'Strenghts, Weaknesses, Oppurtunities and Threats (SWOT) analysis'.\\ This chapter contains said analysis. First, SWOT analyses of each individual member which are then combined to create a group analysis. This approach was chosen because the group itself may create different characteristics but it still consists of individual members. If we understand the members as individuals, we may get a better understanding of the group. 
+	
+	\subsection{Individual analyses}
+	\subsubsection{Damian}
+	\begin{tcbitemize}[raster columns=3, raster rows=3, enhanced, sharp corners, raster equal height=rows, raster force size=false, raster column skip=0pt, raster row skip = 0pt]
+		
+		%Empty corner and two headers
+		\tcbitem[blankest, width=1cm]
+		\tcbitem[header = helpful]
+		\texta
+		\tcbitem[header = harmful]
+		\textb
+		
+		%First row
+		\tcbitem[firstcol = internal]
+		\textcn
+		\tcbitem[swotbox = S]
+		\begin{itemize}
+			\item I am a quick learner.
+			\item I am a calm and collective individual.
+			\item If I am interested in something i can spend all my time on it.
+			\item I have a decent amount of wisdom.
+			\item I am capable of quality self reflection.
+			\item I am a curious individual.
+			\item I yearn for self-improvement.
+			\item I have great leadership and conflict resolution skills.
+		\end{itemize}
+		\tcbitem[swotbox = W]
+		\begin{itemize}
+			\item I tend to procrastinate and only switch to higher gear under pressure of deadlines.
+			\item I tend to procrastinate and only switch to higher gear under pressure of deadlines.
+			\item I find my technical skills lacking in comparison to my team members.
+		\end{itemize}
+		
+		%Second row
+		\tcbitem[firstcol = external]
+		\textdn
+		\tcbitem[swotbox=O]
+		\begin{itemize}
+			\item My project team has a lot of bright minds from which I might be able to learn technical skills and improve my current ones.
+			\item During this project I have the opportunity to practice the Scrum-master role.
+		\end{itemize}
+		\tcbitem[swotbox=T]
+		\begin{itemize}
+			\item The rover has proven to be unreliable in the hardware department and might fail once again.
+			\item My team, which has more technical skills than me, might outperform me.
+		\end{itemize}
+	\end{tcbitemize}
+	\newpage
+	\subsubsection{Mohamed}
+	\begin{tcbitemize}[raster columns=3, raster rows=3, enhanced, sharp corners, raster equal height=rows, raster force size=false, raster column skip=0pt, raster row skip = 0pt]
+	
+		%Empty corner and two headers
+		\tcbitem[blankest, width=1cm]
+		\tcbitem[header = helpful]
+		\texta
+		\tcbitem[header = harmful]
+		\textb
+	
+		%First row
+		\tcbitem[firstcol = internal]
+		\textcn
+		\tcbitem[swotbox = S]
+		\begin{itemize}
+			\item When I work on a product, I am very determined and dedicated to finishing that product and maintain quality at the same time: I will not give up till it is completely done.
+			\item  
+			I like to help my colleagues if they get stuck with their task during a project
+			\item I am capable of having a stable communication with my colleagues, because I am known to be a very social and kind person.
+			\item I am totally open to sharing my knowledge with someone else. 		
+		\end{itemize}
+		\tcbitem[swotbox = W]
+		\begin{itemize}
+			\item I am known to be a perfectionist. I want to finish the product I am working on in the best way possible. However, most of the time I tend to waste lots of precious time because I am pondering over how I can work on the product the best way possible.
+			\item I have a hard time handing out tasks during a project because I do not know whether my colleagues will be able to finish a certain task or not. 
+			\item I have a hard time to wake up in the morning because I am definitely not a morning person.
+		\end{itemize}
+	
+		%Second row
+		\tcbitem[firstcol = external]
+		\textdn
+		\tcbitem[swotbox=O]
+		\begin{itemize}
+			\item I would like to meet new people to broaden my network in the future.\\
+			\item I will be able to learn about new technologies on hardware.
+		\end{itemize}
+		\tcbitem[swotbox=T]
+		\begin{itemize}
+			\item As I only got to know most of the students in my team recently, there may be a student in my team who does not put much effort in the project.
+			\item As I am a excellent student, I may get more pressure from my non-excellent students in the project, which could affect me badly.
+		\end{itemize}
+		\end{tcbitemize}
+	\newpage
+	\subsubsection{Mustafa}
+	\begin{tcbitemize}[raster columns=3, raster rows=3, enhanced, sharp corners, raster equal height=rows, raster force size=false, raster column skip=0pt, raster row skip = 0pt]
+		
+		%Empty corner and two headers
+		\tcbitem[blankest, width=1cm]
+		\tcbitem[header = helpful]
+		\texta
+		\tcbitem[header = harmful]
+		\textb
+		
+		%First row
+		\tcbitem[firstcol = internal]
+		\textcn
+		\tcbitem[swotbox = S]
+		\begin{itemize}
+			\item Not running away from asking questions.
+			\item Healthy curiosity.
+			\item Not afraid of confrontation but usually can't be bothered with it.
+			\item Doesn't mind when bossed around as long as it's leveled.
+			\item Knows how to get along with people if he really wants to.
+		\end{itemize}
+		\tcbitem[swotbox = W]
+		\begin{itemize}
+			\item Quickly annoyed when someone has an improper way of speaking.
+			\item Doesn't appreciate people being or talking authoritarian to him.
+		\end{itemize}
+		
+		%Second row
+		\tcbitem[firstcol = external]
+		\textdn
+		\tcbitem[swotbox=O]
+		\begin{itemize}
+			\item Can get hands on experience with robotics.
+			\item Can expand on his hardware programming.
+		\end{itemize}
+		\tcbitem[swotbox=T]
+		\begin{itemize}
+			\item Sudden relationship which drags his life downhill.
+			\item Lives more than an hours trip away from school while his colleagues are near.
+			\item Started a week later with school which makes him 1 week late with his homework.
+			\item 2-days a week work.
+			\item Excellence subjects which are time consuming.
+		\end{itemize}
+	\end{tcbitemize}
+	\newpage
+	\subsubsection{Yoshio}
+	\begin{tcbitemize}[raster columns=3, raster rows=3, enhanced, sharp corners, raster equal height=rows, raster force size=false, raster column skip=0pt, raster row skip = 0pt]
+		
+		%Empty corner and two headers
+		\tcbitem[blankest, width=1cm]
+		\tcbitem[header = helpful]
+		\texta
+		\tcbitem[header = harmful]
+		\textb
+		
+		%First row
+		\tcbitem[firstcol = internal]
+		\textcn
+		\tcbitem[swotbox = S]
+		\begin{itemize}
+			\item Able to balance perfectionism with productivity.
+			\item Perfectionist.
+			\item Productive.
+			\item Empathetic.
+		\end{itemize}
+		\tcbitem[swotbox = W]
+		\begin{itemize}
+			\item Appears to look irritated even when not, causing some people being afraid to ask/comment something.
+			\item Difficult to express appreciation even when truly happy with some result.
+		\end{itemize}
+		
+		%Second row
+		\tcbitem[firstcol = external]
+		\textdn
+		\tcbitem[swotbox=O]
+		\begin{itemize}
+			\item With the role, delegated product owner, I am able to get more experience in negotiation and communication.
+			\item With the role, delegated product owner, I am able to have more control over what we can make.
+		\end{itemize}
+		\tcbitem[swotbox=T]
+		\begin{itemize}
+			\item Two excellence students in the team. They have a higher possibility of being arrogant. This could result in being pushed over by them.
+			\item Two students in the team work 8 up to 20 hours every week.
+		\end{itemize}
+	\end{tcbitemize}
+	\newpage
+	\subsection{Group analysis}
+	\begin{tcbitemize}[raster columns=3, raster rows=3, enhanced, sharp corners, raster equal height=rows, raster force size=false, raster column skip=0pt, raster row skip = 0pt]
+		
+		%Empty corner and two headers
+		\tcbitem[blankest, width=1cm]
+		\tcbitem[header = helpful]
+		\texta
+		\tcbitem[header = harmful]
+		\textb
+		
+		%First row
+		\tcbitem[firstcol = internal]
+		\texten
+		\tcbitem[swotbox = S]
+		\begin{itemize}
+			\item strengts
+		\end{itemize}
+		\tcbitem[swotbox = W]
+		\begin{itemize}
+			\item weaknesses
+		\end{itemize}
+		
+		%Second row
+		\tcbitem[firstcol = external]
+		\textdn
+		\tcbitem[swotbox=O]
+		\begin{itemize}
+			\item oppurtunity
+		\end{itemize}
+		\tcbitem[swotbox=T]
+		\begin{itemize}
+			\item threats
+		\end{itemize}
+	\end{tcbitemize}
+	
+\end{document}	
