@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.erz.joysticklibrary.JoyStick;
 import com.github.nkzawa.socketio.client.IO;
 import com.github.nkzawa.socketio.client.Socket;
+import com.github.nkzawa.emitter.Emitter;
 
 import java.io.Serializable;
 import java.net.URISyntaxException;
@@ -36,7 +37,10 @@ public class RobotBesturen extends AppCompatActivity implements Serializable, Jo
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mSocket.on("temperature", onTemperature);
         mSocket.connect();
+
+
         setContentView(R.layout.activity_robot_besturen);
         // Setup camera
         String videoPath = String.format("http://%s:%d/cam.mjpg", rover.getIP(), (rover.getPort()+1));
@@ -55,14 +59,13 @@ public class RobotBesturen extends AppCompatActivity implements Serializable, Jo
             }
         });
 
-
-
         // Create joystick
         JoyStick joyStick = findViewById(R.id.joyStick);
         joyStick.setListener(this);
 
         // Show data in UI
         TextView ipTextView = findViewById(R.id.ip);
+
         ipTextView.setText(String.format("IP: %s", rover.getIP()));
         TextView portTextView = findViewById(R.id.port);
         portTextView.setText(String.format("PORT: %d", rover.getPort()));
@@ -70,6 +73,21 @@ public class RobotBesturen extends AppCompatActivity implements Serializable, Jo
         roverTextView.setText(rover.getName());
 
     }
+
+    private Emitter.Listener onTemperature = new Emitter.Listener() {
+        @Override
+        public void call(final Object... args) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    TextView tempValue = findViewById(R.id.pos);
+                    tempValue.setText(Double.toString((Double)args[0]));
+                }
+            });
+        }
+    };
+
+
 
     @Override
     public void onMove(JoyStick joyStick, double angle, double power, int direction) {
