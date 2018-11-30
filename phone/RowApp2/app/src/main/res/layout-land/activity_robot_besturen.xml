@@ -10,6 +10,7 @@
         android:id="@+id/webView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
     </WebView>
 
     <!--<ImageView-->
@@ -30,6 +31,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
+    <Button
+        android:id="@+id/lcdButton"
+        android:layout_width="128dp"
+        android:layout_height="42dp"
+        android:layout_x="0dp"
+        android:layout_y="0dp"
+        android:text="Send text"
+        tools:layout_editor_absoluteX="414dp"
+        tools:layout_editor_absoluteY="16dp" />
+
     <TextView
         android:id="@+id/dist"
         android:layout_width="wrap_content"
@@ -49,7 +60,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/agency_fb"
-        android:text="POS SERVO"
+        android:text="TEMPERATURE"
         android:textColor="@color/colorCloud"
         android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -62,7 +73,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginBottom="20dp"
         android:fontFamily="@font/agency_fb_bold"
-        android:text="75.4 DEG"
+        android:text="0"
         android:textColor="@color/colorCloud"
         android:textSize="30sp"
         app:layout_constraintLeft_toLeftOf="parent"
