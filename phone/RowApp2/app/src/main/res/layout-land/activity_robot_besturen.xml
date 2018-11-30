@@ -10,6 +10,7 @@
         android:id="@+id/webView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
     </WebView>
 
     <!--<ImageView-->
@@ -29,6 +30,16 @@
         android:fontFamily="@font/agency_fb"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <Button
+        android:id="@+id/lcdButton"
+        android:layout_width="128dp"
+        android:layout_height="42dp"
+        android:layout_x="0dp"
+        android:layout_y="0dp"
+        android:text="Send text"
+        tools:layout_editor_absoluteX="414dp"
+        tools:layout_editor_absoluteY="16dp" />
 
     <TextView
         android:id="@+id/dist"
