@@ -2,10 +2,10 @@
 import RPi.GPIO as gpio
 from Bus import *
 import time
-
+from stopwatch import *
+from magneto2 import *
 
 class MotorControl:
-
     _bus = None
     _MOTOR_ADDRESS = None
     _MotorFD = [7, 3, 0xa5, 2, 3, 0xa5, 2]
@@ -16,14 +16,16 @@ class MotorControl:
     _Totalpower = [4, 220]
     _Softstart = [0x91, 100, 0]
     _prevDirection = None
-    _begin_time = None
-    _end_time = None
-    _time = None
+    _timer = None
+    _list = None
+    _magneto = None
 
     def __init__(self):
         self._bus = Bus()
         self._MOTOR_ADDRESS = self._bus.get_motor_address()
-
+        self._timer = Stopwatch()
+        self._list = []
+        self._magneto = Compass()
 
     def set_up(self):
         gpio.setmode(gpio.BCM)
@@ -59,16 +61,15 @@ class MotorControl:
 
     def drive(self, direction):
 
-        if self._begin_time is None:
-            self._begin_time = time.time()
+        if self._timer._start is None:
+            self._timer.start()
         elif direction == "stop":
-            self._end_time = time.time()
-            self._time = self._end_time - self._begin_time
-            self._begin_time = None
+            self._list.append({"direction": self._prevDirection, "time": self._timer.stop()})
+            print(self._prevDirection)
         elif self._prevDirection is not None and direction != self._prevDirection:
-            self._end_time = time.time()
-            self._time = self._end_time - self._begin_time
-            self._begin_time = time.time()
+            self._list.append({"direction": self._prevDirection, "time": self._timer.stop()})
+            print(self._prevDirection)
+            self._timer.start()
 
         if direction == "forward":
             self.forward()
@@ -83,15 +84,22 @@ class MotorControl:
 
         self._prevDirection = direction
 
-    def reserve_drive(self, direction):
-        if direction == "forward":
-            self.backward()
-        if direction == "right":
-            self.left()
-        if direction == "left":
-            self.right()
-        if direction == "backward":
-            self.forward()
-        if direction == "stop":
-            self.stop()
+    def reverse_drive(self):
+
+        for i in reversed(self._list):
+
+            if i['direction'] == "forward":
+                self.backward()
+            if i['direction'] == "right":
+                self.left()
+            if i['direction'] == "left":
+                self.right()
+            if i['direction'] == "backward":
+                self.forward()
+            if i['direction'] == "stop":
+                self.stop()
+            self._timer.pause(i['time'])
+
+        self.stop()
+        self._list.clear()
 

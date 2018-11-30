@@ -1,3 +1,6 @@
+import sys
+sys.path.insert(0, '../')
+
 from gevent import monkey, spawn, sleep
 monkey.patch_all()
 
@@ -6,6 +9,7 @@ from flask_socketio import SocketIO
 import socket
 import json
 from threading import *
+from main import *
 
 app = Flask(__name__)
 socketio = SocketIO(app, async_mode='gevent')
@@ -27,7 +31,7 @@ def ControlPage():
 
 @socketio.on('outputString')
 def output_string(data):
-	
+	print("test")
 	
 @socketio.on('roverConnection')
 def startConnection(roverInfo):
@@ -46,20 +50,18 @@ def controlRover(data):
 	
 	#print("controlRovermethod")
 	#print(data)
-	socket.sendto(bytes(data, "utf-8"), list[0])	
+	socket.sendto(bytes(data, "utf-8"), list[0])
 
 def test():
 	prevMes = None
 	while True:
-		
-		
 		if list:
 			message, address = socket.recvfrom(1024)
 #			print(message)
 			if prevMes == None or prevMes != message:
 				socketio.emit('lineDrawer', message.decode())
 		sleep(0.1)
-#spawn(test)
+spawn(main._temp.convert())
 
 if __name__ == '__main__':
 
