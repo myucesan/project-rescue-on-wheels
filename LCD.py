@@ -99,8 +99,13 @@ class LCD:
         GPIO.output(self._LCD_E, False)
         time.sleep(self._E_DELAY)
 
-    def output_string(self, message):
+    def clear_string(self):
+        self.lcd_byte(0x01, self._LCD_CMD)
+        time.sleep(1)
 
+
+    def output_string(self, message):
+        self.clear_string()
         self._DICT[self._LCD_LINE_1] = message[0:16].center(self._LCD_WIDTH, " ")
 
         if len(message) > 16:
@@ -111,9 +116,6 @@ class LCD:
             for b in range(self._LCD_WIDTH):
                 self.lcd_byte(ord(self._DICT[i][b]), self._LCD_CHR)
         
-    def clear_string(self):
-        self.lcd_byte(0x01, self._LCD_CMD)
-
     def start(self):
 
         self.lcd_byte(0x33, self._LCD_CMD)  # 110011 Initialise

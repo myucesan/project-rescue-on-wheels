@@ -65,22 +65,22 @@ body {
   color: #FFFFFF;
 }
 
-.camNameTitle {
+.objDistTitle {
   font-family: AgencyFB;
   top: 16%;
 }
 
-.camName {
+.objDist {
   font-family: AgencyFB_Bold;
   top: 20%;
 }
 
-.objDistTitle {
+.directTitle {
   font-family: AgencyFB;
   top: 28%;
 }
 
-.objDist {
+.direct {
   font-family: AgencyFB_Bold;
   top: 32%;
 }

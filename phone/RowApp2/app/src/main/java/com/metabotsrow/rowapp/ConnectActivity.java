@@ -166,9 +166,6 @@ public class ConnectActivity extends AppCompatActivity implements View.OnClickLi
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent(ConnectActivity.this, RobotBesturen.class);
-        startActivity(intent);
-        finish();
         if (selectedItem != null) {
             AlertDialog.Builder mBuilder = new AlertDialog.Builder(ConnectActivity.this);
             View mView = getLayoutInflater().inflate(R.layout.dialog_password, null);

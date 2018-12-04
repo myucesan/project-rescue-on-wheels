@@ -2,9 +2,9 @@ from MotorControl import *
 from LCD import *
 from temperature import *
 from light import *
-from magneto import *
+from compass import *
+from distance import *
 import time
-
 
 class Main(object):
     _instance = None
@@ -14,6 +14,7 @@ class Main(object):
     _compass = None
     _light = None
     _list = None
+    _distance = None
 
     def __new__(self):
   
@@ -25,7 +26,8 @@ class Main(object):
             self._lcd.start()
             self._temperature = temperature()
             self._light = light()
-            self._compass = Compass()
-            print(self._compass)
+            self._distance = Distance()
+            self._compass = compass(declination=(1,19))
+        
         return self._instance
 

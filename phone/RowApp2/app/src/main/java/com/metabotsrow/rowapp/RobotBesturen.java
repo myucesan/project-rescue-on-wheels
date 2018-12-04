@@ -1,20 +1,15 @@
 package com.metabotsrow.rowapp;
 
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.WebView;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.erz.joysticklibrary.JoyStick;
 import com.github.nkzawa.socketio.client.IO;
 import com.github.nkzawa.socketio.client.Socket;
-import com.github.nkzawa.emitter.Emitter;
 
 import java.io.Serializable;
 import java.net.URISyntaxException;
@@ -41,10 +36,7 @@ public class RobotBesturen extends AppCompatActivity implements Serializable, Jo
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mSocket.on("temperature", onTemperature);
         mSocket.connect();
-
-
         setContentView(R.layout.activity_robot_besturen);
         // Setup camera
         String videoPath = String.format("http://%s:%d/cam.mjpg", rover.getIP(), (rover.getPort()+1));
@@ -63,64 +55,21 @@ public class RobotBesturen extends AppCompatActivity implements Serializable, Jo
             }
         });
 
+
+
         // Create joystick
         JoyStick joyStick = findViewById(R.id.joyStick);
         joyStick.setListener(this);
 
         // Show data in UI
         TextView ipTextView = findViewById(R.id.ip);
-
         ipTextView.setText(String.format("IP: %s", rover.getIP()));
         TextView portTextView = findViewById(R.id.port);
         portTextView.setText(String.format("PORT: %d", rover.getPort()));
         TextView roverTextView = findViewById(R.id.rover);
         roverTextView.setText(rover.getName());
-        Button sendText = findViewById(R.id.lcdButton);
-        sendText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AlertDialog.Builder mBuilder = new AlertDialog.Builder(RobotBesturen.this);
-                View mView = getLayoutInflater().inflate(R.layout.dialog_sendtext, null);
-                final EditText textToSend = (EditText) mView.findViewById(R.id.insertText);
-                Button send = (Button) mView.findViewById(R.id.btnSend);
-                Button back = (Button) mView.findViewById(R.id.btnBack);
-                mBuilder.setView(mView);
-                final AlertDialog dialog = mBuilder.create();
-                dialog.show();
-                send.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        if (textToSend.getText().length() <= 32) {
-                            mSocket.emit("lcd", textToSend.getText().toString());
-                        } else {
-                            Toast.makeText(RobotBesturen.this, "Text must contain less than 33 characters!", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-                back.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        dialog.hide();
-                    }
-                });
-            }
-        });
+
     }
-
-    private Emitter.Listener onTemperature = new Emitter.Listener() {
-        @Override
-        public void call(final Object... args) {
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    TextView tempValue = findViewById(R.id.pos);
-                    tempValue.setText(Double.toString((Double)args[0]));
-                }
-            });
-        }
-    };
-
-
 
     @Override
     public void onMove(JoyStick joyStick, double angle, double power, int direction) {

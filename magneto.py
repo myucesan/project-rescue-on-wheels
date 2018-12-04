@@ -2,7 +2,7 @@ import smbus
 import math
 
 
-class Compass(object):
+class compass(object):
     __instance = None
     bus = smbus.SMBus(1)
     adr = 0x1e
@@ -17,23 +17,24 @@ class Compass(object):
         self.bus.write_byte_data(self.adr, 0x02, 0x01)
         xh = self.bus.read_byte_data(self.adr, 0x03)
         xl = self.bus.read_byte_data(self.adr, 0x04)
-        zh = self.bus.read_byte_data(self.adr, 0x05)
-        zl = self.bus.read_byte_data(self.adr, 0x06)
+#        zh = self.bus.read_byte_data(self.adr, 0x05)
+#        zl = self.bus.read_byte_data(self.adr, 0x06)
         yh = self.bus.read_byte_data(self.adr, 0x07)
         yl = self.bus.read_byte_data(self.adr, 0x08)
 
         x = (xh << 8) | xl
         y = (yh << 8) | yl
-        z = (zh << 8) | zl
+#        z = (zh << 8) | zl
 
-        angle = (math.atan2(y, x)) * 180 / math.pi
+#        angle = (math.atan2(y, x)) * 180 / math.pi
 
-        if angle < 0:
-            angle += 360
+#        if angle < 0:
+#            angle += 360
 
-        return [x, y]
+#        return [x, y]
+        return x
 
-    def getDirection(self):
+    def get_direction(self):
         direction = "North"
         value = int(self.get_value())
         if self.north[0] <= value <= self.north[1]:

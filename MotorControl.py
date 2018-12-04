@@ -2,30 +2,32 @@
 import RPi.GPIO as gpio
 from Bus import *
 import time
-from stopwatch import *
-from magneto2 import *
+from timer import *
+from distance import *
+#from magneto2 import *
+
 
 class MotorControl:
     _bus = None
     _MOTOR_ADDRESS = None
-    _MotorFD = [7, 3, 0xa5, 2, 3, 0xa5, 2]
+    _MotorBD = [7, 3, 0xa5, 2, 3, 0xa5, 2]
     _MotorL = [7, 3, 0xa5, 1, 3, 0xa5, 2]
     _MotorR = [7, 3, 0xa5, 2, 3, 0xa5, 1]
-    _MotorBD = [7, 3, 0xa5, 1, 3, 0xa5, 1]
+    _MotorFD = [7, 3, 0xa5, 1, 3, 0xa5, 1]
     _MotorST = [7, 0, 0, 0, 0, 0, 0]
     _Totalpower = [4, 220]
     _Softstart = [0x91, 100, 0]
     _prevDirection = None
     _timer = None
     _list = None
-    _magneto = None
+    _distance = None
 
     def __init__(self):
         self._bus = Bus()
         self._MOTOR_ADDRESS = self._bus.get_motor_address()
-        self._timer = Stopwatch()
+        self._timer = Timer()
+        self._distance = Distance()
         self._list = []
-        self._magneto = Compass()
 
     def set_up(self):
         gpio.setmode(gpio.BCM)
@@ -98,8 +100,8 @@ class MotorControl:
                 self.forward()
             if i['direction'] == "stop":
                 self.stop()
-            self._timer.pause(i['time'])
-
-        self.stop()
+            self._timer.conditional_pause(i['time'], 20, self._distance.get_distance(), [20, 40])
+            self.stop()
+        
         self._list.clear()
 

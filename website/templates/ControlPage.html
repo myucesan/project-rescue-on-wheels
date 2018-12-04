@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -20,11 +20,11 @@
 Your browser does not support the HTML5 canvas tag.
 </canvas>
 <img class="videoStreamer" src="http://10.3.141.1:8808/cam.mjpg">
-<p class="cameraInfo camNameTitle">CAM</p>
-<p class="cameraInfo camName">SELECT ROVER</p>
-<p class="cameraInfo objDistTitle">DIRECTION</p>
-<p id="compassId" class="cameraInfo objDist"></p>
-<p class="cameraInfo posServoTitle">TEMPERATURE</p> <!-- VOOR NU IS DIT TEMP (QUICKFIX)-->
+<p class="cameraInfo objDistTitle">OBJ DIST.</p>
+<p id="distId" class="cameraInfo objDist"></p>
+<p class="cameraInfo directTitle">DIRECTION</p>
+<p id="compassId" class="cameraInfo direct"></p>
+<p class="cameraInfo posServoTitle">TEMPERATURE</p>
 <p id="temperatureId" class="cameraInfo posServo"></p>
 <p class="roverInfo roverNumberTitle">ROVER NO.</p>
 <p id="roverNo" class="roverInfo roverNumber">SELECT ROVER</p>
@@ -32,7 +32,7 @@ Your browser does not support the HTML5 canvas tag.
 <p id="port" class="roverIPPort roverPort">Port: 8802</p>
 <a href="ControlPage.html"><button type="button" class="micButton"></button></a>
 <a id="driveback"><button type="button" class="driveBackButton">BACK</button></a>
-<input id="textbox" type="text" value="Voer iets in">
+<input id="textbox" type="text" value="Voer iets in" maxlength="32">
 <button id="Get">Get TextBox Value</button> 
 </section>
 <footer>
