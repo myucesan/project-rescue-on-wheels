@@ -1,23 +1,18 @@
 #!/usr/bin/python3
-
-# Simple example of reading the MCP3008 analog input channels and printing
-# them all out.
-# Author: Tony DiCola
-# License: Public Domain
 import math
-import Adafruit_GPIO.SPI as SPI
-import Adafruit_MCP3008
-import RPi.GPIO as GPIO
 import time
 import threading
+import RPi.GPIO as GPIO
+from adc import *
+from spi_dev import *
 
 # Hardware SPI configuration:
-SPI_PORT   = 0
-SPI_DEVICE = 0
-mcp = Adafruit_MCP3008.MCP3008(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
-
 class light:
         def __init__(self):
+                self.SPI_PORT   = 0
+                self.SPI_DEVICE = 0
+                self.mcp = adc(spi_dev(self.SPI_PORT, self.SPI_DEVICE))
+
                 # Pin configuration
                 self.INPUT_PIN = 18
                 self.LDR_THRESHOLD = 200
@@ -29,7 +24,7 @@ class light:
 
         def start(self):
                 while(True):
-                        if mcp.read_adc(1) > self.LDR_THRESHOLD:
+                        if self.mcp.read_adc(1) > self.LDR_THRESHOLD:
                                 GPIO.output(self.INPUT_PIN,GPIO.HIGH)
                         else:
                                 GPIO.output(self.INPUT_PIN,GPIO.LOW)
