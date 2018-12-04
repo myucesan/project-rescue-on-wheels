@@ -1,3 +1,4 @@
+ls
 import sys
 sys.path.insert(0, '../')
 
@@ -8,7 +9,7 @@ from main import *
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
-
+main = Main()
 
 @app.route('/')
 def main():
@@ -44,4 +45,4 @@ def track_back(status):
 	print(status)
 
 if __name__ == '__main__':
-    socketio.run(app, "10.3.141.1", 6950)
+    socketio.run(app, "10.3.141.1", 6956)

@@ -15,8 +15,8 @@ import time
 import numpy as np
 
 recognizer = cv2.face.LBPHFaceRecognizer_create()
-recognizer.read('/home/pi/trainer/trainer.yml')
-cascadePath = "/home/pi/Cascades/haarcascade_frontalface_default.xml"
+recognizer.read('trainer/trainer.yml')
+cascadePath = "Cascades/haarcascade_frontalface_default.xml"
 faceCascade = cv2.CascadeClassifier(cascadePath);
 
 font = cv2.FONT_HERSHEY_SIMPLEX
@@ -25,7 +25,7 @@ font = cv2.FONT_HERSHEY_SIMPLEX
 id = 0
 
 # Names related to ids: example ==> Marcelo: id=1,  etc
-names = ['None', 'Sophia']
+names = ['None', 'Bean']
 
 # Declare and initialize video capture object to None
 capture = None

@@ -10,12 +10,17 @@ $(document).ready(function() {
   var y_b = 100;
   var hoek = Math.PI/2;
   var v = 4;
-  var control = {
-		"device": "Webapp",
-		"state": null,
-                "speed": 220,
-		"backtrack": 0
-	};
+  // this is a callback that triggers when the my response event is emitted by the server.
+  socket.on('temperature', function(msg) {
+	$('#temperatureId').text(msg + " DEGC");
+  });
+  socket.on('compass', function(msg) {
+	$('#compassId').text(msg + " DEG");
+});
+  socket.on('distance', function(msg) {
+        $('#distId').text(msg + " CM");
+});
+
   socket.emit('roverConnection', roverInfo);
   $('#ip').text("IP:" + JSON.parse(roverInfo).ip);
   $('#port').text("Port:" + JSON.parse(roverInfo).port);
@@ -24,48 +29,44 @@ $(document).ready(function() {
   $('#Get').on('click', function(){
     socket.emit('outputString', $('#textbox').val());
 	});
-
   $('#driveback').on('click', function(){
-    control.backtrack = 1;
-    socket.emit('roverControl', JSON.stringify(control));
+    socket.emit('backtrack');
 });
-
   window.addEventListener("keydown", controlOnKey, false);
   window.addEventListener("keyup", stop, false);
-
   function stop(key) {
-      control.state = "stop";
-      control.backtrack = 0;
-      socket.emit('roverControl', JSON.stringify(control));
+      socket.emit('direction', "stop");
    }
-
   function controlOnKey(key) {
+	var t = 1000;
     if (key.keyCode == "87") {
-      control.state = "forward";
-      control.backtrack = 0;
-      socket.emit('roverControl', JSON.stringify(control));
+	x_b += v * Math.cos(hoek)
+	y_b -= v * Math.sin(hoek);
+	ctx.lineTo(x_b, y_b);
+	ctx.strokeStyle = "white";
+	ctx.stroke();
+	console.log("Going forward");
+	socket.emit('direction', "forward");
     }
     if (key.keyCode == "65") {
-      control.state = "left";
-      control.backtrack = 0;
-      socket.emit('roverControl', JSON.stringify(control));
+	hoek += t*(Math.PI/1800)
+	console.log("Going left");
+	socket.emit('direction', "left");
     }
     if (key.keyCode == "68") {
-      control.state = "right";
-      control.backtrack = 0;
-      socket.emit('roverControl', JSON.stringify(control));
+	hoek += t*(-Math.PI/2600);
+	console.log("Going right");
+	socket.emit('direction', "right");
     }
     if (key.keyCode == "83") {
-      control.state = "backward";
-      control.backtrack = 0;
-      socket.emit('roverControl', JSON.stringify(control));
-    }
-    if (key.keyCode == "32") {
-      control.state = "socket";
-      socket.emit('roverControl', JSON.stringify(control));
+	x_b -= v * Math.cos(hoek);
+        y_b -= v * Math.sin(hoek);
+        ctx.fillRect(x_b, y_b, 2, 2);
+	ctx.stroke();
+	console.log("Going backward");
+	socket.emit('direction', "backward");
     }
   }
-
   socket.on('lineDrawer', function(lineCalculation) {
 	var test = JSON.parse(lineCalculation);
 	var t = test["time"]*1000;
@@ -99,5 +100,5 @@ $(document).ready(function() {
             		break;
     	}
 	
-  }); 
+  });
 });
