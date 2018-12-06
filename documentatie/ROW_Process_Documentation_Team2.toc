@@ -27,7 +27,8 @@
 \contentsline {subsection}{\numberline {6.3}Mustafa}{50}{subsection.6.3}
 \contentsline {subsection}{\numberline {6.4}Yoshio}{50}{subsection.6.4}
 \contentsline {section}{\numberline {7}Daily stand-ups}{51}{section.7}
-\contentsline {section}{\numberline {8}Coaching}{51}{section.8}
-\contentsline {section}{\numberline {9}Retrospectives}{51}{section.9}
-\contentsline {section}{\numberline {10}Impediments}{51}{section.10}
-\contentsline {section}{\numberline {11}Communication with the product owner}{51}{section.11}
+\contentsline {paragraph}{\numberline {7.0.0.1}Daily stand-up 17 \& 18 September}{51}{paragraph.7.0.0.1}
+\contentsline {section}{\numberline {8}Coaching}{52}{section.8}
+\contentsline {section}{\numberline {9}Retrospectives}{52}{section.9}
+\contentsline {section}{\numberline {10}Impediments}{52}{section.10}
+\contentsline {section}{\numberline {11}Communication with the product owner}{52}{section.11}
