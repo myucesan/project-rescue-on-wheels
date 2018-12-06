@@ -17,3 +17,12 @@
 \contentsline {subsection}{\numberline {3.2}Group analysis}{10}{subsection.3.2}
 \contentsline {section}{\numberline {4}Feedback forms}{11}{section.4}
 \contentsline {section}{\numberline {5}Educational goals SMART}{47}{section.5}
+\contentsline {subsection}{\numberline {5.1}Damian}{47}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Mohamed}{47}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Mustafa}{48}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}Yoshio}{49}{subsection.5.4}
+\contentsline {section}{\numberline {6}Feedback based educational goals}{50}{section.6}
+\contentsline {subsection}{\numberline {6.1}Damian}{50}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Mohamed}{50}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}Mustafa}{50}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.4}Yoshio}{50}{subsection.6.4}
