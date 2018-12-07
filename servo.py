@@ -11,6 +11,9 @@ class Servo:
     _MID_MIN = 1000
     _MIN = 500
     _start = True
+    
+    def __init__(self):
+        os.system("sudo service servoblaster stop")
 
     def set(self, value):
         os.system("echo " + "P1-" + str(self._PIN) + "=" + str(value) + "us > /dev/servoblaster")
