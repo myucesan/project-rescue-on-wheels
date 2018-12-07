@@ -5,6 +5,7 @@ import time
 from timer import *
 from distance import *
 #from magneto2 import *
+from servo import *
 
 
 class MotorControl:
@@ -21,6 +22,7 @@ class MotorControl:
     _timer = None
     _list = None
     _distance = None
+    _servo = None
 
     def __init__(self):
         self._bus = Bus()
@@ -28,6 +30,7 @@ class MotorControl:
         self._timer = Timer()
         self._distance = Distance()
         self._list = []
+        self._servo = Servo()
 
     def set_up(self):
         gpio.setmode(gpio.BCM)
@@ -87,7 +90,7 @@ class MotorControl:
         self._prevDirection = direction
 
     def reverse_drive(self):
-
+        self._servo.run()
         for i in reversed(self._list):
 
             if i['direction'] == "forward":
@@ -104,4 +107,5 @@ class MotorControl:
             self.stop()
         
         self._list.clear()
+        self._servo.stop()
 
