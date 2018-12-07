@@ -16,6 +16,7 @@ class Servo:
         os.system("echo " + "P1-" + str(self._PIN) + "=" + str(value) + "us > /dev/servoblaster")
       
     def run(self):
+        os.system("sudo service servoblaster start")
         while self._start:
             self.set(self._MID_MAX)
             time.sleep(1)
@@ -24,5 +25,6 @@ class Servo:
 
     def stop(self):
         self._start = False
+        os.system("sudo service servoblaster stop")
 
 
