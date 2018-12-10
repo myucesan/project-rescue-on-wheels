@@ -19,7 +19,7 @@ class temperature:
         self._timer = Timer()
 
     def convert(self):
-        self._timer.pause(0.08)
+        self._timer.pause(0.2)
         raw = self.mcp.read_adc(0)
         print(raw)
         if raw > 0:

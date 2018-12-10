@@ -105,9 +105,9 @@ class LCD:
 
 
     def output_string(self, message):
-        self.clear_string()
+#        self.clear_string()
         self._DICT[self._LCD_LINE_1] = message[0:16].center(self._LCD_WIDTH, " ")
-
+        print(message)
         if len(message) > 16:
             self._DICT[self._LCD_LINE_2] = message[16:len(message)].center(self._LCD_WIDTH, " ")
 
@@ -115,9 +115,8 @@ class LCD:
             self.lcd_byte(i, self._LCD_CMD)
             for b in range(self._LCD_WIDTH):
                 self.lcd_byte(ord(self._DICT[i][b]), self._LCD_CHR)
-        
-    def start(self):
 
+    def start(self):
         self.lcd_byte(0x33, self._LCD_CMD)  # 110011 Initialise
         self.lcd_byte(0x32, self._LCD_CMD)  # 110010 Initialise
         self.lcd_byte(0x06, self._LCD_CMD)  # 000110 Cursor move direction
@@ -125,3 +124,5 @@ class LCD:
         self.lcd_byte(0x28, self._LCD_CMD)  # 101000 Data length, number of lines, font size
         self.lcd_byte(0x01, self._LCD_CMD)  # 000001 Clear display
         time.sleep(self._E_DELAY)
+
+

@@ -5,7 +5,8 @@ import time
 from timer import *
 from distance import *
 #from magneto2 import *
-
+from servo import *
+from threading import Thread
 
 class MotorControl:
     _bus = None
@@ -21,12 +22,14 @@ class MotorControl:
     _timer = None
     _list = None
     _distance = None
+    _servo = None
 
     def __init__(self):
         self._bus = Bus()
         self._MOTOR_ADDRESS = self._bus.get_motor_address()
         self._timer = Timer()
         self._distance = Distance()
+        self._servo = Servo()
         self._list = []
 
     def set_up(self):
@@ -86,7 +89,7 @@ class MotorControl:
 
         self._prevDirection = direction
 
-    def reverse_drive(self):
+    def reverse(self):
 
         for i in reversed(self._list):
 

@@ -1,6 +1,6 @@
 import smbus
 import math
-
+import time
 
 class compass(object):
     __instance = None
@@ -26,17 +26,17 @@ class compass(object):
         y = (yh << 8) | yl
 #        z = (zh << 8) | zl
 
-#        angle = (math.atan2(y, x)) * 180 / math.pi
+        angle = math.atan2(y, x) * 180 / math.pi + 180
 
 #        if angle < 0:
 #            angle += 360
 
 #        return [x, y]
-        return x
+        return angle
 
     def get_direction(self):
         direction = "North"
-        value = int(self.get_value())
+        value = int(self.get_values())
         if self.north[0] <= value <= self.north[1]:
             direction = "North"
 
@@ -48,5 +48,10 @@ class compass(object):
 
         elif self.west[0] <= value <= self.west[1]:
             direction = "West"
-
+        print(value)
         return direction
+
+comp = compass()
+while True:
+    print(comp.get_values())
+    time.sleep(0.1)

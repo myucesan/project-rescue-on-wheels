@@ -65,5 +65,5 @@ spawn(send)
 #spawn(compass)
 
 if __name__ == '__main__':
-    socketio.run(app, "10.3.141.1", 8819)
+    socketio.run(app, "10.3.141.1", 8823)
 
