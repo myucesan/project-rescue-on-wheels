@@ -82,7 +82,8 @@
 	\tableofcontents
 	\newpage
 	\section{Introduction}
-	This document is an exploration of the process of creating the Metabot. In this document you'll gain insight into how the cooperation within the team started and evolved, agreements we made regards our cooperation, priorities set before and during the development and finally any problems encountered during the project.
+	This document is an exploration of the process of creating the Metabot. In this document you'll gain insight into how the cooperation within the team started and evolved, agreements we made regards our cooperation, priorities set before and during the development and finally any problems encountered during the project.\\
+	Omitted from this document are the notes from meetings with the product owner, coach and our scrum stand-ups and retrospectives. These have been documented in their respective media as stated in the cooperation agreement in the next chapter.
 	\newpage
 	\section{Cooperation agreement}
 	This chapter contains our cooperation agreement, this is a document that was created at the start of the rescue on wheels project and details made agreements and agreed upon rules of behaviour.
@@ -690,49 +691,29 @@
 		\item Based on the feedback supplied I will let my team members evaluate me at the end of the project on whether I have taken on more an attitude of productivity versus perfectionism.
 	\end{itemize}
 	\newpage
-	\section{Daily stand-ups}
-	The following chapters contain notes from team activities, starting with the notes from our Scrum daily stand-ups. These stand-ups are like small progress meetings to see whether everyone has a task or knows what he should be doing, if anyone has encountered any problems and if anyone needs help with their tasks.\\
-	The notes from these meetings have been ordered chronologically and are the same as found on our wordpress blog ( Link at the start of the document, tools).
-	\paragraph{Daily stand-up 17 \& 18 September}
-	SCRUM-master: Damian\\
-	\\\textbf{How are things going so far?}
-	\begin{itemize}
-		\item Problems with the hardware have mostly been solved. The magnetometer doesn't work, according to Ruud this will be discussed later on in the project.
-		\item During classes we can see how other groups in class are performing, they seem to have made more progress than we have. This could be because the rover and it's movement aren't hard to program or other teams have spend a significant amount of time more on their product than we have.
-	\end{itemize}
-	\textbf{Wat hebben we gedaan?}
-	\begin{itemize}
-		\item Verbinden met de RPI en internet regelen voor de RPI.
-		\item Mini-rover laten rijden m.b.v. Python vertaald uit C.
-		\item Epics, user stories, use cases opgesteld.
-		\item Samenwerkingsovereenkomst opgesteld.
-		\item Blog (WordPress) gemaakt voor het bijhouden van standups, etc.
-	\end{itemize}
-	\textbf{Wat gaan we doen?}
-	\begin{itemize}
-		\item Coaching-afspraak regelen met Marten (Mustafa).
-		\item C code  ombouwen naar Python (Mohamed \& Mustafa).
-		\item Camera stream naar de browser (Damian).
-		\item Camera stream naar de app (Damian \& Yoshio).
-		\item Besturing via een extern apparaat (Mohamed).
-		\item Design voor rover (Yoshio).
-		\item Wifi-hotspot op de RPI (Yoshio).
-	\end{itemize}
-	
-	
-	\section{Coaching}
-	\section{Retrospectives}
+
 	\newpage
 	\section{Impediments}
-	This chapter briefly describes the problems we've encountered during the developmental process.\\
+	This chapter briefly describes the problems we've encountered during the developmental process.
 	\subsection{Rough start}
 	During our first week of the rescue on wheels (ROW) project we ran into the most problems we've had thus far. The rover did not respond to the preexisting code written by the coordinators of the project. We spent the better part of our first week trying to fix this.\\ 
-	After attempting various fixes our coordinator concluded that the problem had to be something that was not repairable within a small enough time span to make it worth our time.\\ 
-	We were given another robot however this one wasn't without it's problems either. The actuators that drive the wheels were acting up. Sometimes some of them wouldn't work. After attempting more fixes for this problem we were given our third and final rover. This one is the one we are currently using and seems to work well enough for us to be able to complete the ROW project.\\
+	\\After attempting various fixes our coordinator concluded that the problem had to be something that was not repairable within a small enough time span to make it worth our time.\\ 
+	We were given another robot however this one wasn't without it's problems either. The actuators that drive the wheels were acting up. Sometimes some of them wouldn't work.\\
+	\\After attempting more fixes for this problem we were given our third and final rover. It worked better than the previous ones but still required us to dissemble some parts and solder one of the wheels back on. This one is the one we are currently using and seems to be working well enough, thus far, for us to be able to complete the ROW project.\\
 	\\This rough start set us back approximately two weeks. In hindsight, this setback won't prevent us from completing the project but it hasn't helped either. 
 	\subsection{Amphibious ambiguity}
 	After the first sprint was completed it became obvious to us that the project was easier than expected. We had nearly completed all the requirements for the project as stated by the project manual.\\
-	To counteract this and provide enough of a challenge for us, we came up with the idea to try and make the rover amphibious. This would provide a sufficient or maybe a slightly too big of a challenge but at least it would not be completed within one of it's four sprints and leave us to our own devices.
+	To counteract this and provide enough of a challenge for us, we came up with the idea to try and make the rover amphibious. This would provide a sufficient or perhaps even slightly too big of a challenge but at least it would not be completed within one of it's four sprints and leave us to our own devices.\\
+	\\The problem we encountered with this idea is the somewhat vague communication regarding this idea. We were uncertain whether it would be a good idea to try and take the project of the laid out tracks and try and make it swim. When discussing this idea with our product owner and others, we always got the same kind of response. They encourage students and their ideas but they need a product that can be completed within the defined project period.\\
+	This made is hard for us to decide if we should go ahead with the amphibious conversion or not. In the end we decided not to. This has cost us a few days due to discussing, brainstorming and planning.
+	\subsection{Magnetometer}
+	As part of the standard rover, supplied to each team within this project, there was a sensor called the magnetometer. This sensor uses the earth's magnetic fields to define a directional difference to true north.\\
+	We intended to use this sensor as part of our mapping functionality to give our map a point of reference. However the magnetometer was giving inconsistent values. Even after implementing code written by our technical coordinator, Ruud Slokker, we still couldn't get accurate values.\\
+	\\Other teams within the project seemed to struggle with this as well, we've chalked it up to a faulty or low quality sensor. That said, we've implemented the sensor to the best of our abilities and are trying to use the given values in a way that they still provide a positive influence but we have spend more time on it than we had planned from the start and haven't achieved the original goal either.
+	\subsection{Microphone}
+	As for our, hopefully final, impediment. The microphone. We've announced our desire to implement two way communication as a functionality for our rover. To do this we wanted to use a microphone paired with a speaker to enable the rover operator to communicate with survivors and vise versa.\\
+	\\During the actual implementation of this idea we ran into some problems. We're currently running Flask as our framework but the microphone and the implementation we found would require AIOHTTP as our framework. We've spend more time trying to find solutions that would not require us to completely revamp our current product as this is not a smart move this close to the end of our project.\\
+	Unfortunately we did not find any compatible solutions and have moved this functionality to a lower priority. Perhaps after all higher priority tasks have been completed we may have some time left to implement two way communication, otherwise it will be left as "to be implemented later". 
 	\newpage
-	\section{Communication with the product owner}
+
 \end{document}	
