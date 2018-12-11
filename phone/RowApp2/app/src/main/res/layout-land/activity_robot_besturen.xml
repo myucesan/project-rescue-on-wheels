@@ -18,12 +18,21 @@
         <!--android:src="@drawable/dummy_pov"-->
         <!--android:scaleType="fitXY"/>-->
 
+    <Button
+        android:id="@+id/lcdButton"
+        android:layout_width="128dp"
+        android:layout_height="0dp"
+        android:layout_margin="20dp"
+        android:text="Message"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
     <TextView
-        android:id="@+id/distLabel"
+        android:id="@+id/lblCompass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:text="OBJ DIST"
+        android:text="COMPASS"
         android:textColor="@color/colorCloud"
         android:textSize="20sp"
         android:fontFamily="@font/agency_fb"
@@ -31,42 +40,68 @@
         app:layout_constraintLeft_toLeftOf="parent"/>
 
     <TextView
-        android:id="@+id/dist"
+        android:id="@+id/tvCompass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:fontFamily="@font/agency_fb_bold"
-        android:text="20.0 CM"
+        android:text="-0.0 DEG"
         android:textColor="@color/colorCloud"
         android:textSize="30sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/distLabel" />
+        app:layout_constraintTop_toBottomOf="@id/lblCompass" />
 
     <TextView
-        android:id="@+id/posLabel"
+        android:id="@+id/lblDistance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/agency_fb"
-        android:text="POS SERVO"
+        android:text="OBJ DIST"
         android:textColor="@color/colorCloud"
         android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dist" />
+        app:layout_constraintTop_toBottomOf="@id/tvCompass" />
 
     <TextView
-        android:id="@+id/pos"
+        android:id="@+id/tvDistance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginBottom="20dp"
         android:fontFamily="@font/agency_fb_bold"
-        android:text="75.4 DEG"
+        android:text="-0.0 CM"
         android:textColor="@color/colorCloud"
         android:textSize="30sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/posLabel" />
+        app:layout_constraintTop_toBottomOf="@id/lblDistance" />
+
+    <TextView
+        android:id="@+id/lblTemperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/agency_fb"
+        android:text="TEMPERATURE"
+        android:textColor="@color/colorCloud"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDistance" />
+
+    <TextView
+        android:id="@+id/tvTemperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/agency_fb_bold"
+        android:text="-0.0 DEGC"
+        android:textColor="@color/colorCloud"
+        android:textSize="30sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lblTemperature" />
 
     <TextView
         android:id="@+id/rover"
