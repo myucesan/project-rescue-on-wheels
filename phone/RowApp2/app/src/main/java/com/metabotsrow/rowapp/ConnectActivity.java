@@ -166,64 +166,88 @@ public class ConnectActivity extends AppCompatActivity implements View.OnClickLi
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onClick(View v) {
+
         if (selectedItem != null) {
-            AlertDialog.Builder mBuilder = new AlertDialog.Builder(ConnectActivity.this);
-            View mView = getLayoutInflater().inflate(R.layout.dialog_password, null);
-            final EditText mPassword = (EditText) mView.findViewById(R.id.insertPw);
-            Button connect = (Button) mView.findViewById(R.id.btnConnect);
-            Button back = (Button) mView.findViewById(R.id.btnBack);
-            mBuilder.setView(mView);
-            final AlertDialog dialog = mBuilder.create();
-            dialog.show();
+            // set selected connection
+            Controller.getController().setSelectedConnection(RoverList.getRoverList().getRoverFromList(RoverList.getRoverList().getIndexFromName(selectedItem.toString())));
 
-            connect.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (mPassword.getText().toString().isEmpty()) {
-                        Toast.makeText(ConnectActivity.this, "Insert a password!", Toast.LENGTH_SHORT).show();
-                    } else {
-                        // set selected connection
-                        Controller.getController().setSelectedConnection(RoverList.getRoverList().getRoverFromList(RoverList.getRoverList().getIndexFromName(selectedItem.toString())));
+            int count = 0;
+            List<WifiConfiguration> list = wifi.getConfiguredNetworks();
+            for (WifiConfiguration i : list) {
+                if (i.SSID != null && i.SSID.equals("\"" + Controller.getController().getSelectedConnection().SSID + "\"")) {
+                    count++;
+                    wifi.disconnect();
+                    wifi.enableNetwork(i.networkId, true);
+                    wifi.reconnect();
+                    Controller.getController().setSelectedRover(
+                            Controller.getController().getSelectedConnection().SSID,
+                            IP,
+                            PORT);
+                    Intent intent = new Intent(ConnectActivity.this, RobotBesturen.class);
+                    startActivity(intent);
+                    finish();
+                    break;
+                }
+            }
+            if (count == 0) {
+                AlertDialog.Builder mBuilder = new AlertDialog.Builder(ConnectActivity.this);
+                View mView = getLayoutInflater().inflate(R.layout.dialog_password, null);
+                final EditText mPassword = (EditText) mView.findViewById(R.id.insertPw);
+                Button connect = (Button) mView.findViewById(R.id.btnConnect);
+                Button back = (Button) mView.findViewById(R.id.btnBack);
+                mBuilder.setView(mView);
+                final AlertDialog dialog = mBuilder.create();
+                dialog.show();
 
-                        // get ssid
-                        String networkSSID = Controller.getController().getSelectedConnection().SSID;
+                connect.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (mPassword.getText().toString().isEmpty()) {
+                            Toast.makeText(ConnectActivity.this, "Insert a password!", Toast.LENGTH_SHORT).show();
+                        } else {
 
-                        // get password
-                        String password = mPassword.getText().toString();
+                            // get ssid
+                            String networkSSID = Controller.getController().getSelectedConnection().SSID;
 
-                        WifiConfiguration wifiConfig = new WifiConfiguration();
-                        wifiConfig.SSID = String.format("\"%s\"", networkSSID);
-                        wifiConfig.preSharedKey = String.format("\"%s\"", password);
+                            // get password
+                            String password = mPassword.getText().toString();
 
-                        WifiManager wifiManager = (WifiManager)getSystemService(WIFI_SERVICE);
-                        //remember id
-                        int netId = wifiManager.addNetwork(wifiConfig);
-                        wifiManager.disconnect();
-                        wifiManager.enableNetwork(netId, true);
-                        wifiManager.reconnect();
+                            WifiConfiguration wifiConfig = new WifiConfiguration();
+                            wifiConfig.SSID = String.format("\"%s\"", networkSSID);
+                            wifiConfig.preSharedKey = String.format("\"%s\"", password);
 
-                        if(wifiConfig.SSID != null && wifiConfig.SSID.equals("\"" + networkSSID + "\"")) {
-                            if (wifi.disconnect() && wifi.enableNetwork(netId, true) && wifi.reconnect()) {
-                                Controller.getController().setSelectedRover(
-                                        Controller.getController().getSelectedConnection().SSID,
-                                        IP,
-                                        PORT);
-                                Intent intent = new Intent(ConnectActivity.this, RobotBesturen.class);
-                                startActivity(intent);
-                                finish();
-                            } else {
-                                Toast.makeText(ConnectActivity.this, "Wrong password inserted.", Toast.LENGTH_SHORT).show();
+                            WifiManager wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
+                            //remember id
+                            int netId = wifiManager.addNetwork(wifiConfig);
+                            wifiManager.disconnect();
+                            wifiManager.enableNetwork(netId, true);
+                            wifiManager.reconnect();
+
+                            if (wifiConfig.SSID != null && wifiConfig.SSID.equals("\"" + networkSSID + "\"")) {
+                                if (wifi.disconnect() && wifi.enableNetwork(netId, true) && wifi.reconnect()) {
+                                    Controller.getController().setSelectedRover(
+                                            Controller.getController().getSelectedConnection().SSID,
+                                            IP,
+                                            PORT);
+                                    Intent intent = new Intent(ConnectActivity.this, RobotBesturen.class);
+                                    startActivity(intent);
+                                    finish();
+                                } else {
+                                    Toast.makeText(ConnectActivity.this, "Wrong password inserted.", Toast.LENGTH_SHORT).show();
+                                }
                             }
                         }
                     }
-                }
-            });
-            back.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    dialog.hide();
-                }
-            });
+
+                });
+                back.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.hide();
+                    }
+                });
+            }
+
 
         } else {
             Toast.makeText(ConnectActivity.this, "Select a rover first!", Toast.LENGTH_SHORT).show();
