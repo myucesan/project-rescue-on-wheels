@@ -14,6 +14,7 @@ class Main(object):
     _compass = None
     _light = None
     _list = None
+    _disabled = False
     _distance = None
 
     def __new__(self):
@@ -28,6 +29,14 @@ class Main(object):
             self._light = light()
             self._distance = Distance()
             self._compass = compass(declination=(1,19))
-        
+
         return self._instance
 
+    def disable(self):
+        self._disabled = True
+
+    def enable(self):
+        self._disabled = False
+
+    def is_disabled(self):
+        return self._disabled

@@ -1,33 +1,37 @@
+import RPi.GPIO as GPIO
 import time
-import os
 from threading import Thread
 
 class Servo:
-    
-    _PIN = 15
-    _MAX = 2500
-    _MID_MAX = 2000
-    _MID = 1500
-    _MID_MIN = 1000
-    _MIN = 500
-    _start = True
-    
-    def __init__(self):
-        os.system("sudo service servoblaster stop")
 
-    def set(self, value):
-        os.system("echo " + "P1-" + str(self._PIN) + "=" + str(value) + "us > /dev/servoblaster")
-      
-    def run(self):
-        os.system("sudo service servoblaster start")
+    _control = [5,5.5,6,6.5,7,7.5,8,8.5,9,9.5,10]
+    _PIN = 15
+    _pwm = None
+    _start = False
+
+    def __init__(self, hz):
+        GPIO.setmode(GPIO.BOARD)
+        GPIO.setup(self._PIN,GPIO.OUT)
+        self._pwm = GPIO.PWM(self._PIN, hz)
+        self._pwm.start(2.5)
+
+    def __reset(self):
+        self._pwm.ChangeDutyCycle(1)
+
+    def start(self):
+       # self._pwm.ChangeDutyCycle(9)
+        self._start = True
         while self._start:
-            self.set(self._MID_MAX)
-            time.sleep(1)
-            self.set(self._MID_MIN)
-            time.sleep(1)
+            for x in range(11):
+                self._pwm.ChangeDutyCycle(self._control[x])
+                time.sleep(0.02)
+
+
+            for x in range(9,0,-1):
+                self._pwm.ChangeDutyCycle(self._control[x])
+                time.sleep(0.02)
 
     def stop(self):
         self._start = False
-        os.system("sudo service servoblaster stop")
 
 

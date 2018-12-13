@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import math
-import time
+from timer import *
 import threading
 import RPi.GPIO as GPIO
 from adc import *
@@ -8,6 +8,9 @@ from spi_dev import *
 
 # Hardware SPI configuration:
 class light:
+
+        _timer = None
+
         def __init__(self):
                 self.SPI_PORT   = 0
                 self.SPI_DEVICE = 0
@@ -19,7 +22,7 @@ class light:
                 GPIO.setmode(GPIO.BOARD)
                 GPIO.setwarnings(False)
                 GPIO.setup(self.INPUT_PIN, GPIO.OUT)
-
+                self._timer = Timer()
                 self._light = None
 
         def start(self):
@@ -28,6 +31,6 @@ class light:
                                 GPIO.output(self.INPUT_PIN,GPIO.HIGH)
                         else:
                                 GPIO.output(self.INPUT_PIN,GPIO.LOW)
-                        time.sleep(1)
+                        self._timer.pause(1)
 
 t=threading.Thread(target=light().start).start()

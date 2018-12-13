@@ -1,4 +1,5 @@
 import smbus
+import time
 
 class Bus:
    
@@ -9,6 +10,7 @@ class Bus:
 
     def __init__(self):
         self._bus = smbus.SMBus(1)
+        time.sleep(2)
         self._MOTOR_ADDRESS = 0x32
         self._DISTANCE_ADDRESS = 0x70
 

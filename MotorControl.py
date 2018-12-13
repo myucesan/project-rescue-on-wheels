@@ -6,11 +6,7 @@ from timer import *
 from distance import *
 #from magneto2 import *
 from servo import *
-<<<<<<< HEAD
 from threading import Thread
-=======
-
->>>>>>> f9711c8a941f33cd25aeb4ae05f8f52bace186c1
 
 class MotorControl:
     _bus = None
@@ -33,9 +29,8 @@ class MotorControl:
         self._MOTOR_ADDRESS = self._bus.get_motor_address()
         self._timer = Timer()
         self._distance = Distance()
-        self._servo = Servo()
         self._list = []
-        self._servo = Servo()
+        self._servo = Servo(50)
 
     def set_up(self):
         gpio.setmode(gpio.BCM)
@@ -94,13 +89,8 @@ class MotorControl:
 
         self._prevDirection = direction
 
-<<<<<<< HEAD
     def reverse(self):
 
-=======
-    def reverse_drive(self):
-        self._servo.run()
->>>>>>> f9711c8a941f33cd25aeb4ae05f8f52bace186c1
         for i in reversed(self._list):
 
             if i['direction'] == "forward":
@@ -113,9 +103,19 @@ class MotorControl:
                 self.forward()
             if i['direction'] == "stop":
                 self.stop()
+
             self._timer.conditional_pause(i['time'], 20, self._distance.get_distance(), [20, 40])
+            #self._timer.pause(i['time'])
             self.stop()
         
         self._list.clear()
-        self._servo.stop()
+
+    def reverse_drive(self):
+        thread = Thread(target = self.reverse)
+        thread1 = Thread(target = self._servo.start)
+        thread2 = Thread(target = self._servo.stop)
+        thread.start()
+        thread1.start()
+        thread.join()
+        thread2.start()
 

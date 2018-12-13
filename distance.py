@@ -17,8 +17,11 @@ class Distance:
   def get_distance(self):
     self._timer.pause(0.2)
     self._bus.get_bus().write_byte_data(self._bus.get_distance_address(), 0, 81)
-#    self._timer.pause(0.08)
+    self._timer.pause(0.08)
     distance = self._bus.get_bus().read_word_data(self._bus.get_distance_address(), 2) / 255
     return distance
 
-
+#dist=Distance()
+#while True:
+#    print(dist.get_distance())
+#    time.sleep(1)

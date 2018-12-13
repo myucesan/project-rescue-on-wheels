@@ -17,8 +17,8 @@ class compass(object):
         self.bus.write_byte_data(self.adr, 0x02, 0x01)
         xh = self.bus.read_byte_data(self.adr, 0x03)
         xl = self.bus.read_byte_data(self.adr, 0x04)
-#        zh = self.bus.read_byte_data(self.adr, 0x05)
-#        zl = self.bus.read_byte_data(self.adr, 0x06)
+        zh = self.bus.read_byte_data(self.adr, 0x05)
+        zl = self.bus.read_byte_data(self.adr, 0x06)
         yh = self.bus.read_byte_data(self.adr, 0x07)
         yl = self.bus.read_byte_data(self.adr, 0x08)
 
@@ -28,8 +28,8 @@ class compass(object):
 
         angle = math.atan2(y, x) * 180 / math.pi + 180
 
-#        if angle < 0:
-#            angle += 360
+        if angle < 0:
+            angle += 360
 
 #        return [x, y]
         return angle
@@ -54,4 +54,4 @@ class compass(object):
 comp = compass()
 while True:
     print(comp.get_values())
-    time.sleep(0.1)
+    time.sleep(1)

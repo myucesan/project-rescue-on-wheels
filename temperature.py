@@ -21,7 +21,6 @@ class temperature:
     def convert(self):
         self._timer.pause(0.2)
         raw = self.mcp.read_adc(0)
-        print(raw)
         if raw > 0:
             self._temperature = math.log(10000.0 * ((1024.0 / raw - 1)))
             self._temperature = 1 / (0.001129148 + (0.000234125 + (0.0000000876741 * self._temperature * self._temperature )) * self._temperature )

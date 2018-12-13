@@ -62,7 +62,7 @@ class compass:
         return (x, y, z)
 
     def heading(self):
-        time.sleep(0.2)
+        time.sleep(1)
         (x, y, z) = self.axes()
         headingRad = math.atan2(float(y), float(x))
         headingRad += self.__declination
@@ -93,5 +93,7 @@ class compass:
             self.declination()) + "\n" \
                                   "Heading: " + self.degrees(self.heading()) + "\n"
 
-
-
+#comp=compass()
+#while True:
+#    print(comp.degrees(comp.heading()))
+#    time.sleep(1)
