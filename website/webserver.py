@@ -74,4 +74,4 @@ spawn(compass)
 spawn(temperature)
 
 if __name__ == '__main__':
-    socketio.run(app, "10.3.141.1", 8817)
+    socketio.run(app, "10.3.141.1", 8808)
