@@ -1,6 +1,7 @@
 package com.metabotsrow.rowapp;
 
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
@@ -49,10 +50,12 @@ public class RobotBesturen extends AppCompatActivity implements Serializable, Jo
 
         setContentView(R.layout.activity_robot_besturen);
         // Setup camera
-        String videoPath = String.format("http://%s:%d/cam.mjpg", rover.getIP(), (rover.getPort()+1));
+//        String videoPath = String.format("http://%s:%d/cam.mjpg", rover.getIP(), (rover.getPort()+1));
+        String videoPath = String.format("http://10.3.141.1:9908/?action=stream");
         WebView webView = findViewById(R.id.webView);
         webView.getSettings().setLoadWithOverviewMode(true);
         webView.getSettings().setUseWideViewPort(true);
+        SystemClock.sleep(6000);
         webView.loadUrl(videoPath);
         webView.setVerticalScrollBarEnabled(false);
         webView.setHorizontalScrollBarEnabled(false);
