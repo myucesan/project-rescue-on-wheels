@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SR1 Rover</title>
+        <link rel="icon" href="fotowebsite/icon.png">
+        <link rel="stylesheet" type="text/css" href="{{url('static', filename='design.css')}}">
+</head>
+
+<body>
+
+<div class="main">
+
+<header>
+<a href="#"><img class="logo" src="{{url('static', filename='images/Veelhoek121.png')}}" alt="Rover Logo"></a>
+</header>
+<section>
+<canvas id="canvastest" class="lineNavigation">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+<img class="videoStreamer" src="http://10.3.141.1:8808/cam.mjpg">
+<p class="cameraInfo objDistTitle">OBJ DIST.</p>
+<p id="distId" class="cameraInfo objDist"></p>
+<p class="cameraInfo directTitle">DIRECTION</p>
+<p id="compassId" class="cameraInfo direct"></p>
+<p class="cameraInfo posServoTitle">TEMPERATURE</p>
+<p id="temperatureId" class="cameraInfo posServo"></p>
+<p class="roverInfo roverNumberTitle">ROVER NO.</p>
+<p id="roverNo" class="roverInfo roverNumber">SELECT ROVER</p>
+<p id="ip" class="roverIPPort roverIP">IP: 256.42.2.1</p>
+<p id="port" class="roverIPPort roverPort">Port: 8802</p>
+<a id="microphone"><button type="button" class="micButton"></button></a>
+<a id="driveback"><button type="button" class="driveBackButton">BACK</button></a>
+<audio id="audio" autoplay="true"></audio>
+<input id="textbox" type="text" value="Voer iets in" maxlength="32">
+<button id="Get">Get TextBox Value</button> 
+</section>
+<footer>
+<img class="HVAlogo" src="{{url('static', filename='images/AUASlogo.png')}}" alt="AUAS Logo">
+<img class="HVAText" src="{{url('static', filename='images/AmsterdamUniversityo.png')}}" alt="Amsterdam University">
+</footer>
+
+</div>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+<script type="text/javascript" src="{{url('static', filename='jquery.js')}}"></script>
+<script type="text/javascript" src="{{url('static', filename='socket.js')}}"></script>
+<script type="text/javascript" src="{{url('static', filename='client.js')}}"></script>
+
+</body>
+
+</html>
