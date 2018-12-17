@@ -1,33 +1,38 @@
-\contentsline {section}{\numberline {1}Introduction}{3}{section.1}
-\contentsline {section}{\numberline {2}Cooperation agreement}{4}{section.2}
-\contentsline {subsection}{\numberline {2.1}Communication}{4}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Tools}{4}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}Roles}{4}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}Tasks}{5}{subsection.2.4}
-\contentsline {subsection}{\numberline {2.5}Expectations}{5}{subsection.2.5}
-\contentsline {subsection}{\numberline {2.6}Educational goals}{5}{subsection.2.6}
-\contentsline {subsection}{\numberline {2.7}Daily stand-up}{5}{subsection.2.7}
-\contentsline {subsection}{\numberline {2.8}Absence}{5}{subsection.2.8}
-\contentsline {section}{\numberline {3}SWOT Analysis}{6}{section.3}
-\contentsline {subsection}{\numberline {3.1}Individual analyses}{6}{subsection.3.1}
-\contentsline {subsubsection}{\numberline {3.1.1}Damian}{6}{subsubsection.3.1.1}
-\contentsline {subsubsection}{\numberline {3.1.2}Mohamed}{7}{subsubsection.3.1.2}
-\contentsline {subsubsection}{\numberline {3.1.3}Mustafa}{8}{subsubsection.3.1.3}
-\contentsline {subsubsection}{\numberline {3.1.4}Yoshio}{9}{subsubsection.3.1.4}
-\contentsline {subsection}{\numberline {3.2}Group analysis}{10}{subsection.3.2}
-\contentsline {section}{\numberline {4}Feedback forms}{11}{section.4}
-\contentsline {section}{\numberline {5}Educational goals SMART}{47}{section.5}
-\contentsline {subsection}{\numberline {5.1}Damian}{47}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Mohamed}{47}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}Mustafa}{48}{subsection.5.3}
-\contentsline {subsection}{\numberline {5.4}Yoshio}{49}{subsection.5.4}
-\contentsline {section}{\numberline {6}Feedback based educational goals}{50}{section.6}
-\contentsline {subsection}{\numberline {6.1}Damian}{50}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}Mohamed}{50}{subsection.6.2}
-\contentsline {subsection}{\numberline {6.3}Mustafa}{50}{subsection.6.3}
-\contentsline {subsection}{\numberline {6.4}Yoshio}{50}{subsection.6.4}
-\contentsline {section}{\numberline {7}Impediments}{51}{section.7}
-\contentsline {subsection}{\numberline {7.1}Rough start}{51}{subsection.7.1}
-\contentsline {subsection}{\numberline {7.2}Amphibious ambiguity}{51}{subsection.7.2}
-\contentsline {subsection}{\numberline {7.3}Magnetometer}{51}{subsection.7.3}
-\contentsline {subsection}{\numberline {7.4}Microphone}{52}{subsection.7.4}
+\contentsline {section}{\numberline {1}Introduction}{4}{section.1}
+\contentsline {section}{\numberline {2}Cooperation agreement}{5}{section.2}
+\contentsline {subsection}{\numberline {2.1}Communication}{5}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Tools}{5}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Roles}{5}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Tasks}{6}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}Expectations}{6}{subsection.2.5}
+\contentsline {subsection}{\numberline {2.6}Educational goals}{6}{subsection.2.6}
+\contentsline {subsection}{\numberline {2.7}Daily stand-up}{6}{subsection.2.7}
+\contentsline {subsection}{\numberline {2.8}Absence}{6}{subsection.2.8}
+\contentsline {section}{\numberline {3}SWOT Analysis}{7}{section.3}
+\contentsline {subsection}{\numberline {3.1}Individual analyses}{7}{subsection.3.1}
+\contentsline {subsubsection}{\numberline {3.1.1}Damian}{7}{subsubsection.3.1.1}
+\contentsline {subsubsection}{\numberline {3.1.2}Mohamed}{8}{subsubsection.3.1.2}
+\contentsline {subsubsection}{\numberline {3.1.3}Mustafa}{9}{subsubsection.3.1.3}
+\contentsline {subsubsection}{\numberline {3.1.4}Yoshio}{10}{subsubsection.3.1.4}
+\contentsline {subsection}{\numberline {3.2}Group analysis}{11}{subsection.3.2}
+\contentsline {section}{\numberline {4}Educational goals SMART}{12}{section.4}
+\contentsline {subsection}{\numberline {4.1}Damian}{12}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Mohamed}{12}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Mustafa}{13}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Yoshio}{14}{subsection.4.4}
+\contentsline {section}{\numberline {5}Feedback}{15}{section.5}
+\contentsline {section}{\numberline {6}Feedback based educational goals}{16}{section.6}
+\contentsline {subsection}{\numberline {6.1}Damian}{16}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Mohamed}{16}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}Mustafa}{16}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.4}Yoshio}{16}{subsection.6.4}
+\contentsline {section}{\numberline {7}Daily stand-ups}{17}{section.7}
+\contentsline {subsection}{\numberline {7.1}Sprint one}{17}{subsection.7.1}
+\contentsline {section}{\numberline {8}Coaching}{17}{section.8}
+\contentsline {section}{\numberline {9}Retrospectives}{17}{section.9}
+\contentsline {section}{\numberline {10}Impediments}{17}{section.10}
+\contentsline {subsection}{\numberline {10.1}Rough start}{17}{subsection.10.1}
+\contentsline {subsection}{\numberline {10.2}Amphibious ambiguity}{17}{subsection.10.2}
+\contentsline {subsection}{\numberline {10.3}Magnetometer}{18}{subsection.10.3}
+\contentsline {subsection}{\numberline {10.4}Microphone}{18}{subsection.10.4}
+\contentsline {section}{\numberline {A}Feedback forms}{19}{appendix.A}
