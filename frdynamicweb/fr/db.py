@@ -25,3 +25,4 @@ class DB:
     def _get(self, query):
         self.cursor.execute(query)
         return self.cursor.fetchone()
+
