@@ -18,7 +18,7 @@ class light:
 
                 # Pin configuration
                 self.INPUT_PIN = 18
-                self.LDR_THRESHOLD = 200
+                self.LDR_THRESHOLD = 100
                 GPIO.setmode(GPIO.BOARD)
                 GPIO.setwarnings(False)
                 GPIO.setup(self.INPUT_PIN, GPIO.OUT)
@@ -27,6 +27,7 @@ class light:
 
         def start(self):
                 while(True):
+                        print(self.mcp.read_adc(1))
                         if self.mcp.read_adc(1) > self.LDR_THRESHOLD:
                                 GPIO.output(self.INPUT_PIN,GPIO.HIGH)
                         else:
