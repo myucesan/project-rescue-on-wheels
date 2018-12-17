@@ -5,6 +5,7 @@
 '''
 import constant
 import os
+from db import *
 import cv2
 from PIL import Image
 import threading
