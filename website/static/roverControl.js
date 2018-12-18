@@ -3,6 +3,8 @@ $(document).ready(function() {
   var roverInfo = localStorage.getItem("RoverSelection");
   var c = document.getElementById("canvastest");
   var ctx = c.getContext("2d");
+  var disabled = 0;
+  var textChange = false;
   ctx.beginPath();
   ctx.moveTo(200, 100);
   ctx.lineWidth = 4;
@@ -27,17 +29,28 @@ $(document).ready(function() {
   $('#roverNo').text(JSON.parse(roverInfo).name);
   
   $('#Get').on('click', function(){
+    //drive = 0;
     socket.emit('outputString', $('#textbox').val());
 	});
   $('#driveback').on('click', function(){
     socket.emit('backtrack');
 });
+
+  $('#textbox').on('focusin', function(){
+      disabled = 1;
+  });
+
+  $('#textbox').on('focusout', function() {
+     disabled = 0;
+   });
+
   window.addEventListener("keydown", controlOnKey, false);
   window.addEventListener("keyup", stop, false);
   function stop(key) {
       socket.emit('direction', "stop");
    }
   function controlOnKey(key) {
+    if (disabled == 0) {
 	var t = 1000;
     if (key.keyCode == "87") {
 	x_b += v * Math.cos(hoek)
@@ -67,6 +80,7 @@ $(document).ready(function() {
 	socket.emit('direction', "backward");
     }
   }
+}
   socket.on('lineDrawer', function(lineCalculation) {
 	var test = JSON.parse(lineCalculation);
 	var t = test["time"]*1000;

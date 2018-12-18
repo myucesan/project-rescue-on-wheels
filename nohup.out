@@ -1,0 +1,20 @@
+(0, 0)
+(270, 0)
+(0, 0)
+(0, 0)
+(0, 0)
+(0, 0)
+(0, 0)
+(90, 0)
+(0, 0)
+(0, 0)
+(0, 0)
+(0, 0)
+Traceback (most recent call last):
+  File "compass.py", line 98, in <module>
+    print(comp.degrees(comp.heading()))
+  File "compass.py", line 66, in heading
+    (x, y, z) = self.axes()
+  File "compass.py", line 57, in axes
+    data = self.bus.read_i2c_block_data(self.address, 0x00)
+OSError: [Errno 121] Remote I/O error
