@@ -33,12 +33,21 @@
 \contentsline {subsection}{\numberline {7.4}Sprint four}{18}{subsection.7.4}
 \contentsline {section}{\numberline {8}Coaching}{18}{section.8}
 \contentsline {section}{\numberline {9}Retrospectives}{19}{section.9}
-\contentsline {subsection}{\numberline {9.1}Sprint 1}{19}{subsection.9.1}
-\contentsline {subsection}{\numberline {9.2}Sprint 2}{20}{subsection.9.2}
-\contentsline {subsection}{\numberline {9.3}Sprint 3}{20}{subsection.9.3}
+\contentsline {subsection}{\numberline {9.1}Sprint one}{19}{subsection.9.1}
+\contentsline {subsection}{\numberline {9.2}Sprint two}{20}{subsection.9.2}
+\contentsline {subsection}{\numberline {9.3}Sprint three}{20}{subsection.9.3}
 \contentsline {section}{\numberline {10}Impediments}{21}{section.10}
 \contentsline {subsection}{\numberline {10.1}Rough start}{21}{subsection.10.1}
 \contentsline {subsection}{\numberline {10.2}Amphibious ambiguity}{21}{subsection.10.2}
 \contentsline {subsection}{\numberline {10.3}Magnetometer}{22}{subsection.10.3}
 \contentsline {subsection}{\numberline {10.4}Microphone}{22}{subsection.10.4}
-\contentsline {section}{\numberline {A}Feedback forms}{23}{appendix.A}
+\contentsline {section}{\numberline {11}Communication}{23}{section.11}
+\contentsline {paragraph}{\numberline {11.0.0.1}Business case}{23}{paragraph.11.0.0.1}
+\contentsline {paragraph}{\numberline {11.0.0.2}Actuator problems}{23}{paragraph.11.0.0.2}
+\contentsline {paragraph}{\numberline {11.0.0.3}Excellence program}{23}{paragraph.11.0.0.3}
+\contentsline {paragraph}{\numberline {11.0.0.4}Scrum feedback}{23}{paragraph.11.0.0.4}
+\contentsline {paragraph}{\numberline {11.0.0.5}Trello}{23}{paragraph.11.0.0.5}
+\contentsline {paragraph}{\numberline {11.0.0.6}Hardware orders}{24}{paragraph.11.0.0.6}
+\contentsline {paragraph}{\numberline {11.0.0.7}Trello 2.0}{24}{paragraph.11.0.0.7}
+\contentsline {paragraph}{\numberline {11.0.0.8}Magnetometer replacement}{24}{paragraph.11.0.0.8}
+\contentsline {section}{\numberline {A}Feedback forms}{25}{appendix.A}
