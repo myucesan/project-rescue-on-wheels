@@ -1,8 +1,8 @@
-import aiohttp_jinja2
-import jinja2
-import asyncio
-import json
-import sys
+import aiohttp_jinja2 
+import jinja2 
+import asyncio 
+import json 
+import sys 
 import os
 
 import cv2
@@ -23,11 +23,37 @@ app = web.Application()
 socket.attach(app)
 aiohttp_jinja2.setup(
     app, loader=jinja2.FileSystemLoader('./templates'))
+main = Main()
+
+async def compass():
+    while True:
+        socket.emit('compass', main._compass.degrees(main._compass.heading())
+
+async def distance():
+    while True:
+        socket.emit('temperature', "{:.1f}".format(main._temperature.convert())
+
+async def temperature():
+    while True;:
+        socket.emit('distance', "{:.1f}".format(main._distance.get_distance())
 
 
-@socket.on('t')
-async def test(sid, test):
-    print(test)
+@socket.on('outputString')
+async def output_string(sid, text):
+    main._lcd.output_string(text)
+
+@socket.on('direction')
+async def drive_into_direction(sid, direction):
+    if not main.is_disabled():
+        main._motor_control.drive(direction)
+
+@socket.on('backtrack')
+async def track_back(sid):
+    main.disable()
+    main._motor_control.reverse_drive()
+    main.enable()
+
+
 
 async def offer(request):
     params = await request.json()
@@ -40,8 +66,8 @@ async def offer(request):
 
     # prepare local media
 
-    player = MediaPlayer(os.path.join(ROOT, 'demo-instruct.wav'))
-    recorder = MediaRecorder("test.wav")
+    player = MediaPlayer('hw:1', format='alsa', options={'channels': '1'})
+    recorder = MediaRecorder('plughw:0', format='alsa')
 
     @pc.on('iceconnectionstatechange')
     async def on_iceconnectionstatechange():
@@ -93,4 +119,4 @@ if __name__ == '__main__':
     app.on_shutdown.append(on_shutdown)
     app.router.add_post('/offer', offer)
     setup_routes(app)
-    web.run_app(app, host='192.168.137.19', port=sys.argv[1:][0])
+    web.run_app(app, host='192.168.137.241', port=sys.argv[1:][0])
