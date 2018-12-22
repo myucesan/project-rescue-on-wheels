@@ -62,4 +62,7 @@ To:
                 codec_name = 'pcm_s16le'
             stream = self.__container.add_stream(codec_name)
 
+--- NOTES
+
+To change speakers configuration from jack plug to HDMI, check the device number in aplay -l and then change the pcm slave number written in playback based on the device number, maybe 0,1
 
