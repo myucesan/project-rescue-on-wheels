@@ -23,19 +23,19 @@ app = web.Application()
 socket.attach(app)
 aiohttp_jinja2.setup(
     app, loader=jinja2.FileSystemLoader('./templates'))
-main = Main()
+#main = Main()
 
-async def compass():
-    while True:
-        socket.emit('compass', main._compass.degrees(main._compass.heading())
+#async def compass():
+ #   while True:
+  #      socket.emit('compass', main._compass.degrees(main._compass.heading())
 
-async def distance():
-    while True:
-        socket.emit('temperature', "{:.1f}".format(main._temperature.convert())
+#async def distance():
+ #   while True:
+  #      socket.emit('temperature', "{:.1f}".format(main._temperature.convert())
 
-async def temperature():
-    while True;:
-        socket.emit('distance', "{:.1f}".format(main._distance.get_distance())
+#async def temperature():
+ #   while True;:
+  #      socket.emit('distance', "{:.1f}".format(main._distance.get_distance())
 
 
 @socket.on('outputString')
