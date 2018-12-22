@@ -67,7 +67,7 @@ async def offer(request):
     # prepare local media
 
     player = MediaPlayer('hw:1', format='alsa', options={'channels': '1'})
-    recorder = MediaRecorder('plughw:0', format='alsa')
+    recorder = MediaRecorder('plughw:0,0', format='alsa')
 
     @pc.on('iceconnectionstatechange')
     async def on_iceconnectionstatechange():
