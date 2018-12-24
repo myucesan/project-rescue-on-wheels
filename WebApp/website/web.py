@@ -23,19 +23,22 @@ app = web.Application()
 socket.attach(app)
 aiohttp_jinja2.setup(
     app, loader=jinja2.FileSystemLoader('./templates'))
-#main = Main()
+main = Main()
 
-#async def compass():
- #   while True:
-  #      socket.emit('compass', main._compass.degrees(main._compass.heading())
+async def compass():
+    while True:
+        await socket.sleep(1)
+        await socket.emit('compass', main._compass.degrees(main._compass.heading()))
 
-#async def distance():
- #   while True:
-  #      socket.emit('temperature', "{:.1f}".format(main._temperature.convert())
+async def temperature():
+    while True:
+        await socket.sleep(0.2)
+        await socket.emit('temperature', "{:.1f}".format(main._temperature.convert()))
 
-#async def temperature():
- #   while True;:
-  #      socket.emit('distance', "{:.1f}".format(main._distance.get_distance())
+async def distance():
+    while True;:
+        await socket.sleep(0.2)
+        await socket.emit('distance', "{:.1f}".format(main._distance.get_distance()))
 
 
 @socket.on('outputString')
@@ -114,9 +117,12 @@ async def on_shutdown(app):
     await asyncio.gather(*coros)
     pcs.clear()
 
+app.on_shutdown.append(on_shutdown)
+app.router.add_post('/offer', offer)
+setup_routes(app)
 
 if __name__ == '__main__':
-    app.on_shutdown.append(on_shutdown)
-    app.router.add_post('/offer', offer)
-    setup_routes(app)
+    socket.start_background_task(compass)
+    socket.start_background_task(distance)
+    socket.start_background_task(temperature)
     web.run_app(app, host='192.168.137.241', port=sys.argv[1:][0])
