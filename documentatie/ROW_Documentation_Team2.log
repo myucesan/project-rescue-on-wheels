@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.2.9)  8 JAN 2019 19:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.2.9)  8 JAN 2019 19:52
 entering extended mode
 **./ROW_Documentation_Team2.tex
 (ROW_Documentation_Team2.tex
@@ -553,40 +553,52 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks33
 \@floatcapt=\box41
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 23.
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\rotating.sty"
+Package: rotating 2016/08/11 v2.16d rotated objects in LaTeX
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\c@r@tfl@t=\count133
+\rotFPtop=\skip48
+\rotFPbot=\skip49
+\rot@float@box=\box42
+\rot@mess@toks=\toks34
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 24.
 
 (ROW_Documentation_Team2.aux)
 \openout1 = `ROW_Documentation_Team2.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-\c@lstlisting=\count133
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+\c@lstlisting=\count134
  ABD: EveryShipout initializing macros
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count134
+\scratchcounter=\count135
 \scratchdimen=\dimen192
-\scratchbox=\box42
-\nofMPsegments=\count135
-\nofMParguments=\count136
-\everyMPshowfont=\toks34
-\MPscratchCnt=\count137
+\scratchbox=\box43
+\nofMPsegments=\count136
+\nofMParguments=\count137
+\everyMPshowfont=\toks35
+\MPscratchCnt=\count138
 \MPscratchDim=\dimen193
-\MPnumerator=\count138
-\makeMPintoPDFobject=\count139
-\everyMPtoPDFconversion=\toks35
+\MPnumerator=\count139
+\makeMPintoPDFobject=\count140
+\everyMPtoPDFconversion=\toks36
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -634,28 +646,28 @@ G,.JBIG2,.JB2,.eps]
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\AtBeginShipoutBox=\box43
-Package hyperref Info: Link coloring ON on input line 26.
+\AtBeginShipoutBox=\box44
+Package hyperref Info: Link coloring ON on input line 27.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count140
+\c@section@level=\count141
 )
-LaTeX Info: Redefining \ref on input line 26.
-LaTeX Info: Redefining \pageref on input line 26.
-LaTeX Info: Redefining \nameref on input line 26.
+LaTeX Info: Redefining \ref on input line 27.
+LaTeX Info: Redefining \pageref on input line 27.
+LaTeX Info: Redefining \nameref on input line 27.
 
 (ROW_Documentation_Team2.out) (ROW_Documentation_Team2.out)
 \@outlinefile=\write4
 \openout4 = `ROW_Documentation_Team2.out'.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 30.
+(Font)              <14.4> on input line 31.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 30.
+(Font)              <7> on input line 31.
  [1
 
 {C:/Users/Gebruiker/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
@@ -671,137 +683,142 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \openout5 = `ROW_Documentation_Team2.toc'.
 
  [2]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 36.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 37.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 36.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 37.
 
-Underfull \hbox (badness 10000) in paragraph at lines 40--45
+Underfull \hbox (badness 10000) in paragraph at lines 41--46
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 40--45
+Underfull \hbox (badness 10000) in paragraph at lines 41--46
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 53--54
+Underfull \hbox (badness 10000) in paragraph at lines 54--55
 
  []
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 55.
+(Font)              <5> on input line 57.
 
-Underfull \hbox (badness 10000) in paragraph at lines 55--57
+Underfull \hbox (badness 10000) in paragraph at lines 56--59
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 56--59
 
  []
 
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 57.
+(hyperref)                than one, level fixed on input line 59.
 
 [4pdfTeX warning (ext4): destination with the same identifier (name{table.1}) h
 as been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.79 	\newpage
+l.81 	\newpage
               ]
-Underfull \hbox (badness 10000) in paragraph at lines 81--87
+Underfull \hbox (badness 10000) in paragraph at lines 83--89
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 81--87
+Underfull \hbox (badness 10000) in paragraph at lines 83--89
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 81--87
+Underfull \hbox (badness 10000) in paragraph at lines 83--89
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 81--87
+Underfull \hbox (badness 10000) in paragraph at lines 83--89
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 81--87
+Underfull \hbox (badness 10000) in paragraph at lines 83--89
 
  []
 
 [5]
-Underfull \hbox (badness 7047) in paragraph at lines 102--102
+Underfull \hbox (badness 7047) in paragraph at lines 104--104
 \T1/cmr/bx/n/12 I want to be
  []
 
 
-Underfull \hbox (badness 1014) in paragraph at lines 102--102
+Underfull \hbox (badness 1014) in paragraph at lines 104--104
 \T1/cmr/bx/n/12 for-ma-tion about
  []
 
 
-Underfull \hbox (badness 6236) in paragraph at lines 102--102
+Underfull \hbox (badness 6236) in paragraph at lines 104--104
 \T1/cmr/bx/n/12 be bet-ter pre-
  []
 
 
-Underfull \hbox (badness 1082) in paragraph at lines 102--102
+Underfull \hbox (badness 1082) in paragraph at lines 104--104
 \T1/cmr/bx/n/12 lo-ca-tions of the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 102--102
+Underfull \hbox (badness 10000) in paragraph at lines 104--104
 \T1/cmr/m/n/12 rec-og-nize a sur-
  []
 
 
-Underfull \hbox (badness 2042) in paragraph at lines 102--102
+Underfull \hbox (badness 2042) in paragraph at lines 104--104
 \T1/cmr/m/n/12 vivor's face, so I
  []
 
 
-Underfull \hbox (badness 3098) in paragraph at lines 102--102
+Underfull \hbox (badness 3098) in paragraph at lines 104--104
 \T1/cmr/m/n/12 cue op-er-a-tion ac-
  []
 
 
-Underfull \hbox (badness 1337) in paragraph at lines 102--102
+Underfull \hbox (badness 1337) in paragraph at lines 104--104
 \T1/cmr/m/n/12 tell a mo-bile app
  []
 
 
-Underfull \hbox (badness 5036) in paragraph at lines 102--102
+Underfull \hbox (badness 5036) in paragraph at lines 104--104
 \T1/cmr/m/n/12 is in re-la-tion to
  []
 
 
-Underfull \hbox (badness 3838) in paragraph at lines 102--102
+Underfull \hbox (badness 3838) in paragraph at lines 104--104
 \T1/cmr/m/n/12 a mo-bile app to
  []
 
 
-Underfull \hbox (badness 1048) in paragraph at lines 102--102
+Underfull \hbox (badness 1048) in paragraph at lines 104--104
 \T1/cmr/m/n/12 vice so I can get
  []
 
 
-Underfull \hbox (badness 2512) in paragraph at lines 102--102
+Underfull \hbox (badness 2512) in paragraph at lines 104--104
 \T1/cmr/m/n/12 tion to the en-vi-
  []
 
 
-Underfull \hbox (badness 1158) in paragraph at lines 102--102
+Underfull \hbox (badness 1158) in paragraph at lines 104--104
 \T1/cmr/m/n/12 bile robot from a
  []
 
 
-Underfull \hbox (badness 3396) in paragraph at lines 143--143
+Underfull \hbox (badness 3396) in paragraph at lines 145--145
 []\T1/cmr/m/n/12 Rover op-er-a-tor suc-cess-fully con-
  []
 
@@ -810,9 +827,9 @@ as been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.180 	 	\end{table}
+l.182 	 	\end{table}
                     ]
-Underfull \hbox (badness 6725) in paragraph at lines 212--212
+Underfull \hbox (badness 6725) in paragraph at lines 214--214
 []\T1/cmr/m/n/12 A sur-vivor’s face is vis-i-ble
  []
 
@@ -821,68 +838,68 @@ as been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.215 	 	\end{table}
+l.217 	 	\end{table}
                     ] [8pdfTeX warning (ext4): destination with the same identi
 fier (name{table.4}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.248 	 	\end{table}
+l.250 	 	\end{table}
                     ] [9pdfTeX warning (ext4): destination with the same identi
 fier (name{table.5}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.281 	 	\end{table}
+l.283 	 	\end{table}
                     ] [10pdfTeX warning (ext4): destination with the same ident
 ifier (name{table.6}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.282  	\subsection{Use-case diagram}
+l.284  	\subsection{Use-case diagram}
                                      ]
 <UseCaseDiagram.jpeg, id=184, 410.53375pt x 603.25375pt>
 File: UseCaseDiagram.jpeg Graphic file (type jpg)
 <use UseCaseDiagram.jpeg>
-Package pdftex.def Info: UseCaseDiagram.jpeg  used on input line 283. on input 
-line 283.
+Package pdftex.def Info: UseCaseDiagram.jpeg  used on input line 285. on input 
+line 285.
 Package pdftex.def Info: Requested size: 452.9679pt x 665.60625pt on input line
- 283.
+ 285.
  [11pdfTeX warning (ext4): destination with the same identifier (name{table.7})
  has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.284  	\subsection{Domain model}
+l.286  	\subsection{Domain model}
                                  ]
 <DomainModel.jpeg, id=195, 703.62875pt x 929.4725pt>
 File: DomainModel.jpeg Graphic file (type jpg)
 <use DomainModel.jpeg>
-Package pdftex.def Info: DomainModel.jpeg  used on input line 285. on input lin
-e 285.
+Package pdftex.def Info: DomainModel.jpeg  used on input line 287. on input lin
+e 287.
 Package pdftex.def Info: Requested size: 452.9679pt x 598.3493pt on input line 
-285.
+287.
  [12 <./UseCaseDiagram.jpeg>] [13 <./DomainModel.jpeg>] [14pdfTeX warning (ext4
 ): destination with the same identifier (name{table.8}) has been already used, 
 duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.373  	\end{table}
+l.375  	\end{table}
                    ] [15pdfTeX warning (ext4): destination with the same identi
 fier (name{table.9}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.429 	\end{table}
+l.431 	\end{table}
                   pdfTeX warning (ext4): destination with the same identifier (
 name{table.10}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.429 	\end{table}
+l.431 	\end{table}
                   ]
-Underfull \hbox (badness 1515) in paragraph at lines 482--482
+Underfull \hbox (badness 1515) in paragraph at lines 484--484
 []|\T1/cmr/m/n/12 Test un-suc-cess-ful. Prob-a-bly a hard-
  []
 
@@ -891,20 +908,20 @@ Underfull \hbox (badness 1515) in paragraph at lines 482--482
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.485 	\end{table}
+l.487 	\end{table}
                   pdfTeX warning (ext4): destination with the same identifier (
 name{table.12}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.485 	\end{table}
+l.487 	\end{table}
                   ]
-Underfull \hbox (badness 1184) in paragraph at lines 538--538
+Underfull \hbox (badness 1184) in paragraph at lines 540--540
 \T1/cmr/m/n/12 see that the line has moved for-ward.
  []
 
 
-Underfull \hbox (badness 1107) in paragraph at lines 538--538
+Underfull \hbox (badness 1107) in paragraph at lines 540--540
 []|\T1/cmr/m/n/12 Line doesn't com-pletely cor-re-spond to
  []
 
@@ -913,57 +930,57 @@ Underfull \hbox (badness 1107) in paragraph at lines 538--538
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.541 	\end{table}
+l.543 	\end{table}
                   pdfTeX warning (ext4): destination with the same identifier (
 name{table.14}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.541 	\end{table}
+l.543 	\end{table}
                   ] [18pdfTeX warning (ext4): destination with the same identif
 ier (name{table.15}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.597 	\end{table}
+l.599 	\end{table}
                   pdfTeX warning (ext4): destination with the same identifier (
 name{table.16}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.597 	\end{table}
+l.599 	\end{table}
                   ] [19pdfTeX warning (ext4): destination with the same identif
 ier (name{table.17}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.675 	\end{table}
+l.677 	\end{table}
                   pdfTeX warning (ext4): destination with the same identifier (
 name{table.18}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.675 	\end{table}
+l.677 	\end{table}
                   ] [20pdfTeX warning (ext4): destination with the same identif
 ier (name{table.19}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.676 	\subsection{Use-case testing}
+l.678 	\subsection{Use-case testing}
                                     ] [21pdfTeX warning (ext4): destination wit
 h the same identifier (name{table.20}) has been already used, duplicate ignored
 
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.741 	\end{table}
+l.743 	\end{table}
                   ]
-Underfull \hbox (badness 1303) in paragraph at lines 783--783
+Underfull \hbox (badness 1303) in paragraph at lines 785--785
 []\T1/cmr/m/n/12 Rover op-er-a-tor reads po-si-tion of
  []
 
 
-Underfull \hbox (badness 2050) in paragraph at lines 783--783
+Underfull \hbox (badness 2050) in paragraph at lines 785--785
 []\T1/cmr/m/n/12 Rover op-er-a-tor reads what port
  []
 
@@ -972,35 +989,77 @@ Underfull \hbox (badness 2050) in paragraph at lines 783--783
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.786 	\end{table}
+l.788 	\end{table}
                   ] [23pdfTeX warning (ext4): destination with the same identif
 ier (name{table.22}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.787  	\section{Design model}
+l.789  	\section{Design model}
                               ] [24pdfTeX warning (ext4): destination with the 
 same identifier (name{table.23}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.790  		\item C
-                lass diagram] [25]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 802.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 802.
+l.792  		\item C
+                lass diagram]
+<MobileClassDiagram.png, id=272, 2446.13875pt x 904.37875pt>
+File: MobileClassDiagram.png Graphic file (type png)
+<use MobileClassDiagram.png>
+Package pdftex.def Info: MobileClassDiagram.png  used on input line 801. on inp
+ut line 801.
+Package pdftex.def Info: Requested size: 452.9679pt x 167.45924pt on input line
+ 801.
+<ComDiagram.png, id=274, 467.346pt x 392.667pt>
+File: ComDiagram.png Graphic file (type png)
+<use ComDiagram.png>
+Package pdftex.def Info: ComDiagram.png  used on input line 808. on input line 
+808.
+Package pdftex.def Info: Requested size: 452.9679pt x 380.58696pt on input line
+ 808.
+ [25pdfTeX warning (ext4): destination with the same identifier (name{figure.1}
+) has been already used, duplicate ignored
+
+\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
+                                                  
+l.811  	\subsection{Hardware architecture}
+                                           <./MobileClassDiagram.png>]
+<HardwareArch.jpeg, id=282, 882.29625pt x 630.85687pt>
+File: HardwareArch.jpeg Graphic file (type jpg)
+<use HardwareArch.jpeg>
+Package pdftex.def Info: HardwareArch.jpeg  used on input line 814. on input li
+ne 814.
+Package pdftex.def Info: Requested size: 452.9679pt x 323.87936pt on input line
+ 814.
+ [26pdfTeX warning (ext4): destination with the same identifier (name{figure.2}
+) has been already used, duplicate ignored
+
+\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
+                                                  
+l.817  	\section{Installation manual}
+                                      <./ComDiagram.png>] [27pdfTeX warning (ex
+t4): destination with the same identifier (name{figure.3}) has been already use
+d, duplicate ignored
+
+\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
+                                                  
+l.819 \end{document}
+                    	 <./HardwareArch.jpeg>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 819.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 819.
  (ROW_Documentation_Team2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 802.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 802.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 819.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 819.
 Package rerunfilecheck Info: File `ROW_Documentation_Team2.out' has not changed
 .
 (rerunfilecheck)             Checksum: 6A87F06F7696E79850292C5A0DA34B95;1140.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 802.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 819.
  ) 
 Here is how much of TeX's memory you used:
- 17306 strings out of 493312
- 318621 string characters out of 3138888
- 403212 words of memory out of 3000000
- 20469 multiletter control sequences out of 15000+200000
+ 17437 strings out of 493312
+ 320381 string characters out of 3138888
+ 406003 words of memory out of 3000000
+ 20585 multiletter control sequences out of 15000+200000
  15756 words of font info for 37 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,11n,54p,661b,376s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1016,9 +1075,9 @@ c\dpi600\ecrm1200.pk> <C:\Users\Gebruiker\AppData\Local\MiKTeX\2.9\fonts\pk\ljf
 our\jknappen\ec\dpi600\ecrm1440.pk> <C:\Users\Gebruiker\AppData\Local\MiKTeX\2.
 9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm2488.pk><C:/Program Files/MiKTeX 2.9/f
 onts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on ROW_Documentation_Team2.pdf (25 pages, 234964 bytes).
+Output written on ROW_Documentation_Team2.pdf (27 pages, 777624 bytes).
 PDF statistics:
- 604 PDF objects out of 1000 (max. 8388607)
- 103 named destinations out of 1000 (max. 500000)
- 175 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 622 PDF objects out of 1000 (max. 8388607)
+ 108 named destinations out of 1000 (max. 500000)
+ 190 words of extra memory for PDF output out of 10000 (max. 10000000)
 

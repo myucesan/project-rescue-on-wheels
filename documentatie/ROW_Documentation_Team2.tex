@@ -11,6 +11,7 @@
 \usepackage{placeins}
 \usepackage{float}
 \usepackage{color}
+\usepackage{rotating}
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
@@ -52,7 +53,8 @@
 		\item Use-case diagram
 		\item Domain model\\
 	\end{itemize}	
-	The formulation of the requirements was performed based on user stories. These user stories were created based on an epic. An agile epic is a body of work that can be broken down into specific tasks (called ''stories,'' or ''user stories'') based on the needs/requests of customers or end users\footnote{https://www.atlassian.com/agile/project-management/epics}.\\
+	The analysis answers the question of "How, in detail, is the product designed?"\\
+	\\The formulation of the requirements was performed based on user stories. These user stories were created based on an epic. An agile epic is a body of work that can be broken down into specific tasks (called ''stories,'' or ''user stories'') based on the needs/requests of customers or end users\footnote{https://www.atlassian.com/agile/project-management/epics}.\\
 	\\After having created said requirements we will formulate the Use-case diagram(s) and the Domain model(s). These will visualize the user interaction with our system and our Metabot.
 	\subsubsection{Terms and definitions}
 	Below you'll find the terms and definitions used throughout this document.
@@ -794,9 +796,24 @@
  	\end{itemize}
  	The design model answers the question of "how, in detail, is the product built?"
  	\subsection{Class diagram}
+ 		\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[width=\linewidth]{MobileClassDiagram.png}\\
+ 		\caption{Class diagram for the mobile application}
+ 		\end{figure}
  	\subsection{Sequence diagram}
  	\subsection{Communication diagram}
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[width=\linewidth]{ComDiagram.png}\\
+ 		\caption{Diagram of the communication of our product}
+ 	\end{figure}
  	\subsection{Hardware architecture}
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[width=\linewidth]{HardwareArch.jpeg}\\
+ 		\caption{Diagram of our product's architecture}
+ 	\end{figure}
  	\section{Installation manual}
  	\section{User manual}
 \end{document}	
