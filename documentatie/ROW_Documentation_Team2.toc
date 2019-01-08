@@ -1,6 +1,19 @@
 \contentsline {section}{\numberline {1}Introduction}{3}{section.1}
 \contentsline {section}{\numberline {2}Analysis}{4}{section.2}
-\contentsline {paragraph}{\numberline {2.0.0.1}Terms and definitions}{4}{paragraph.2.0.0.1}
+\contentsline {subsubsection}{\numberline {2.0.1}Terms and definitions}{4}{subsubsection.2.0.1}
 \contentsline {subsection}{\numberline {2.1}Epic}{5}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}User stories}{6}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}Use-cases}{6}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.3}Use-cases}{7}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Use-case diagram}{12}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}Domain model}{13}{subsection.2.5}
+\contentsline {section}{\numberline {3}Testing}{14}{section.3}
+\contentsline {subsection}{\numberline {3.1}General tests}{14}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Acceptance tests}{20}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Use-case testing}{22}{subsection.3.3}
+\contentsline {section}{\numberline {4}Design model}{25}{section.4}
+\contentsline {subsection}{\numberline {4.1}Class diagram}{25}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Sequence diagram}{25}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Communication diagram}{25}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Hardware architecture}{25}{subsection.4.4}
+\contentsline {section}{\numberline {5}Installation manual}{25}{section.5}
+\contentsline {section}{\numberline {6}User manual}{25}{section.6}

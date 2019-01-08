@@ -9,6 +9,7 @@
 \usepackage[a4paper, margin=1in]{geometry}
 \usepackage[hidelinks]{hyperref}
 \usepackage{placeins}
+\usepackage{float}
 \usepackage{color}
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
@@ -53,10 +54,9 @@
 	\end{itemize}	
 	The formulation of the requirements was performed based on user stories. These user stories were created based on an epic. An agile epic is a body of work that can be broken down into specific tasks (called ''stories,'' or ''user stories'') based on the needs/requests of customers or end users\footnote{https://www.atlassian.com/agile/project-management/epics}.\\
 	\\After having created said requirements we will formulate the Use-case diagram(s) and the Domain model(s). These will visualize the user interaction with our system and our Metabot.
-	\paragraph{Terms and definitions}\mbox{}\\
+	\subsubsection{Terms and definitions}
 	Below you'll find the terms and definitions used throughout this document.
-	\FloatBarrier
-	\begin{table}[h]
+	\begin{table}[H]
 		\centering
 		\begin{tabularx}{\linewidth}{|X|X|}
 			\hline
@@ -76,9 +76,8 @@
 		\caption{Terms and definitions for this document.}
 		\label{table:termsDefinition}   
 	\end{table}
-	\FloatBarrier
 	\newpage
-	 \subsection{Epic}
+	\subsection{Epic}
 	 A building has collapsed trapping the people inside. Some managed to get out in time but others weren't so lucky. Upon arrival at the scene our actor assesses the situation. The building is unstable and the trapped survivors need to be rescued as quickly as possible.\\
 	 \\Normally a rescue crew would be assembled and they would slowly make their way through the rubble to search for people. This is a dangerous and time-consuming task. The crew has no idea whether or not there is a way to get to the survivors. Removing rubble could make the building collapse even further. These people need to be found and removed from the ruins before this happens.\\
 	 \\Luckily our actor has just the tool for this job. The Metabot, a small remote controlled robot that can do the scouting for our actor. Our actor takes out his phone and boots up the app. Here, our actor can control the robot.\\
@@ -86,9 +85,9 @@
 	 \\Once our actor has found a survivor, the robot's facial recognition software will help our actor detect the survivor. After this detection, the robot will ping the location of the survivor on the map so that our actor knows where in relation to the rest of the building the survivors are. After pinging the location, the robot will give a visual light signal to the survivors to let them know they have been found and will soon be rescued.\\
 	 \\After mapping the area and locating the survivors our actor can create a rescue plan and execute it. Having performed reconnaissance safely and quickly with the Metabot, our rescue crew can now swiftly save the survivors. 
 	 \newpage
-	 \subsection{User stories}
+	\subsection{User stories}
 	 From this epic story we could formulate user stories, this resulted in the following table:
-	 \begin{table}[htbp]
+	 \begin{table}[H]
 	 	\centering
 	 	\begin{tabularx}{\linewidth}{|X|X|X|X|}
 	 		\hline
@@ -104,9 +103,9 @@
 	 	\caption{User stories formed in accordance with the epic story.}
 	 	\label{table:userStories}   
 	 \end{table}
- 	\FloatBarrier
+ 	
  	\subsection{Use-cases}
-	 	\begin{table}[h]
+	 	\begin{table}[H]
 	 	\centering
 		 	\begin{tabularx}{\linewidth}{|X|X|}
 		 		\hline
@@ -145,7 +144,7 @@
 		 	\caption{Use-case 1}
 		 	\label{table:Use-case1}   
 	 	\end{table}
-	 	\begin{table}[h]
+	 	\begin{table}[H]
 	 		\centering
 	 		\begin{tabularx}{\linewidth}{|X|X|}
 	 			\hline
@@ -179,7 +178,7 @@
 	 		\caption{Use-case 2}
 	 		\label{table:Use-case2}   
 	 	\end{table}
-	 	\begin{table}[h]
+	 	\begin{table}[H]
 	 		\centering
 	 		\begin{tabularx}{\linewidth}{|X|X|}
 	 			\hline
@@ -214,7 +213,7 @@
 	 		\caption{Use-case 3}
 	 		\label{table:Use-case3}   
 	 	\end{table}
-	 	\begin{table}[h]
+	 	\begin{table}[H]
 	 		\centering
 	 		\begin{tabularx}{\linewidth}{|X|X|}
 	 			\hline
@@ -247,7 +246,7 @@
 	 		\caption{Use-case 4}
 	 		\label{table:Use-case4}   
 	 	\end{table}
-	 	\begin{table}[h]
+	 	\begin{table}[H]
 	 		\centering
 	 		\begin{tabularx}{\linewidth}{|X|X|}
 	 			\hline
@@ -280,4 +279,524 @@
 	 		\caption{Use-case 5}
 	 		\label{table:Use-case5}   
 	 	\end{table}
+ 	\subsection{Use-case diagram}
+ 	\includegraphics[width=\linewidth]{UseCaseDiagram.jpeg}
+ 	\subsection{Domain model}
+ 	\includegraphics[width=\linewidth]{DomainModel.jpeg}
+ 	\newpage
+ 	\section{Testing}
+ 	In the fourth sprint we conducted multiple tests:
+ 	\subsection{General tests}
+ 	\begin{table}[H]
+ 		\centering
+ 		\begin{tabularx}{\linewidth}{|X|X|}
+ 			\hline
+ 			\textbf{ID} &1\\
+ 			\hline
+ 			\textbf{Testgoal} &Proof that it can be remote-controlled successfully via the camera\\
+ 			\hline
+ 			\textbf{Version} &1\\
+ 			\hline
+ 			\textbf{Testers} &Mustafa, Yoshio\\
+ 			\hline
+ 			\textbf{Date} &21 Dec 2018 at 2:30pm\\
+ 			\hline
+ 			\textbf{Location} &AUAS, WBH3\\
+ 			\hline
+ 			\textbf{Device(s)} &MacOS, Chrome\\
+ 			\hline
+ 			\textbf{Approach} &Operator cannot see rover. He/she can only see the web interface. 	Therefore, the camera on the rover must only be used to control.\\
+ 			\hline
+ 			\textbf{Proof} &Video demonstration\\
+ 			\hline
+ 			\textbf{Conclusion} &Test successful. Operator is able to control the rover using only the camera on the rover.\\
+ 			\hline
+ 		\end{tabularx}
+ 		\caption{Testcase 1}
+ 		\label{table:Testcase 1}   
+ 	\end{table}
+	 \begin{table}[H]
+	 	\centering
+	 	\begin{tabularx}{\linewidth}{|X|X|}
+	 		\hline
+	 		\textbf{ID} &2\\
+	 		\hline
+	 		\textbf{Testgoal} &Proof that it can recognize faces\\
+	 		\hline
+	 		\textbf{Version} &1\\
+	 		\hline
+	 		\textbf{Testers} &Mustafa, Yoshio\\
+	 		\hline
+	 		\textbf{Date} &21 Dec 2018 at 1pm\\
+	 		\hline
+	 		\textbf{Location} &AUAS, WBH3\\
+	 		\hline
+	 		\textbf{Device(s)} &MacOS, Chrome\\
+	 		\hline
+	 		\textbf{Approach} &Mr Bean's face is trained and is the only face trained. We first show Mr Bean's face. His face should be recognized. Afterwards we show another person's face. That person's face should be unknown and most certainly not to be recognized as Mr Bean.\\
+	 		\hline
+	 		\textbf{Proof} &Video demonstration\\
+	 		\hline
+	 		\textbf{Conclusion} &The test was successful. Mr Bean's face was recognized at a percentage of 50\%. Our own was considered to be unknown. There is, however, a significant delay of ~1.5 seconds relative to real-time.\\
+	 		\hline
+	 	\end{tabularx}
+	 	\caption{Testcase 2}
+	 	\label{table:Testcase 2}   
+	 \end{table}
+ 	\begin{table}[H]
+ 		\centering
+ 		\begin{tabularx}{\linewidth}{|X|X|}
+ 			\hline
+ 			\textbf{ID} &3\\
+ 			\hline
+ 			\textbf{Testgoal} &Proof that light turns on when it's dark\\
+ 			\hline
+ 			\textbf{Version} &1\\
+ 			\hline
+ 			\textbf{Testers} &Yoshio\\
+ 			\hline
+ 			\textbf{Date} &21 Dec 2018 at 3:30pm\\
+ 			\hline
+ 			\textbf{Location} &AUAS, WBH3\\
+ 			\hline
+ 			\textbf{Device(s)} &Windows 10, Chrome\\
+ 			\hline
+ 			\textbf{Approach} &Cover the rover with something like a blanket. The light should then turn on. Removing the blanket should result in the light turning off.\\
+ 			\hline
+ 			\textbf{Proof} &Video demonstration\\
+ 			\hline
+ 			\textbf{Conclusion} &Test successful. Covering causes the light to turn on, removing cover turns it off.\\
+ 			\hline
+ 		\end{tabularx}
+ 		\caption{Testcase 3}
+ 		\label{table:Testcase 3}   
+ 	\end{table}
+ 	\begin{table}[H]
+ 	\centering
+	 	\begin{tabularx}{\linewidth}{|X|X|}
+	 		\hline
+	 		\textbf{ID} &4\\
+	 		\hline
+	 		\textbf{Testgoal} &Proof that light turns on when it's dark\\
+	 		\hline
+	 		\textbf{Version} &1\\
+	 		\hline
+	 		\textbf{Testers} &Mustafa, Yoshio\\
+	 		\hline
+	 		\textbf{Date} &21 Dec 2018 at 2pm\\
+	 		\hline
+	 		\textbf{Location} &AUAS, WBH3\\
+	 		\hline
+	 		\textbf{Device(s)} &MacOS, Chrome\\
+	 		\hline
+	 		\textbf{Approach} &Type text into text field on the web interface. Subsequently check if text can be seen on the display.\\
+	 		\hline
+	 		\textbf{Proof} &Video demonstration\\
+	 		\hline
+	 		\textbf{Conclusion} &Test was successful. We followed the instructions, no problems arose.\\
+	 		\hline
+	 	\end{tabularx}
+ 	\caption{Testcase 4}
+ 	\label{table:Testcase 4}   
+	\end{table}
+	\begin{table}[H]
+		\centering
+		\begin{tabularx}{\linewidth}{|X|X|}
+			\hline
+			\textbf{ID} &5\\
+			\hline
+			\textbf{Testgoal} &Proof that temperature works\\
+			\hline
+			\textbf{Version} &1\\
+			\hline
+			\textbf{Testers} &Mustafa, Yoshio\\
+			\hline
+			\textbf{Date} &21 Dec 2018 at 3pm\\
+			\hline
+			\textbf{Location} &AUAS, WBH3\\
+			\hline
+			\textbf{Device(s)} &MacOS, Chrome\\
+			\hline
+			\textbf{Approach} &Put finger on sensor. The web interface should display a higher temperature (finger temperature > room temperature). Also use a cold drink and push against the sensor, this should decrease the temperature.\\
+			\hline
+			\textbf{Proof} &Video demonstration\\
+			\hline
+			\textbf{Conclusion} &Test unsuccessful. Probably calculation mistake. The temperature decreases when temperature is higher and decreases when lower.\\
+			\hline
+		\end{tabularx}
+		\caption{Testcase 5}
+		\label{table:Testcase 5}   
+	\end{table}
+	\begin{table}[H]
+		\centering
+		\begin{tabularx}{\linewidth}{|X|X|}
+			\hline
+			\textbf{ID} &6\\
+			\hline
+			\textbf{Testgoal} &Proof that distance sensor works\\
+			\hline
+			\textbf{Version} &1\\
+			\hline
+			\textbf{Testers} &Mustafa, Yoshio\\
+			\hline
+			\textbf{Date} &21 Dec 2018 at 2pm\\
+			\hline
+			\textbf{Location} &AUAS, WBH3\\
+			\hline
+			\textbf{Device(s)} &MacOS, Chrome\\
+			\hline
+			\textbf{Approach} &Put hand in front of sensor and move forward/backwards. It should be able to accurately determine the distance of objects between itself when the distance is between 25cm and 55cm. It should also remain constant when the object doesn't move.\\
+			\hline
+			\textbf{Proof} &Video demonstration\\
+			\hline
+			\textbf{Conclusion} &Test successful. Moving hand closer than 25cm gives inaccurate measurements and the same goes for distances larger than 55cm. In between the distance is accurately measured and constant.\\
+			\hline
+		\end{tabularx}
+		\caption{Testcase 6}
+		\label{table:Testcase 6}   
+	\end{table}
+	\begin{table}[H]
+		\centering
+		\begin{tabularx}{\linewidth}{|X|X|}
+			\hline
+			\textbf{ID} &7\\
+			\hline
+			\textbf{Testgoal} &Proof that compass works\\
+			\hline
+			\textbf{Version} &1\\
+			\hline
+			\textbf{Testers} &Mustafa, Yoshio\\
+			\hline
+			\textbf{Date} &21 Dec 2018 at 2pm\\
+			\hline
+			\textbf{Location} &AUAS, WBH3\\
+			\hline
+			\textbf{Device(s)} &MacOS, Chrome\\
+			\hline
+			\textbf{Approach} &Turn rover 90 degrees. This should match a turn of a phone turning the same angle.\\
+			\hline
+			\textbf{Proof} &Video demonstration\\
+			\hline
+			\textbf{Conclusion} &Test unsuccessful. Probably a hardware/interference problem, because code seems to work for others.\\
+			\hline
+		\end{tabularx}
+		\caption{Testcase 7}
+		\label{table:Testcase 7}   
+	\end{table}
+	\begin{table}[H]
+		\centering
+		\begin{tabularx}{\linewidth}{|X|X|}
+			\hline
+			\textbf{ID} &8\\
+			\hline
+			\textbf{Testgoal} &Proof that backtracking works\\
+			\hline
+			\textbf{Version} &1\\
+			\hline
+			\textbf{Testers} &Mustafa, Yoshio\\
+			\hline
+			\textbf{Date} &21 Dec 2018 at 3pm\\
+			\hline
+			\textbf{Location} &AUAS, WBH3\\
+			\hline
+			\textbf{Device(s)} &MacOS, Chrome\\
+			\hline
+			\textbf{Approach} &Drive forward, then a 90 degree angle to either left/right. Drive forward. Then backtrack. It should return to its initial position.\\
+			\hline
+			\textbf{Proof} &Video demonstration\\
+			\hline
+			\textbf{Conclusion} &Test was unsuccessful due to one or more wheels not working fully. Also only driving forward and then backtracking, causes it to go more backwards then forwards. No attention has been given to the fact that the motors are running at full power until the last millisecond.\\
+			\hline
+		\end{tabularx}
+		\caption{Testcase 8}
+		\label{table:Testcase 8}   
+	\end{table}
+	\begin{table}[H]
+		\centering
+		\begin{tabularx}{\linewidth}{|X|X|}
+			\hline
+			\textbf{ID} &9\\
+			\hline
+			\textbf{Testgoal} &Proof that map corresponds to route taken\\
+			\hline
+			\textbf{Version} &1\\
+			\hline
+			\textbf{Testers} &Mustafa, Yoshio\\
+			\hline
+			\textbf{Date} &21 Dec 2018 at 3pm\\
+			\hline
+			\textbf{Location} &AUAS, WBH3\\
+			\hline
+			\textbf{Device(s)} &MacOS, Chrome\\
+			\hline
+			\textbf{Approach} &Drive forwards, then the operator should see that the line has moved forward. Drive an other direction then the operator should see that the line has moved into that direction.\\
+			\hline
+			\textbf{Proof} &Video demonstration\\
+			\hline
+			\textbf{Conclusion} &Line doesn't completely correspond to route taken due to the way the robot senses turns. The line is being generated though when it moves, but just not entirely accurate. Other approaches unfortunately weren't possible due to inconsistencies as well. Therefore, this is as of now the best we can do.\\
+			\hline
+		\end{tabularx}
+		\caption{Testcase 9}
+		\label{table:Testcase 9}   
+	\end{table}
+	\begin{table}[H]
+		\centering
+		\begin{tabularx}{\linewidth}{|X|X|}
+			\hline
+			\textbf{ID} &10\\
+			\hline
+			\textbf{Testgoal} &Proof that when backtracking the rover stops moving when an object is behind it (25-55cm)\\
+			\hline
+			\textbf{Version} &1\\
+			\hline
+			\textbf{Testers} &Yoshio\\
+			\hline
+			\textbf{Date} &21 Dec 2018 at 4pm\\
+			\hline
+			\textbf{Location} &AUAS, WBH3\\
+			\hline
+			\textbf{Device(s)} &Windows 10, Chrome\\
+			\hline
+			\textbf{Approach} &Drive forward, then place an object behind it 25-55cm. Then activate backtrack. It should stop almost immediately.\\
+			\hline
+			\textbf{Proof} &Video demonstration\\
+			\hline
+			\textbf{Conclusion} &Test successful. It does, however, tend to drive a little too much backwards.\\
+			\hline
+		\end{tabularx}
+		\caption{Testcase 10}
+		\label{table:Testcase 10}   
+	\end{table}
+	\begin{table}[H]
+		\centering
+		\begin{tabularx}{\linewidth}{|X|X|}
+			\hline
+			\textbf{ID} &11\\
+			\hline
+			\textbf{Testgoal} &Proof that when backtracking the rover moves the distance sensor via the servo so it can detect objects from different angles as well.\\
+			\hline
+			\textbf{Version} &1\\
+			\hline
+			\textbf{Testers} &Yoshio\\
+			\hline
+			\textbf{Date} &21 Dec 2018 at 3:45pm\\
+			\hline
+			\textbf{Location} &AUAS, WBH3\\
+			\hline
+			\textbf{Device(s)} &Windows 10, Chrome\\
+			\hline
+			\textbf{Approach} &Drive forward, then place an object behind it 25-55cm within a degree of 90. Then activate backtrack. It should stop almost immediately.\\
+			\hline
+			\textbf{Proof} &None\\
+			\hline
+			\textbf{Conclusion} &Test successful when little interference is present.\\
+			\hline
+		\end{tabularx}
+		\caption{Testcase 11}
+		\label{table:Testcase 11}   
+	\end{table}
+	\subsection{Acceptance tests}
+	\begin{table}[H]
+		\centering
+		\begin{tabularx}{\linewidth}{|X|X|}
+			\hline
+			\textbf{ID} &1\\
+			\hline
+			\textbf{Name} &Connect with rover\\
+			\hline
+			\textbf{Basis} &\begin{itemize}
+								\item Use case: connect with rover
+								\item User story: connect app to rover
+							\end{itemize}\\
+			\hline
+			\textbf{Figure(s)} &1, 2 \\
+			\hline
+			\textbf{Pre-conditions} & \begin{itemize}
+									  	\item Rover nearby
+									  	\item Mobile app opened
+									  	\item Connected through Wifi with rover hotspot
+									  \end{itemize}\\
+			\hline
+			\textbf{Test} &Given: List of rovers to connect to\\
+						&When: Select rover from list\\
+						&Then: Selected and visual cue that rover is selected\\
+						&\\
+						&Given: List of rovers to connect to while rover already selected\\
+						&When: Select other rover from list\\
+						&Then: Selected and visual cue that other rover is selected\\
+						&\\
+						&Given: List of rovers to connect to while rover already selected\\
+						&When: Select same rover from list\\
+						&Then: Selection and visual cue remain the same\\
+						&\\
+						&Given: Selected rover from list\\
+						&When: Click on connect button\\
+						&Then: See Rover UI with rover no. of selected rover\\
+			\hline
+			\textbf{Remarks} &When I try to go through the list, the item I put my finger upon is automatically selected as well, even when my intention wasn't to.\\
+			\hline
+		\end{tabularx}
+		\caption{Acceptance test 1}
+		\label{table:Acceptance test 1}   
+	\end{table}
+	\begin{table}[H]
+		\centering
+		\begin{tabularx}{\linewidth}{|X|X|}
+			\hline
+			\textbf{ID} &2\\
+			\hline
+			\textbf{Name} &See what rover sees\\
+			\hline
+			\textbf{Basis} &\begin{itemize}
+				\item Use case: look for survivors on flat surfaces
+				\item User story: see what rover sees
+			\end{itemize}\\
+			\hline
+			\textbf{Figure(s)} &1, 2 \\
+			\hline
+			\textbf{Pre-conditions} & \begin{itemize}
+				\item Connected with rover
+			\end{itemize}\\
+			\hline
+			\textbf{Test} &Given: Rover UI of a rover\\
+			&Then: See what camera of rover sees through UI\\
+			&\\
+			&Given: Rover UI of a rover\\
+			&Then: See what rover number\\
+			&\\	
+			&Given: Rover UI of a rover\\
+			&Then: See rover IP and port\\
+			\hline
+			\textbf{Remarks} &When I go to a dummy UI which has obviously no camera feed, then I get this ugly 404 error.\\
+			\hline
+		\end{tabularx}
+		\caption{Acceptance test 2}
+		\label{table:Acceptance test 2}   
+	\end{table}
+	\subsection{Use-case testing}
+		\begin{table}[H]
+		\centering
+		\begin{tabularx}{\linewidth}{|X|X|}
+			\hline
+			\textbf{Use-case id} &1\\
+			\hline
+			\textbf{Use-case name} &Tracking the location of the rover.\\
+			\hline
+			\textbf{Primary actor} &Rover operator\\
+			\hline
+			\textbf{Secondary actor} &Rover\\
+			\hline
+			\textbf{Pre-conditions} &\begin{itemize}
+										\item Rover operator has established a connection between the web interface and the rover.
+										\item Rover operator has controller.
+									\end{itemize}\\
+			\hline
+			\textbf{Success guarantee} &Rover operator tracks the location of the rover through a map on the web interface\\
+			\hline
+			\textbf{Main success scenario} &\begin{itemize}
+												\item Rover operator uses controller to drive either forward, backward, left, or right.
+												\item Rover operator sees location of the rover changing in the same direction as he/she is moving it.
+											\end{itemize}\\
+			\hline
+			\textbf{Exceptions} &-\\
+			\hline
+			\textbf{Special requirements} &When the rover is unable to move in a certain direction because of an obstacle then this should be reflected in the map as not having moved.\\
+			\hline
+		\end{tabularx}
+		\caption{Use-case test 1}
+		\label{table:Use-case test 1}   
+	\end{table}
+	\begin{table}[H]
+		\centering
+		\begin{tabularx}{\linewidth}{|X|X|}
+			\hline
+			\textbf{Use-case id} &2\\
+			\hline
+			\textbf{Use-case name} &Backtracking the rover.\\
+			\hline
+			\textbf{Primary actor} &Rover operator\\
+			\hline
+			\textbf{Secondary actor} &Rover\\
+			\hline
+			\textbf{Pre-conditions} &\begin{itemize}
+				\item Rover operator has established a connection between the web interface and the rover.
+				\item Rover operator has controller
+			\end{itemize}\\
+			\hline
+			\textbf{Success guarantee} &Rover returns to initial position in the opposite way as it has moved to its current position.\\
+			\hline
+			\textbf{Main success scenario} &\begin{itemize}
+				\item Rover operator uses controller to drive either forward, backward, left, or right.
+				\item Rover operator turns backtracking on.
+				\item Rover goes back to its initial position.
+			\end{itemize}\\
+			\hline
+			\textbf{Exceptions} &-\\
+			\hline
+			\textbf{Special requirements} &Moments where the rover stopped are ignored. So, the rover drives back directly without stopping.\\
+			\hline
+		\end{tabularx}
+		\caption{Use-case test 2}
+		\label{table:Use-case test 2}   
+	\end{table}
+	\begin{table}[H]
+	\centering
+	\begin{tabularx}{\linewidth}{|X|X|}
+		\hline
+		\textbf{Use-case id} &3\\
+		\hline
+		\textbf{Use-case name} &See data about rover\\
+		\hline
+		\textbf{Primary actor} &Rover operator\\
+		\hline
+		\textbf{Secondary actor} &Rover\\
+		\hline
+		\textbf{Pre-conditions} &\begin{itemize}
+			\item Rover operator is on the control page/view.
+		\end{itemize}\\
+		\hline
+		\textbf{Success guarantee} &Rover operator can read the following in the interface:
+		\begin{itemize}
+			\item Temperature at rover
+			\item Camera shown at rover
+			\item Position of servo of rover
+			\item Distance between rover and object in front of it
+			\item IP of rover
+			\item Port at which  the operator is connected to
+			\item Rover number	
+		\end{itemize}
+		\\
+		\hline
+		\textbf{Main success scenario} &\begin{enumerate}
+			\item Rover operator reads temperature of from interface.
+			\item Rover operator reads what camera of rover he/she sees in the interface.
+			\item Rover operator reads position of servo.
+			\item Rover operator reads IP of rover.
+			\item Rover operator reads what port he/she is connected to.
+			\item Rover operator reads which rover this is.	
+		\end{enumerate}\\
+		\hline
+		\textbf{Exceptions} &-\\
+		\hline
+		\textbf{Special requirements} &-\\
+		\hline
+		\end{tabularx}
+		\caption{Use-case test 3}
+		\label{table:Use-case test 3}   
+	\end{table}
+ 	\section{Design model}
+ 	As with the analysis of our product the design model contains multiple elements. These elements are as follows:
+ 	\begin{itemize}
+ 		\item Class diagram
+ 		\item Sequence diagram
+ 		\item Communication diagram
+ 		\item Hardware architecture
+ 	\end{itemize}
+ 	The design model answers the question of "how, in detail, is the product built?"
+ 	\subsection{Class diagram}
+ 	\subsection{Sequence diagram}
+ 	\subsection{Communication diagram}
+ 	\subsection{Hardware architecture}
+ 	\section{Installation manual}
+ 	\section{User manual}
 \end{document}	

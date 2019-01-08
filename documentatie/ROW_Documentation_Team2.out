@@ -1,6 +1,19 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
 \BOOKMARK [1][-]{section.2}{Analysis}{}% 2
-\BOOKMARK [2][-]{paragraph.2.0.0.1}{Terms and definitions}{section.2}% 3
+\BOOKMARK [2][-]{subsubsection.2.0.1}{Terms and definitions}{section.2}% 3
 \BOOKMARK [2][-]{subsection.2.1}{Epic}{section.2}% 4
 \BOOKMARK [2][-]{subsection.2.2}{User stories}{section.2}% 5
 \BOOKMARK [2][-]{subsection.2.3}{Use-cases}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.4}{Use-case diagram}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.5}{Domain model}{section.2}% 8
+\BOOKMARK [1][-]{section.3}{Testing}{}% 9
+\BOOKMARK [2][-]{subsection.3.1}{General tests}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.2}{Acceptance tests}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.3}{Use-case testing}{section.3}% 12
+\BOOKMARK [1][-]{section.4}{Design model}{}% 13
+\BOOKMARK [2][-]{subsection.4.1}{Class diagram}{section.4}% 14
+\BOOKMARK [2][-]{subsection.4.2}{Sequence diagram}{section.4}% 15
+\BOOKMARK [2][-]{subsection.4.3}{Communication diagram}{section.4}% 16
+\BOOKMARK [2][-]{subsection.4.4}{Hardware architecture}{section.4}% 17
+\BOOKMARK [1][-]{section.5}{Installation manual}{}% 18
+\BOOKMARK [1][-]{section.6}{User manual}{}% 19
