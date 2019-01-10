@@ -51,7 +51,7 @@ $(document).ready(function() {
    }
   function controlOnKey(key) {
     if (disabled == 0) {
-	var t = 1000;
+	var t = 75;
     if (key.keyCode == "87") {
 	x_b += v * Math.cos(hoek)
 	y_b -= v * Math.sin(hoek);
@@ -83,7 +83,8 @@ $(document).ready(function() {
 }
   socket.on('lineDrawer', function(lineCalculation) {
 	var test = JSON.parse(lineCalculation);
-	var t = test["time"]*1000;
+//	var t = test["time"]*1000;
+        var t = 1000;
 	var direction = test["state"];
 	console.log(direction);
 	console.log(t);

@@ -105,17 +105,23 @@ class MotorControl:
                 self.stop()
 
             self._timer.conditional_pause(i['time'], 20, self._distance.get_distance(), [20, 40])
-            #self._timer.pause(i['time'])
             self.stop()
+            self._timer.pause(1)
+            #self.stop()
         
         self._list.clear()
+        print(self._list)
 
     def reverse_drive(self):
-        thread = Thread(target = self.reverse)
-        thread1 = Thread(target = self._servo.start)
-        thread2 = Thread(target = self._servo.stop)
-        thread.start()
-        thread1.start()
-        thread.join()
-        thread2.start()
+        
+        if self._list:
+            self._servo.prepare()
+            self._timer.pause(0.5)
+            thread = Thread(target = self.reverse)
+            thread1 = Thread(target = self._servo.start)
+            thread2 = Thread(target = self._servo.stop)
+            thread.start()
+            thread1.start()
+            thread.join()
+            thread2.start()
 

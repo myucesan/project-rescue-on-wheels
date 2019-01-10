@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{url('static', filename='assets/img/apple-icon.png')}}">
+    <link rel="icon" type="image/png" href="{{url('static', filename='assets/img/favicon.png')}}">
+    <title>
+        Black Dashboard by Creative Tim and METABOTS
+    </title>
+    <!-- Fonts and icons -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <!-- Nucleo Icons -->
+    <link href="{{url('static', filename='assets/css/nucleo-icons.css')}}" rel="stylesheet">
+    <!-- CSS Files -->
+    <link href="{{url('static', filename='assets/css/black-dashboard.css')}}" rel="stylesheet">
+</head>
+
+<body class="">
+    <div class="wrapper">
+        <div class="sidebar" data="green">
+            <!--
+        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
+    -->
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <a href="javascript:void(0)" class="simple-text logo-mini">SR-1</a>
+                    <a href="javascript:void(0)" class="simple-text logo-normal">METABOTS</a>
+                </div>
+                <ul class="nav">
+                    <li class="active ">
+                        <a href="./dashboard.html">
+                            <i class="tim-icons icon-chart-pie-36"></i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./icons.html">
+                            <i class="tim-icons icon-badge"></i>
+                            <p>Face recognition</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel" data="green">
+            <div class="content">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card card-chart">
+                            <div class="card-header">
+                                <div class="row">
+                                    <div class="col-sm-12 text-left">
+                                        <h5 class="card-category">Livestream</h5>
+                                        <h3 class="card-title"><i class="tim-icons icon-video-66"></i>CAM-1</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-area" style="height:300px;">
+                                    <img id="chartBig1" width="400" height="300" class="chartjs-render-monitor" style="display: block; width: 400px; height: 300px;" src="http://10.3.141.1:9908/?action=stream">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3" style="padding-left: 31px; padding-right: 31px;">
+						<div class="row">
+							<div class="card card-chart">
+								<div class="card-header ">
+									<div class="row">
+										<div class="col-sm-12 text-left">
+											<h5 class="card-category">Tracker</h5>
+											<h4 id="direction" class="card-title"><i class="tim-icons icon-square-pin "></i>Forward</h4>
+										</div>
+									</div>
+								</div>
+								<div class="card-body">
+									<div class="chart-area">
+										<canvas id="canvastest" width="386" height="275" class="lineNavigation" style="display: block; width: 309px; height: 220px;">Your browser does not support the HTML5 canvas tag.</canvas>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-12" style="padding: 0px;padding-right: 10px;margin-top: -16px;">
+								<div class="card card-chart">
+									<div class="card-header ">
+										<div class="row">
+											<div class="col-sm-12 text-left">
+												<h5 class="card-category">Compass</h5>
+												<h4 id="compassId" class="card-title"><i class="tim-icons icon-compass-05"></i>NE</h4>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+                            <div class="col-lg-6" style="padding: 0px; margin-top:-16px">
+                                <div class="card card-chart">
+                                    <div class="card-header ">
+                                        <div class="row">
+                                            <div class="col-sm-12 text-left">
+                                                <h5 class="card-category">Light</h5>
+                                                <h4 class="card-title"><i class="tim-icons icon-bulb-63"></i>ON</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+						</div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="row" style="margin-right: 0px;margin-left: 0px;">
+                            <div class="card card-tasks" style="height: 200px;">
+                                <div class="card-header ">
+                                    <h6 class="title d-inline">Route</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-full-width table-responsive" style="max-height:154px;">
+                                        <table class="table">
+                                            <tbody>
+                                                <td>
+                                                    <p class="text-muted">Forward</p>
+                                                </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+
+                                                        <p class="text-muted">Stop</p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+
+                                                        <p class="text-muted">Right</p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+							<div class="card card-tasks" style="height: 185px;">
+								<div class="card-header ">
+									<h6 class="title d-inline">List of Rovers</h6>
+									<p class="card-category d-inline">ROVER 08</p>
+								</div>
+								<div class="card-body ">
+									<div class="table-full-width table-responsive ps ps--active-y" style="max-height: 100px;">
+										<table class="table">
+											<tbody>
+												<tr>
+
+													<td>
+
+														<p class="text-muted">ROVER 01</p>
+													</td>
+
+												</tr>
+												<tr>
+
+													<td>
+
+														<p class="text-muted">ROVER 03</p>
+													</td>
+
+												</tr>
+												<tr>
+
+													<td>
+
+														<p class="text-muted">ROVER 11</p>
+													</td>
+
+												</tr>
+
+												<tr>
+
+													<td>
+
+														<p class="text-muted">ROVER 13</p>
+													</td>
+
+												</tr>
+												<tr>
+
+													<td>
+
+														<p class="text-muted">ROVER 15</p>
+													</td>
+
+												</tr>
+												<tr>
+
+													<td>
+
+														<p class="text-muted">ROVER 21</p>
+													</td>
+
+												</tr>
+												<tr>
+
+													<td>
+
+														<p class="text-muted">ROVER 33</p>
+													</td>
+
+												</tr>
+												<tr>
+
+													<td>
+
+														<p class="text-muted">ROVER 11</p>
+													</td>
+
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2">
+                        <div class="row" style="margin-right: 0px;margin-left: 0px;">
+							<div class="col-lg-12" style="padding: 0px;">
+								<div class="card card-chart">
+									<div class="card-header ">
+										<div class="row">
+											<div class="col-sm-12 text-left">
+												<h5 class="card-category">Nearest object distance</h5>
+												<h4 id="distId" class="card-title"><img src="../assets/icons/si-glyph-arrow-left-right.png" style="margin-right:7px;width:16px;"/>23.3 CM</h4>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-12" style="padding: 0px;">
+								<div class="card card-chart">
+									<div class="card-header ">
+										<div class="row">
+											<div class="col-sm-12 text-left">
+												<h5 class="card-category">Servo position</h5>
+												<h4 id="servoId" class="card-title"><img src="../assets/icons/si-glyph-arrow-two-way-right-bottom.png" style="margin-right:7px;height:16px;"/></i>60 DEG</h4>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-12" style="padding: 0px;">
+								<div class="card card-chart">
+									<div class="card-header ">
+										<div class="row">
+											<div class="col-sm-12 text-left">
+												<h5 class="card-category">Temperature</h5>
+												<h4 id="temperatureId" class="card-title"><img src="../assets/icons/si-glyph-thermometer.png" style="margin-right:7px;height:16px;"/>27 DEGC</h4>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-12" style="padding: 0px;">
+								<div class="card card-chart">
+									<div class="card-header ">
+										<div class="row">
+											<div class="col-sm-12 text-left">
+												<h5 class="card-category">Speed</h5>
+												<h4 class="card-title"><img src="../assets/icons/si-glyph-two-arrow-right.png" style="margin-right:7px;width:16px;"/>200 RPM</h4>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+                <div class="row">
+					<div class="col-lg-4">
+                        <div class="card card-chart">
+                            <div class="card-header">
+                                <h5 class="card-category">Operations</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-area" style="height: auto;">
+                                    <button id="microphone" type="button" class="btn-custom">Talk</button><audio id="audio" autoplay="true"></audio>
+									<button id="driveback" type="button" class="btn-custom">Backtracking</button>
+									<input id="textbox" class="form-control" style="border-color: #ffffff; margin:10px; width:250px;" placeholder="Type message here to display..." maxlength="32">
+									<button id="Get" type="button" class="btn-custom" style="margin-top: 0px;">Send message</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card card-chart">
+                            <div class="card-header">
+                                <h5 class="card-category">Object Distance</h5>
+                                <h3 class="card-title"><i class="tim-icons icon-bell-55 text-primary"></i>23.3 CM</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <canvas id="chartLinePurple"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card card-chart">
+                            <div class="card-header">
+                                <h5 class="card-category">Temperature</h5>
+                                <h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info"></i>21.1 DEGC</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <canvas id="CountryChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer">
+                <div class="container-fluid">
+
+                    <div class="copyright">
+                        ©
+                        <script>
+                            document.write(new Date().getFullYear())
+                        </script> based on a template of <a href="javascript:void(0)" target="_blank">Creative Tim</a>.
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!--   Core JS Files   -->
+    <script src="{{url('static', filename='assets/js/core/jquery.min.js')}}"></script>
+    <script src="{{url('static', filename='assets/js/core/popper.min.js')}}"></script>
+    <script src="{{url('static', filename='assets/js/core/bootstrap.min.js')}}"></script>
+    <script src="{{url('static', filename='assets/js/plugins/perfect-scrollbar.jquery.min.js')}}"></script>
+    <!-- Chart JS -->
+    <script src="{{url('static', filename='assets/js/plugins/chartjs.min.js')}}"></script>
+    <!--  Notifications Plugin    -->
+    <script src="{{url('static', filename='assets/js/plugins/bootstrap-notify.js')}}"></script>
+    <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="{{url('static', filename='assets/js/black-dashboard.min.js')}}">
+    <script type="text/javascript" src="{{url('static', filename='jquery.js')}}"></script>
+    <script type="text/javascript" src="{{url('static', filename='socket.js')}}"></script>
+    <script type="text/javascript" src="{{url('static', filename='client2.js')}}"></script>
+    <script>
+        $(document).ready(function() {
+            $().ready(function() {
+                $sidebar = $('.sidebar');
+                $navbar = $('.navbar');
+                $main_panel = $('.main-panel');
+
+                $full_page = $('.full-page');
+
+                $sidebar_responsive = $('body > .navbar-collapse');
+                sidebar_mini_active = true;
+                white_color = false;
+
+                window_width = $(window).width();
+
+                fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+
+                $('.fixed-plugin a').click(function(event) {
+                    if ($(this).hasClass('switch-trigger')) {
+                        if (event.stopPropagation) {
+                            event.stopPropagation();
+                        } else if (window.event) {
+                            window.event.cancelBubble = true;
+                        }
+                    }
+                });
+
+                $('.fixed-plugin .background-color span').click(function() {
+                    $(this).siblings().removeClass('active');
+                    $(this).addClass('active');
+
+                    var new_color = $(this).data('color');
+
+                    if ($sidebar.length != 0) {
+                        $sidebar.attr('data', new_color);
+                    }
+
+                    if ($main_panel.length != 0) {
+                        $main_panel.attr('data', new_color);
+                    }
+
+                    if ($full_page.length != 0) {
+                        $full_page.attr('filter-color', new_color);
+                    }
+
+                    if ($sidebar_responsive.length != 0) {
+                        $sidebar_responsive.attr('data', new_color);
+                    }
+                });
+
+                $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function() {
+                    var $btn = $(this);
+
+                    if (sidebar_mini_active == true) {
+                        $('body').removeClass('sidebar-mini');
+                        sidebar_mini_active = false;
+                        blackDashboard.showSidebarMessage('Sidebar mini deactivated...');
+                    } else {
+                        $('body').addClass('sidebar-mini');
+                        sidebar_mini_active = true;
+                        blackDashboard.showSidebarMessage('Sidebar mini activated...');
+                    }
+
+                    // we simulate the window Resize so the charts will get updated in realtime.
+                    var simulateWindowResize = setInterval(function() {
+                        window.dispatchEvent(new Event('resize'));
+                    }, 180);
+
+                    // we stop the simulation of Window Resize after the animations are completed
+                    setTimeout(function() {
+                        clearInterval(simulateWindowResize);
+                    }, 1000);
+                });
+
+                $('.switch-change-color input').on("switchChange.bootstrapSwitch", function() {
+                    var $btn = $(this);
+
+                    if (white_color == true) {
+
+                        $('body').addClass('change-background');
+                        setTimeout(function() {
+                            $('body').removeClass('change-background');
+                            $('body').removeClass('white-content');
+                        }, 900);
+                        white_color = false;
+                    } else {
+
+                        $('body').addClass('change-background');
+                        setTimeout(function() {
+                            $('body').removeClass('change-background');
+                            $('body').addClass('white-content');
+                        }, 900);
+
+                        white_color = true;
+                    }
+
+                });
+
+                $('.light-badge').click(function() {
+                    $('body').addClass('white-content');
+                });
+
+                $('.dark-badge').click(function() {
+                    $('body').removeClass('white-content');
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
