@@ -1,0 +1,68 @@
+-------------- CONFIG: Edit alsa config file as shown
+sudo nano /usr/share/alsa/alsa.conf 
+
+defaults.ctl.card 1
+defaults.pcm.card 1
+defaults.pcm.device 0
+defaults.pcm.subdevice 0
+
+#These card values are for USB Mic and Rpi's 3.5mm jack audio out.
+sudo nano ~/.asoundrc 
+
+pcm.!default {
+         type asym
+         playback.pcm {
+                 type plug
+                 slave {
+                      pcm "plughw:0,0"
+                      format S16_LE
+                 }
+         }
+         capture.pcm {
+                 type plug
+                 slave.pcm "hw:1,0"
+                 channels 1
+         }
+ }
+ ctl.!default {
+        type hw
+        card 0
+}
+
+
+ ctl.!default {
+        type hw
+        card 0
+}
+
+#Copy paste the above settings in asound.conf as well
+sudo nano /etc/asound.conf
+
+------------------------LIBRARY ADJUSTMENT
+
+Change the following line in /usr/local/lib/python3.5/dist-packages/aiortc/contrib/media.py (LINE 300):
+
+        if track.kind == 'audio':
+            if self.__container.format.name == 'wav':
+                codec_name = 'pcm_s16le'
+            elif self.__container.format.name == 'mp3':
+                codec_name = 'mp3'
+            else:
+                codec_name = 'aac'
+            stream = self.__container.add_stream(codec_name)
+
+To:
+
+        if track.kind == 'audio':
+            if self.__container.format.name == 'wav':
+                codec_name = 'pcm_s16le'
+            elif self.__container.format.name == 'mp3':
+                codec_name = 'mp3'
+            else:
+                codec_name = 'pcm_s16le'
+            stream = self.__container.add_stream(codec_name)
+
+--- NOTES
+
+To change speakers configuration from jack plug to HDMI, check the device number in aplay -l and then change the pcm slave number written in playback based on the device number, maybe 0,1
+

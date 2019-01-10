@@ -46,7 +46,7 @@ async def compass():
 
 async def temperature():
     while True:
-        await socket.sleep(0.1)
+        await socket.sleep(0.2)
         await socket.emit('temperature', "{:.1f}".format(main._temperature.convert()))
 
 async def distance():
@@ -89,7 +89,7 @@ async def offer(request):
     # prepare local media
 
     player = MediaPlayer('hw:1', format='alsa', options={'channels': '1'})
-    recorder = MediaRecorder('plughw:0', format='alsa')
+    recorder = MediaRecorder('plughw:0,0', format='alsa')
 
     @pc.on('iceconnectionstatechange')
     async def on_iceconnectionstatechange():
@@ -136,8 +136,12 @@ async def on_shutdown(app):
     await asyncio.gather(*coros)
     pcs.clear()
 
+app.on_shutdown.append(on_shutdown)
+app.router.add_post('/offer', offer)
+setup_routes(app)
 
 if __name__ == '__main__':
+<<<<<<< HEAD:WebApp/web.py
     app.on_shutdown.append(on_shutdown)
     app.router.add_post('/offer', offer)
     setup_routes(app)
@@ -146,3 +150,9 @@ if __name__ == '__main__':
  #   socket.start_background_task(temperature)
   #  socket.start_background_task(distance)
     web.run_app(app, host='10.3.141.1', port=sys.argv[1:][0])
+=======
+    socket.start_background_task(compass)
+    socket.start_background_task(distance)
+    socket.start_background_task(temperature)
+    web.run_app(app, host='192.168.137.241', port=sys.argv[1:][0])
+>>>>>>> 489092052d1caac64a3dabcdc5e88a342efe80b6:WebApp/website/web.py
