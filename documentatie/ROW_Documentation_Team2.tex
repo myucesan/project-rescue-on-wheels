@@ -12,6 +12,7 @@
 \usepackage{float}
 \usepackage{color}
 \usepackage{rotating}
+\usepackage{hyperref}
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
@@ -801,12 +802,21 @@
  		\includegraphics[width=\linewidth]{MobileClassDiagram.png}\\
  		\caption{Class diagram for the mobile application}
  		\end{figure}
+	 	\begin{figure}[H]
+	 		\centering
+	 		\includegraphics[width=\linewidth]{MainClassDiagram.png}\\
+	 		\caption{Class diagram for the rover}
+	 	\end{figure}
  	\subsection{Sequence diagram}
+ 	\begin{figure}[H]
+ 		\includegraphics[width=\linewidth]{SequenceDiagram1.png}
+ 		\caption{Sequence diagram for displaying text to the LCD screen}
+ 	\end{figure}
  	\subsection{Communication diagram}
  	\begin{figure}[H]
  		\centering
  		\includegraphics[width=\linewidth]{ComDiagram.png}\\
- 		\caption{Diagram of the communication of our product}
+ 		\caption{Description of the communication of our product}
  	\end{figure}
  	\subsection{Hardware architecture}
  	\begin{figure}[H]
@@ -814,6 +824,241 @@
  		\includegraphics[width=\linewidth]{HardwareArch.jpeg}\\
  		\caption{Diagram of our product's architecture}
  	\end{figure}
+	\newpage
  	\section{Installation manual}
+ 	This manual contains the steps necessary for installing and configuring SR1(The rover). Upon completion the rover must be able to pass through all use-case test.\\
+ 	\subsubsection{Prerequisites}
+ 	In this document we assume the following are present:\\
+ 	\begin{itemize}
+ 		\item \textbf{SR1}
+	 	\begin{itemize}
+	 		\item \textbf{Controller}
+	 		\begin{itemize}
+	 			\item Raspberry Pi 3 Model B
+	 			\begin{itemize}
+	 				\item \emph{Onboard Wifi}
+	 				\item \emph{Onboard BLE}
+	 			\end{itemize}
+	 			\item SD card (min. 16 GB)
+	 			\item Rasbian Stretch installed on SD card
+	 		\end{itemize}
+	 		\item \textbf{Sensors and actuators}
+	 		\begin{itemize}
+	 			\item I2C PWM Controller BV6404[Byvac]
+	 			\item Wheel encoder HC-020K
+	 			\item Ultrasonic distance sensor SRF02
+	 			\item Raspberry Pi 5MP camera with 6mm and 12mm lens
+	 			\item HMC5883L GY-273 Triple Axis magnetometer[Honeywell]
+	 			\item Servo motor MG90S
+	 		\end{itemize}
+	 		\item \textbf{Miscellaneous}
+	 		\begin{itemize}
+	 			\item Step down DC / DC converter 8V - 40V -> 5V
+	 		\end{itemize}
+	 	\end{itemize}
+ 	\end{itemize}
+ 	\subsection{Installation}
+ 	\emph{CD}\\
+ 	\emph{git clone \url{https://gitlab.fdmci.hva.nl/hadiyem/row}}\\
+ 	\\The following will be installed:
+ 	\begin{itemize}
+ 		\item \href{https://github.com/billz/raspap-webgui}{RaspAP}
+ 		\item \href{https://opencv.org/}{OpenCV}
+ 		\item \href{https://github.com/jacksonliam/mjpg-streamer}{Mjpg-streamer}
+ 		\item \href{http://flask.pocoo.org/}{Flask}
+ 		\item \href{https://github.com/miguelgrinberg/python-socketio}{Socket.IO (Python)}
+ 	\end{itemize}
+	\subsubsection{Hotspot}
+	Sources:
+	\begin{itemize}
+		\item \href{https://howtoraspberrypi.com/create-a-wi-fi-hotspot-in-less-than-10-minutes-with-pi-raspberry}{\emph{\underline{How to set up a hotspot}}}
+	\end{itemize}
+	\begin{lstlisting}
+	sudo cp /etc/wpa_supplicant/wpa_supplicant.conf
+	/etc/wpa_supplicant/wpa_supplicant.conf.sav
+	sudo cp /dev/null/etc/wpa_supplicant/wpa_supplicant.conf
+	ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+	update_config=1
+	
+	wget -q https://git.io/voEUQ -O /tmp/raspap && bash /tmp/raspap
+	\end{lstlisting}
+	Notes:
+	\begin{itemize}
+		\item Use WinSCP to transfer files if the repo cannot be cloned due to access issues.
+	\end{itemize}
+	\subsubsection{Flask / Socket.IO (Python)}
+	\begin{lstlisting}
+		pip3 install gevent
+		pip3 install Flask
+		pip3 install flask-socketio
+	\end{lstlisting}
+	\subsubsection{OpenCV / Mjpg-streamer}
+	Sources:
+	\begin{itemize}
+		\item \href{https://github.com/cncjs/cncjs/wiki/Setup-Guide:-Raspberry-Pi-\%7C-MJPEG-Streamer-Install-&-Setup-&-FFMpeg-Recording}{\emph{\underline{Mjpg-streamer}}}
+		\item \href{https://www.pyimagesearch.com/2017/09/04/raspbian-stretch-install-opencv-3-python-on-your-raspberry-pi/}{\emph{\underline{OpenCV}}}
+	\end{itemize}
+	Enable camera and ssh in raspi-config
+	\begin{lstlisting}
+	
+	sudo modprobe bcm2835-v4l2
+	
+	sudo apt-get update && sudo apt-get upgrade
+	sudo apt-get install build-essential cmake pkg-config
+	sudo apt-get install libjpeg-dev libtiff5-dev 
+		libjasper-dev libpng12-dev -y
+	sudo apt-get install libavcodec-dev libavformat-dev 
+		libswscale-dev libv4l-dev -y
+	sudo apt-get install libxvidcore-dev libx264-dev
+	sudo apt-get install libgtk2.0-dev libgtk-3-dev
+	sudo apt-get install libatlas-base-dev gfortran
+	sudo apt-get install python2.7-dev python3-dev
+	cd ~
+	wget -O opencv.zip 
+		https://github.com/Itseez/opencv/archive/3.3.0.zip
+	unzip opencv.zip
+	wget -O opencv_contrib.zip 
+		https://github.com/Itseez/opencv_contrib/archive/3.3.0.zip
+	unzip opencv_contrib.zip
+	wget https://bootstrap.pypa.io/get-pip.py
+	sudo python get-pip.py
+	sudo python3 get-pip.py
+	sudo pip install virtualenv virtualenvwrapper
+	sudo rm -rf ~/.cache/pip
+	
+	echo -e "\n# virtualenv and virtualenvwrapper" 
+		>> ~/.profile
+	echo "export WORKON_HOME=$HOME/.virtualenvs" 
+		>> ~/.profile
+	echo "export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3" 
+		>> ~/.profile
+	echo "source /usr/local/bin/virtualenvwrapper.sh" 
+		>> ~/.profile
+	source ~/.profile
+	
+	mkvirtualenv cv -p python3
+	source ~/.profile
+	workon cv
+	
+	pip install numpy
+	
+	workon cv
+	cd ~/opencv-3.3.0/
+	mkdir build
+	cd build
+	cmake -D CMAKE_BUILD_TYPE=RELEASE \
+	-D CMAKE_INSTALL_PREFIX=/usr/local \
+	-D INSTALL_PYTHON_EXAMPLES=ON \
+	-D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib-3.3.0/modules \
+	-D BUILD_EXAMPLES=ON ..
+	
+	sudo nano /etc/dphys-swapfile
+	set CONF_SWAPSIZE=1024
+	
+	sudo /etc/init.d/dphys-swapfile stop
+	sudo /etc/init.d/dphys-swapfile start
+	
+	make -j4
+	
+	sudo make install
+	sudo ldconfig
+	
+	cd /usr/local/lib/python3.5/site-packages/
+	sudo mv cv2.cpython-35m-arm-linux-gnueabihf.so cv2.so
+	
+	cd ~/.virtualenvs/cv/lib/python3.5/site-packages/
+	ln -s /usr/local/lib/python3.5/site-packages/cv2.so cv2.so
+	
+	cd
+	rm -rf opencv-3.3.0 opencv_contrib-3.3.0
+	
+	sudo nano /etc/dphys-swapfile
+	set CONF_SWAPSIZE=100
+	
+	sudo /etc/init.d/dphys-swapfile stop
+	sudo /etc/init.d/dphys-swapfile start
+	
+	pip3 install Pillow
+	pip3 install werkzeug
+	
+	sudo modprobe bcm2835-v4l2
+
+	\end{lstlisting}
+	\subsection{Configure startup}
+	\begin{lstlisting}
+	sudo nano /etc/rc.local
+	\end{lstlisting}
+	Add the following:
+	\begin{lstlisting}
+	# turns modules for driving, light, temperature, magnetometer, and 
+		LCD on.
+	sudo python3 /home/pi/row/main/main.py &
+	
+	# turns face recognition on
+	sudo modprobe bcm2835-v4l2
+	workon cv
+	python2.7 /home/pi/row/fr/phase_3.py &
+	source ~/.profile
+	\end{lstlisting}
+	\subsection{Configure addresses and ports}
+	\begin{lstlisting}
+	cd
+	sudo nano RescueOnTheWheelsProject/constant.py
+	Change the following in the script:
+	CAM_PORT = 880<rovernummer>
+	WEB_PORT = 990<rovernummer>
+	\end{lstlisting}
+	\subsection{Configure face recognition}
+	\begin{lstlisting}
+	cd
+	mkdir dataset
+	mkdir Cascades
+	cd Cascades
+	wget https://github.com/opencv/opencv/blob/master/data/
+		haarcascades/haarcascade_frontalface_default.xml
+	cd
+	mkdir trainer
+	\end{lstlisting}
+	\subsection{Configure Wifi hotspot}
+	\begin{enumerate}
+		\item Connect through Wifi to raspi-webgui.
+		\item Open your browser and go to: 10.3.141.1.
+		\item Type in username and password:
+		\begin{itemize}
+			\item Username: admin
+			\item Password: secret
+		\end{itemize}
+		\item Go to Configure hotspot.
+		\item Change the SSID from raspi-webgui to Rover 0<number of rover>.
+		\item Save settings and restart the rover.
+	\end{enumerate}
+	\begin{figure}[H]
+		\includegraphics[width=\columnwidth]{InstallManual.png}
+	\end{figure}
+	\newpage
  	\section{User manual}
+ 	This manual explains how to sue the rover in detail. This section assumes you have the latest version of the rover and its software properly installed, according to the installation manual, and that the rover is turned on. It also assumes basic computer skills required for the job of operating this product. As for the mobile version, it also assumes you have the latest version installed.
+ 	\subsection{Web application}
+ 	Our web application is reachable by any browser but to ensure compatibility with all implemented features in the web application it is recommended to use the latest version of Mozilla Firefox.\\
+ 	To reach the app you first have to connect to the wifi hot-spot called "Rover 08". We assigned a static ip address for the usage of the application: 10.3.141.1 with corresponding port: 8080.
+ 	\begin{figure}[H]
+ 		\includegraphics[width=\columnwidth]{Webpage.png}
+ 		\caption{The web application}
+ 	\end{figure} 
+ 	When you enter the web application you will encounter a lit of all rovers that are currently in service. You have to select rover 08 as the others are currently placeholders and will be developed at a later time when there is a desire to do so. After you select rover 08 you click connect which forwards you to the interface of our web app as seen in the image above. On the left you have the option to select a special face recognition feature as well as the dashboard, which is the currently selected one in the image aforementioned. Furthermore, the dashboard contains the live camera-feed as well as the tracking map of the rover's movement and a variety of measurements displayed in a clear and concise manner.\\
+ 	Next, you'll find a brief description of the four most important features of our web application.
+ 	\subsubsection{Camera-feed}
+ 	The camera feed automatically opens when you reach the interface. It shows what the rover sees but also has the added functionality of "recognizing" faces. When the system detects a face it puts a square around to face to indicate that a human face has been detected. It shows this as a percentage in comparison to the face that the rover has been trained with.
+ 	\subsubsection{Rover control}
+ 	The rover can be controlled using the \textbf{WASD} keys on the keyboard of the device in question. Make sure the focus of the system is the webpage otherwise the key input will not result in movement. Based on the movement of the rover a line will be generated in the box on the right of the camera-feed. This line is a "best effort" representation of the movement performed by the rover.
+ 	\subsubsection{Text prompt}
+ 	At the bottom of the interface there is a text input field where the operator can send a small text message to the LCD screen on the rover. The rover then displays this text to whoever the rover is close to.
+ 	\subsubsection{Microphone}
+ 	Next to the text prompt field is a button to enable the device's microphone. After allowing the device to access said microphone you can speak into the microphone and it will be broadcast through a speaker on the rover.
+ 	\subsection{Mobile application}
+ 	The mobile application is a slim, light weight version of the our web application. Designed to be used in circumstances where the web interface is not the best solution to the problem.
+ 	The web application has a few less features but has the addition of a virtual joystick for better control of the rover's movement. Below you'll find the mobile application's interface.
+ 	\begin{figure}[H]
+ 		\includegraphics[width=\columnwidth]{MobileApp.jpg}
+ 	\end{figure}
 \end{document}	
