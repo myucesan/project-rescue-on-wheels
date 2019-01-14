@@ -1,5 +1,5 @@
-# Simple example of reading the MCP3008 analog input channels and 
-# printing them all out. Author: Yoshio Schermer
+# Reads analog values and converts it to degrees Celcius.
+# Author: Yoshio Schermer
 import time
 import math
 from timer import *
