@@ -7,7 +7,7 @@ class adc(object):
     def __init__(self, spi):
         """Initialize SPI
         """
-        self._spi = spi
+        self._spi = spi # Serial communication
         self._spi.set_clock_hz(1000000)
         self._spi.set_mode(0)
         self._spi.set_bit_order(SPI.MSBFIRST)
