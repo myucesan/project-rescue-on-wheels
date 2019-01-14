@@ -1,5 +1,5 @@
 # Simple example of reading the MCP3008 analog input channels and 
-# printing them all out. Author: Tony DiCola License: Public Domain
+# printing them all out. Author: Yoshio Schermer
 import time
 import math
 from timer import *
