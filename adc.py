@@ -9,8 +9,8 @@ class adc(object):
         """
         self._spi = spi # Serial communication
         self._spi.set_clock_hz(1000000)
-        self._spi.set_mode(0)
-        self._spi.set_bit_order(SPI.MSBFIRST)
+        self._spi.set_mode(0) # Serial clock mode
+        self._spi.set_bit_order(SPI.MSBFIRST) # numbering starts at 0, the most significan bit
 
     def read_adc(self, adc_number):
         """Read the current value of the specified ADC channel (0-7).  The values
