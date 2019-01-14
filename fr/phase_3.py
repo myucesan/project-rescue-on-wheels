@@ -1,7 +1,7 @@
 #!/usr/bin/python
 '''
-	Author: Igor Maculan - n3wtron@gmail.com
-	A Simple mjpg stream http server
+	Author: Yoshio Schermer
+	MJPG streamer with OpenCV
 '''
 import constants
 import os
