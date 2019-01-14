@@ -1,10 +1,11 @@
 import sys
 sys.path.insert(0, '../')
 
-import aiohttp_jinja2 
+import aiohttp_jinja2
 import jinja2 
 import asyncio 
 import json 
+import sys 
 import os
 from main import *
 import cv2
@@ -18,17 +19,12 @@ import socketio
 
 from routes import setup_routes
 
-ROOT = '/home/pi/RescueOnTheWheelsProject/WebApp/website'
-
-socket = socketio.AsyncServer(async_mode='aiohttp')
+socket = socketio.AsyncServer(async_mode='aiohttp', async_handlers=True)
 app = web.Application()
 socket.attach(app)
 aiohttp_jinja2.setup(
     app, loader=jinja2.FileSystemLoader('./templates'))
 main = Main()
-
-#async def test():
- #   await socket.emit('compass', "test")
 
 async def test():
     while True:
@@ -38,10 +34,12 @@ async def test():
         await socket.emit('temperature', "{:.1f}".format(main._temperature.convert()))
         await socket.sleep(0.1)
         await socket.emit('distance', "{:.1f}".format(main._distance.get_distance()))
+        await socket.sleep(0.1)
+        await socket.emit('light', main._light.start())
 
 async def compass():
     while True:
-        await socket.sleep(0.1)
+        await socket.sleep(0)
         await socket.emit('compass', main._compass.degrees(main._compass.heading()))
 
 async def temperature():
@@ -59,13 +57,12 @@ async def light():
         await socket.sleep(0.1)
         await socket.emit('light', main._light.start())
 
-@socket.on('LCD')
+@socket.on('outputString')
 async def output_string(sid, text):
     main._lcd.output_string(text)
 
 @socket.on('direction')
 async def drive_into_direction(sid, direction):
-    
     if not main.is_disabled():
         main._motor_control.drive(direction)
 
@@ -140,19 +137,13 @@ app.on_shutdown.append(on_shutdown)
 app.router.add_post('/offer', offer)
 setup_routes(app)
 
+
 if __name__ == '__main__':
-<<<<<<< HEAD:WebApp/web.py
-    app.on_shutdown.append(on_shutdown)
-    app.router.add_post('/offer', offer)
-    setup_routes(app)
-    socket.start_background_task(test)
-#    socket.start_background_task(compass)
- #   socket.start_background_task(temperature)
-  #  socket.start_background_task(distance)
-    web.run_app(app, host='10.3.141.1', port=sys.argv[1:][0])
-=======
+
     socket.start_background_task(compass)
     socket.start_background_task(distance)
     socket.start_background_task(temperature)
-    web.run_app(app, host='192.168.137.241', port=sys.argv[1:][0])
->>>>>>> 489092052d1caac64a3dabcdc5e88a342efe80b6:WebApp/website/web.py
+    socket.start_background_task(light)
+    web.run_app(app, host='10.3.141.1', port=sys.argv[1:][0])
+    #socket.start_background_task(compass)
+

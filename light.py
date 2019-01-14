@@ -26,15 +26,11 @@ class light:
         self._light = None
 
     def start(self):
-        while (True):
-            if self.mcp.read_adc(1) > self.LDR_THRESHOLD:
-                GPIO.output(self.INPUT_PIN, GPIO.HIGH)
-                return 1
-            else:
-                GPIO.output(self.INPUT_PIN, GPIO.LOW)
-                return 0
-            self._timer.pause(1)
-
-
-
+         if self.mcp.read_adc(1) > self.LDR_THRESHOLD:
+             GPIO.output(self.INPUT_PIN, GPIO.HIGH)
+             return 1
+         else:
+             GPIO.output(self.INPUT_PIN, GPIO.LOW)
+             return 0
+         self._timer.pause(1)
 

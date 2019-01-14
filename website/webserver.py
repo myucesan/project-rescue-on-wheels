@@ -15,11 +15,11 @@ main = Main()
 
 @app.route('/')
 def main():
-    return render_template('index.html')
+    return render_template('templates/index.html')
 
 @app.route('/ControlPage')
 def ControlPage():
-    return render_template('ControlPage.html')
+    return render_template('templates/ControlPage.html')
 
 @socketio.on('direction')
 def drive_into_direction(data):
@@ -68,10 +68,15 @@ def temperature():
     while True:
         socketio.emit('temperature', "{:.1f}".format(Main()._temperature.convert()))
 
+def light():
+    while True:
+        socketio.emit('light', Main()._light.start())
 #spawn(send)
 spawn(distance)
 spawn(compass)
 spawn(temperature)
+spawn(light)
 
 if __name__ == '__main__':
-    socketio.run(app, "10.3.141.1", 8808)
+    print("Starting..")
+    socketio.run(app, "10.3.141.1", 8828)

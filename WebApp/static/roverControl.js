@@ -24,6 +24,13 @@ $(document).ready(function() {
     socket.on('distance', function(msg) {
         $('#distId').text(msg + " CM");
     });
+    socket.on('light', function(msg) {
+        if(msg == 0){
+            $('#lightId').text("OFF");
+        }else{
+            $('#lightId').text("ON");
+        }
+    });
 
     socket.emit('roverConnection', roverInfo);
     $('#ip').text("IP:" + JSON.parse(roverInfo).ip);
@@ -31,7 +38,7 @@ $(document).ready(function() {
     $('#roverNo').text(JSON.parse(roverInfo).name);
 
     $('#Get').on('click', function(){
-        socket.emit('LCD', $('#textbox').val());
+        socket.emit('outputString', $('#textbox').val());
     });
     $('#driveback').on('click', function(){
         socket.emit('backtrack');

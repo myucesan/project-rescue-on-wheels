@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>SR1 Rover</title>
         <link rel="icon" href="fotowebsite/icon.png">
-        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='design.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url('static', filename='design.css')}}">
 </head>
 
 <body>
@@ -13,7 +13,7 @@
 <div class="main">
 
 <header>
-<a href="#"><img class="logo" src="{{url_for('static', filename='images/Veelhoek121.png')}}" alt="Rover Logo"></a>
+<a href="#"><img class="logo" src="{{url('static', filename='images/Veelhoek121.png')}}" alt="Rover Logo"></a>
 </header>
 <section>
 
@@ -25,20 +25,19 @@
   <a id="rover3">ROVER 1</a>
   <a id="rover4">ROVER 1</a>
 </div>
-<a id="connect" href="{{url_for('ControlPage')}}"><button type="button" class="connectButton">CONNECT</button></a>
+<a id="connect" href="{{url('control')}}"><button type="button" class="connectButton">CONNECT</button></a>
 </div>
 
 </section>
 
 <footer>
-<img class="HVAlogo" src="{{url_for('static', filename='images/AUASlogo.png')}}" alt="AUAS Logo">
-<img class="HVAText" src="{{url_for('static', filename='images/AmsterdamUniversityo.png')}}" alt="Amsterdam University">
+<img class="HVAlogo" src="{{url('static', filename='images/AUASlogo.png')}}" alt="AUAS Logo">
+<img class="HVAText" src="{{url('static', filename='images/AmsterdamUniversityo.png')}}" alt="Amsterdam University">
 </footer>
 
 </div>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
-<script type="text/javascript" src="{{url_for('static', filename='jquery-3.3.1.js')}}"></script>
-<script type="text/javascript" src="{{url_for('static', filename='roverSetup.js')}}"></script>
+<script src="{{url('static', filename='jquery.js')}}"></script>
+<script type="text/javascript" src="{{url('static', filename='roverSetup.js')}}"></script>
 </body>
 
 </html>

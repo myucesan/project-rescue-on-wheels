@@ -104,6 +104,8 @@ def main():
 
     global img
     try:
+        print(constants.IP + " ")
+        print(constants.PORT)
         server = ThreadedHTTPServer((constants.IP, constants.PORT), CamHandler)
         print("server started")
         server.serve_forever()

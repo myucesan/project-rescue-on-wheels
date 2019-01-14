@@ -7,7 +7,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="{{url('static', filename='assets/img/apple-icon.png')}}">
     <link rel="icon" type="image/png" href="{{url('static', filename='assets/img/favicon.png')}}">
     <title>
-        Black Dashboard by Creative Tim and METABOTS
+        SR-1
     </title>
     <!-- Fonts and icons -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet">
@@ -60,7 +60,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="chart-area" style="height:300px;">
-                                    <img id="chartBig1" width="400" height="300" class="chartjs-render-monitor" style="display: block; width: 400px; height: 300px;" src="http://10.3.141.1:9908/?action=stream">
+                                    <img id="chartBig1" width="400" height="300" class="chartjs-render-monitor" style="display: block; width: 400px; height: 300px;" src="http://10.3.141.1:9908/cam.mjpg">
                                 </div>
                             </div>
                         </div>
@@ -100,7 +100,7 @@
                                         <div class="row">
                                             <div class="col-sm-12 text-left">
                                                 <h5 class="card-category">Light</h5>
-                                                <h4 class="card-title"><i class="tim-icons icon-bulb-63"></i>ON</h4>
+                                                <h4 id="lightId" class="card-title"><i class="tim-icons icon-bulb-63"></i>ON</h4>
                                             </div>
                                         </div>
                                     </div>
@@ -283,7 +283,7 @@
                                 <div class="chart-area" style="height: auto;">
                                     <button id="microphone" type="button" class="btn-custom">Talk</button><audio id="audio" autoplay="true"></audio>
 									<button id="driveback" type="button" class="btn-custom">Backtracking</button>
-									<input id="textbox" class="form-control" style="border-color: #ffffff; margin:10px; width:250px;" placeholder="Type message here to display..." maxlength="32">
+									<input id="textbox" type="text" class="form-control" style="border-color: #ffffff; margin:10px; width:250px;" placeholder="Type message here to display..." maxlength="32">
 									<button id="Get" type="button" class="btn-custom" style="margin-top: 0px;">Send message</button>
                                 </div>
                             </div>
@@ -343,7 +343,7 @@
     <script src="{{url('static', filename='assets/js/black-dashboard.min.js')}}">
     <script type="text/javascript" src="{{url('static', filename='jquery.js')}}"></script>
     <script type="text/javascript" src="{{url('static', filename='socket.js')}}"></script>
-    <script type="text/javascript" src="{{url('static', filename='client2.js')}}"></script>
+    <script type="text/javascript" src="{{url('static', filename='roverControl.js')}}"></script>
     <script>
         $(document).ready(function() {
             $().ready(function() {
