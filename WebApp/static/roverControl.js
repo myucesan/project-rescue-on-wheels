@@ -188,7 +188,7 @@ function controlOnKey(key) {
             route = "Backward";
         }
         if (route != prevRoute) {
-            $("#test").find('tbody').append('</tr><tr><td><p class="text-muted">' + route  + '</p></td>');
+            $("#test").find('tbody').before('</tr><tr><td><p class="text-muted">' + route  + '</p></td>');
         }
     }
 }
