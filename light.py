@@ -32,5 +32,5 @@ class light:
          else:
              GPIO.output(self.INPUT_PIN, GPIO.LOW)
              return 0
-         self._timer.pause(1)
+         
 
