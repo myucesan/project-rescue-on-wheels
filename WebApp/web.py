@@ -26,20 +26,10 @@ aiohttp_jinja2.setup(
     app, loader=jinja2.FileSystemLoader('./templates'))
 main = Main()
 
-async def test():
-    while True:
-        await socket.sleep(0.1)
-        await socket.emit('compass', main._compass.degrees(main._compass.heading()))
-        await socket.sleep(0.1)
-        await socket.emit('temperature', "{:.1f}".format(main._temperature.convert()))
-        await socket.sleep(0.1)
-        await socket.emit('distance', "{:.1f}".format(main._distance.get_distance()))
-        await socket.sleep(0.1)
-        await socket.emit('light', main._light.start())
 
 async def compass():
     while True:
-        await socket.sleep(0)
+        await socket.sleep(1)
         await socket.emit('compass', main._compass.degrees(main._compass.heading()))
 
 async def temperature():
@@ -49,12 +39,12 @@ async def temperature():
 
 async def distance():
     while True:
-        await socket.sleep(0.1)
+        await socket.sleep(0.3)
         await socket.emit('distance', "{:.1f}".format(main._distance.get_distance()))
 
 async def light():
     while True:
-        await socket.sleep(0.1)
+        await socket.sleep(0.5)
         await socket.emit('light', main._light.start())
 
 @socket.on('outputString')
