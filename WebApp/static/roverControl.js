@@ -4,6 +4,8 @@ $(document).ready(function() {
     var micCheck = false;
     var disabled = 0;
     var textChange = false;
+    var route = null;
+    var prevRoute = null;
     var roverInfo = localStorage.getItem("RoverSelection");
     var c = document.getElementById("canvastest");
     var ctx = c.getContext("2d");
@@ -146,9 +148,13 @@ window.addEventListener("keydown", controlOnKey, false);
 window.addEventListener("keyup", stop, false);
 function stop(key) {
     socket.emit('direction', "stop");
+    route = "Stop";
+        if (route != prevRoute) {
+            $("#test").find('tbody').append('</tr><tr><td><p class="text-muted">' + route  + '</p></td>');
+        }
 }
 function controlOnKey(key) {
-    if (disabled == 0) {
+    if (disabled === 0) {
         var t = 1000;
         if (key.keyCode == "87") {
             x_b += v * Math.cos(hoek)
@@ -158,16 +164,19 @@ function controlOnKey(key) {
             ctx.stroke();
             console.log("Going forward");
             socket.emit('direction', "forward");
+            route = "Forward";
         }
         if (key.keyCode == "65") {
             hoek += t*(Math.PI/1800)
             console.log("Going left");
             socket.emit('direction', "left");
+            route = "Left";
         }
         if (key.keyCode == "68") {
             hoek += t*(-Math.PI/2600);
             console.log("Going right");
             socket.emit('direction', "right");
+            route = "Right";
         }
         if (key.keyCode == "83") {
             x_b -= v * Math.cos(hoek);
@@ -176,6 +185,10 @@ function controlOnKey(key) {
             ctx.stroke();
             console.log("Going backward");
             socket.emit('direction', "backward");
+            route = "Backward";
+        }
+        if (route != prevRoute) {
+            $("#test").find('tbody').append('</tr><tr><td><p class="text-muted">' + route  + '</p></td>');
         }
     }
 }
